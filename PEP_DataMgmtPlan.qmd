@@ -415,24 +415,24 @@ S. Koslovsky will orient new staff to the general information provided in the PE
 
 Below is a list of software required for PEP computers.
 
-| Program                       | Justification                                                                                                     |
-|-----------------|-------------------------------------------------------|
-| QGIS                          | For the most direct connection to PEP database for spatial data                                                   |
-| 64-bit PostgreSQL ODBC driver | For connecting to PEP database via Microsoft Access                                                               |
-| Microsoft Access 2016         | For using PEP database front-ends (this is part of the Microsoft Suite, so might already be installed by default) |
-| EndNote and/or Zotero         | For accessing the PEP library                                                                                     |
-| ACDSee                        | For image management (field photos and data); we also have licenses for Lightroom                                 |
-| Adobe Acrobat                 | For managing data and forms stored in pdf                                                                         |
+| Program | Justification |
+|------------------|------------------------------------------------------|
+| QGIS | For the most direct connection to PEP database for spatial data |
+| 64-bit PostgreSQL ODBC driver | For connecting to PEP database via Microsoft Access |
+| Microsoft Access 2016 | For using PEP database front-ends (this is part of the Microsoft Suite, so might already be installed by default) |
+| EndNote and/or Zotero | For accessing the PEP library |
+| ACDSee | For image management (field photos and data); we also have licenses for Lightroom |
+| Adobe Acrobat | For managing data and forms stored in pdf |
 
 Below is a list of software recommended for PEP computers.
 
-| Program                                  | Justification                                  |
+| Program | Justification |
 |----------------------------------|--------------------------------------|
-| Anaconda(or miniconda) with Python\>=3.6 | Lots of our tools require Python               |
-| R                                        | Lots of our tools require R (and kept updated) |
-| RStudio                                  | A user-friendly GUI for R                      |
-| ArcGIS Pro                               | Spatial processing and analysis                |
-| VLC Media Player                         | For video management                           |
+| Anaconda(or miniconda) with Python\>=3.6 | Lots of our tools require Python |
+| R | Lots of our tools require R (and kept updated) |
+| RStudio | A user-friendly GUI for R |
+| ArcGIS Pro | Spatial processing and analysis |
+| VLC Media Player | For video management |
 
 ### Details for ODBC Driver Installation
 
@@ -610,28 +610,28 @@ The table below details the final data are stored in the pep PostgreSQL database
 
 #### Current Schemas
 
-| **Project**                      | **Schema**          | **Details**                                                                                                                                                                                                                                                                                                                    |
-|----------|----------|---------------------------------------------------|
-| **Acoustics**                    | acoustics           | Contains data received from CAEP Acoustics program and pre-processed for import into the DB.                                                                                                                                                                                                                                   |
-| **PEP Dashboard**                | administrative      | Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.). An Access front-end is available for managing data.                                                                                                                                                                                  |
-| **Annotations**                  | annotations         | Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management. An Access front-end is available for managing data.                                                              |
-| **Base**                         | base                | Contains “THE” grid and environmental covariates extracted to the grid.                                                                                                                                                                                                                                                        |
-| **UAS Body Condition**           | body_condition      | Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data.                                                                                                                                                                                           |
-| **Capture**                      | capture             | Data have been imported from Excel files, which were exports from the Oracle DB. An Access front-end is available for managing data.                                                                                                                                                                                           |
-| **Environmental**                | environ             | Includes NARR weather data from 2004-2016 and NSIDC CDR sea ice concentration data\*.                                                                                                                                                                                                                                          |
-| **Inventory**                    | inventory           | Contains data for managing PEP gear inventory and field packlists. An Access front-end is available for managing data.                                                                                                                                                                                                         |
-| **Species Misclassification**    | species_misclass    | Contains ice seal species misclassification information from across all ice seal survey projects.                                                                                                                                                                                                                              |
-| **Stock**                        | stock               | All data have been migrated from pepgeo to this database.                                                                                                                                                                                                                                                                      |
-| **BOSS**                         | surv_boss           | All data from Oracle and from the original FMC logs have been ingested into DB. An Access front-end is available for viewing/querying data.                                                                                                                                                                                    |
-| **ChESS**                        | surv_chess          | Data are uploaded to DB from CSV files through R script. All imported data have been QA/QC’ed. A final effort trackline is available. An Access front-end is available for viewing/querying data.                                                                                                                              |
-| **Ice Seals: 2024**              | surv_ice_seals_2024 | Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea).                                                                                                                                                                                                                                           |
-| **Ice Seals: 2025**              | surv_ice_seals_2025 | To be created/populated after 2025 surveys.                                                                                                                                                                                                                                                                                    |
-| **JoBSS**                        | surv_jobss          | Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys. An Access front-end is available for viewing/querying data.                                                                                                                                                                                           |
-| **Ice Seal: Polar Bear**         | surv_polar_bear     | Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears.                                                                                                                                                                                                                |
-| **Harbor Seal: Coastal Surveys** | surv_pv_cst         | Image metadata/inventory and counts from 2004-2021 are currently QA/QC’ed and available in the DB. ADF&G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema. An Access front-end is available for managing data. |
-| **Harbor Seal: Glacial Surveys** | surv_pv_gla         | Fliight data and counts from surveys are available in the DB. An Access front-end is available for managing data.                                                                                                                                                                                                              |
-| **Ice Seal: Kotz**               | surv_test_kotz      | Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Fight 01 and R camera views should not be used for any AI/ML.                                                                                                                                                                                |
-| **Telemetry**                    | telem               | All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end.                                                                                                                                                                |
+| **Project** | **Schema** | **Details** |
+|--------------|--------------|---------------------------------------------|
+| **Acoustics** | acoustics | Contains data received from CAEP Acoustics program and pre-processed for import into the DB. |
+| **PEP Dashboard** | administrative | Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.). An Access front-end is available for managing data. |
+| **Annotations** | annotations | Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management. An Access front-end is available for managing data. |
+| **Base** | base | Contains “THE” grid and environmental covariates extracted to the grid. |
+| **UAS Body Condition** | body_condition | Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data. |
+| **Capture** | capture | Data have been imported from Excel files, which were exports from the Oracle DB. An Access front-end is available for managing data. |
+| **Environmental** | environ | Includes NARR weather data from 2004-2016 and NSIDC CDR sea ice concentration data\*. |
+| **Inventory** | inventory | Contains data for managing PEP gear inventory and field packlists. An Access front-end is available for managing data. |
+| **Species Misclassification** | species_misclass | Contains ice seal species misclassification information from across all ice seal survey projects. |
+| **Stock** | stock | All data have been migrated from pepgeo to this database. |
+| **BOSS** | surv_boss | All data from Oracle and from the original FMC logs have been ingested into DB. An Access front-end is available for viewing/querying data. |
+| **ChESS** | surv_chess | Data are uploaded to DB from CSV files through R script. All imported data have been QA/QC’ed. A final effort trackline is available. An Access front-end is available for viewing/querying data. |
+| **Ice Seals: 2024** | surv_ice_seals_2024 | Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea). |
+| **Ice Seals: 2025** | surv_ice_seals_2025 | To be created/populated after 2025 surveys. |
+| **JoBSS** | surv_jobss | Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys. An Access front-end is available for viewing/querying data. |
+| **Ice Seal: Polar Bear** | surv_polar_bear | Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears. |
+| **Harbor Seal: Coastal Surveys** | surv_pv_cst | Image metadata/inventory and counts from 2004-2021 are currently QA/QC’ed and available in the DB. ADF&G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema. An Access front-end is available for managing data. |
+| **Harbor Seal: Glacial Surveys** | surv_pv_gla | Fliight data and counts from surveys are available in the DB. An Access front-end is available for managing data. |
+| **Ice Seal: Kotz** | surv_test_kotz | Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Fight 01 and R camera views should not be used for any AI/ML. |
+| **Telemetry** | telem | All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end. |
 
 \*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.
 
@@ -675,6 +675,10 @@ For viewing spatial data, you can access data from one of these platforms:
 
 -   pep_geodatabase
 
+    -   Available on Google Shared Drive: G:\\Shared drives\\NMFS MML PEP Data\\\_PEP_SpatialData4Esri.gdb
+
+    -   Contains the same data available from the PostgreSQL connection in QGIS (see details below), just not updated immediately (usually once per month)
+
 -   ArcMap and ArcPro (to connect to the spatial data available on AGOL)
 
     -   ArcMap
@@ -693,19 +697,15 @@ For viewing spatial data, you can access data from one of these platforms:
 
     -   ArcGIS Online
 
-<!-- -->
+        -   Once signed in to ArcGIS online, click on “Groups” at the top of the page
 
--   Once signed in to ArcGIS online, click on “Groups” at the top of the page
+        -   Click on the group, “PEP Spatial Data” and open the item page for the dataset you want to download
 
--   Click on the group, “PEP Spatial Data” and open the item page for the dataset you want to download
+        -   On the right side of the page, go to “Export Data” and choose the format you want to export
 
--   On the right side of the page, go to “Export Data” and choose the format you want to export
+        -   An export box will appear with a default title for the data export. You can rename this if you’d like. You must enter at least one tag for your dataset to allow for export. Exported items from ArcGIS online are stored in the root folder of “My Content”. If exporting to shapefile, a compressed file (.zip) is created and can be downloaded and saved your computer.
 
--   An export box will appear with a default title for the data export. You can rename this if you’d like. You must enter at least one tag for your dataset to allow for export. Exported items from ArcGIS online are stored in the root folder of “My Content”. If exporting to shapefile, a compressed file (.zip) is created and can be downloaded and saved your computer.
-
-<!-- -->
-
--   QGIS (to connect to spatial data 
+-   QGIS (to connect to spatial data) 
 
     -   Right click PostGIS, and select “New Connection…”
 
