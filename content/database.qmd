@@ -1,0 +1,191 @@
+### PEP PostgreSQL Database
+
+<details>
+
+<summary>Click to Expand</summary>
+
+#### Overview
+
+The table below details the final data are stored in the pep PostgreSQL database.
+
+-   All staff will have read-only access to all data. 
+
+-   Staff will only have read-write access to the data they are required to edit.
+
+-   There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. **Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.**
+
+-   QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS. ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB or from the pepGeodatabase.
+
+#### Current Schemas
+
+| **Project** | **Schema** | **Details** |
+|--------------|--------------|---------------------------------------------|
+| **Acoustics** | acoustics | Contains data received from CAEP Acoustics program and pre-processed for import into the DB. |
+| **PEP Dashboard** | administrative | Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.). An Access front-end is available for managing data. |
+| **Annotations** | annotations | Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management. An Access front-end is available for managing data. |
+| **Base** | base | Contains “THE” grid and environmental covariates extracted to the grid. |
+| **UAS Body Condition** | body_condition | Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data. |
+| **Capture** | capture | Data have been imported from Excel files, which were exports from the Oracle DB. An Access front-end is available for managing data. |
+| **Environmental** | environ | Includes NARR weather data from 2004-2016 and NSIDC CDR sea ice concentration data\*. |
+| **Inventory** | inventory | Contains data for managing PEP gear inventory and field packlists. An Access front-end is available for managing data. |
+| **Species Misclassification** | species_misclass | Contains ice seal species misclassification information from across all ice seal survey projects. |
+| **Stock** | stock | All data have been migrated from pepgeo to this database. |
+| **BOSS** | surv_boss | All data from Oracle and from the original FMC logs have been ingested into DB. An Access front-end is available for viewing/querying data. |
+| **ChESS** | surv_chess | Data are uploaded to DB from CSV files through R script. All imported data have been QA/QC’ed. A final effort trackline is available. An Access front-end is available for viewing/querying data. |
+| **Ice Seals: 2024** | surv_ice_seals_2024 | Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea). |
+| **Ice Seals: 2025** | surv_ice_seals_2025 | To be created/populated after 2025 surveys. |
+| **JoBSS** | surv_jobss | Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys. An Access front-end is available for viewing/querying data. |
+| **Ice Seal: Polar Bear** | surv_polar_bear | Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears. |
+| **Harbor Seal: Coastal Surveys** | surv_pv_cst | Image metadata/inventory and counts from 2004-2021 are currently QA/QC’ed and available in the DB. ADF&G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema. An Access front-end is available for managing data. |
+| **Harbor Seal: Glacial Surveys** | surv_pv_gla | Fliight data and counts from surveys are available in the DB. An Access front-end is available for managing data. |
+| **Ice Seal: Kotz** | surv_test_kotz | Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Fight 01 and R camera views should not be used for any AI/ML. |
+| **Telemetry** | telem | All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end. |
+
+\*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.
+
+#### Naming Conventions
+
+General Guidelines
+
+-   Coordinate with S. Koslovsky before adding new data tables to the database or if you need a stored query added to the database.
+
+-   Do not use spaces in database item names. Use underscores between words.
+
+-   Data for analyses:
+
+    -   If you are using data products that are finalized (e.g. CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query.
+
+    -   If you are using data products that will continue to be updated (e.g. telemetry data) and you need the processed data preserved, the processed data should either be stored in the database as a separate table or be exported and stored elsewhere (network or computer) with other associated files.
+
+-   For tables
+
+    -   lku\_ - use this prefix for look-up tables.
+
+    -   geo\_ - use this prefix for spatially explicit datasets that are stored in the postgres DB. If you have a table that has spatial data, use the tbl\_ prefix. If you have raster, basemap, etc., use the geo\_ prefix.
+
+    -   tbl\_ - use this prefix for data tables. These can be spatially enabled.
+
+    -   res\_ - use this prefix for results tables. These are tables that are derived from data stored in tables (tbl\_) that need to be stored but are not “raw” data. These should have clear indication of what they are, and if appropriate, a date
+
+-   For views
+
+    -   qa\_ - use this prefix for QA/QC queries.
+
+    -   res – use this prefix for views that are for analytical purposes.
+
+    -   Anything else – use logical consistency for any other views stored.
+
+#### Accessing Data
+
+##### **Spatial Data**
+
+For viewing spatial data, you can access data from one of these platforms:
+
+-   pep_geodatabase
+
+    -   Available on Google Shared Drive: G:\\Shared drives\\NMFS MML PEP Data\\\_PEP_SpatialData4Esri.gdb
+
+    -   Contains the same data available from the PostgreSQL connection in QGIS (see details below), just not updated immediately (usually once per month)
+
+-   ArcMap and ArcPro (to connect to the spatial data available on AGOL)
+
+    -   ArcMap
+
+        -   Click on the Add Data button, and select “Add Data From ArcGIS Online”
+
+        -   In the upper right corner of the pop-up window, sign into ArcGIS online using your CAC credentials.
+
+        -   Once you are logged in, you can add data shared with the PEP SpatialData group under “My Groups”.
+
+    -   ArcPro
+
+        -   You are automatically logged into ArcGIS online when you open ArcPro. 
+
+        -   Once you have created a new project, you can add data from the Portal. Data shared to the PEP Spatial Data group will be accessible from Groups under Portal.
+
+    -   ArcGIS Online
+
+        -   Once signed in to ArcGIS online, click on “Groups” at the top of the page
+
+        -   Click on the group, “PEP Spatial Data” and open the item page for the dataset you want to download
+
+        -   On the right side of the page, go to “Export Data” and choose the format you want to export
+
+        -   An export box will appear with a default title for the data export. You can rename this if you’d like. You must enter at least one tag for your dataset to allow for export. Exported items from ArcGIS online are stored in the root folder of “My Content”. If exporting to shapefile, a compressed file (.zip) is created and can be downloaded and saved your computer.
+
+-   QGIS (to connect to spatial data) 
+
+    -   Right click PostGIS, and select “New Connection…”
+
+    -   In the Create a New PostGIS Connection window, specify the following options; then, click OK.
+
+        -   Name: pep
+
+        -   Service: (leave blank)
+
+        -   Host: 161.55.120.122
+
+        -   Port: 5432
+
+        -   Database: pep
+
+        -   Username: your user name (check box to save)
+
+        -   Password: your password (check box to save)
+
+    -   Once created, you will see a new connection to the database under PostGIS. The available data are listed under each schema, and only spatial data are visible.
+
+For entering spatial data, process the data as instructed for each individual project. 
+
+##### **Tabular Data**
+
+For viewing tabular data: 
+
+-   Project-specific Access frontends are available for the following projects:
+
+    -   Capture (for entering/viewing data entered from datasheets)
+
+    -   Coastal Harbor Seal Surveys (for track level metadata)
+
+-   You can directly connect to the pep DB using R with the RPostgreSQL package. This connection string will get you started: con \<- dbConnect(PostgreSQL(), dbname = "pep", host = "161.55.120.122", user = "UserName", password = "Password")
+
+-   If you need access to or exports of other tabular data from the pep DB, contact S. Koslovsky.
+
+##### pepDataConnect (R package)
+
+```         
+install.packages("devtools") devtools::install_github("StacieKoslovsky-noaa/pepDataConnect")
+```
+
+There are of tables (and linkages among them) in PEP database, and this can be overwhelming to learn and can lead to potential issues in how data are linked together or extracted from the DB. The pepDataConnect R package was created to easily connect PEP staff to the database and to ensure the quality of the data being retrieved. The R code snippet below will guide you through the process of installing the R package and an example of code to get a data table from the DB. There is *extensive* documentation in the
+
+``` r
+# Getting started with pepDataConnect remotes::install_github('staciekoslovsky-noaa/pepDataConnect')  # To connect to the database, create a connection con <- pepDataConnect::pep_connect()  # To load data into your R workspace, use one of the table functions data <- pepDataConnect::surv_jobss.tbl_detections_processed_ir(con)
+```
+
+Currently, the pepDataConnect R package has been set-up to interact with the database for the following schemas:
+
+-   Coastal harbor seal survey data (surv_pv_cst)
+
+-   JoBSS ice seal survey (surv_jobss)
+
+Other schemas will slowly be added to the R package, as prioritized each year
+
+#### Backup Procedure
+
+The pepDB will be backed up according to the following schedule:
+
+-   Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM. 
+
+-   Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.
+
+The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.
+
+
+### Details for ODBC Driver Installation
+
+In order to connect to the DB from Access, you will need to ask IT to update your ODBC Data Sources to allow connection to PostgreSQL. Here's a website for reference: <https://help.interfaceware.com/v6/connect-to-postgresql-from-windows-with-odbc>. The most recent driver from this site: <https://www.postgresql.org/ftp/odbc/releases/> (click on the most recent folder *without* "-mimalloc" at the end of the file name; install the **psqlodbc_x64.msi** version).
+
+The connection details for setting up the PostgreSQL ANSI ODBC connection configured after the driver is installed are in the screenshot below. Just use your own username and password. Once they add PostgreSQL to the System DSN, they can test your connection using an existing Access database by using the "Test" button in the Driver Setup screen.
+
+![](images/clipboard-4182424335.png)

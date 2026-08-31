@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PEP Data Management Plan</title>
+<title>storage – PEP Data Management Plan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,16 +90,129 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This document was created in June-ish 2018 (several months after SMK was hired), migrated to Markdown in November 2024, and last updated on <code>r Sys.Date()</code>.</p>
-<p>The NOAA Data Management Handbook can be found at this site (ADD WEBLINK).</p>
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.</p>
-<section id="main-sections" class="level2">
-<h2 class="anchored" data-anchor-id="main-sections">Main Sections</h2>
+<section id="data-storage" class="level2">
+<h2 class="anchored" data-anchor-id="data-storage">Data Storage</h2>
+<section id="individual-storage-resources" class="level3">
+<h3 class="anchored" data-anchor-id="individual-storage-resources">Individual Storage Resources</h3>
+<details>
+<summary>
+Click to Expand
+</summary>
+<p>No data should be stored exclusively in any of these resources.</p>
+<p>(this section to be completed after PEP Data Days 2025)</p>
+<section id="laptop" class="level4">
+<h4 class="anchored" data-anchor-id="laptop">Laptop</h4>
+</section>
+<section id="google-drive" class="level4">
+<h4 class="anchored" data-anchor-id="google-drive">Google Drive</h4>
+</section>
+<section id="individual-users-folders-on-lan" class="level4">
+<h4 class="anchored" data-anchor-id="individual-users-folders-on-lan">Individual Users folders on LAN</h4>
+</section>
+</details></section>
+<section id="shared-storage-resources" class="level3">
+<h3 class="anchored" data-anchor-id="shared-storage-resources">Shared Storage Resources</h3>
+<details>
+<summary>
+Click to Expand
+</summary>
+<section id="pep_googledrive" class="level4">
+<h4 class="anchored" data-anchor-id="pep_googledrive">PEP_GoogleDrive</h4>
+<p>We have a centralized Google Drive (tied to a generic email account) that serves as our program <a href="https://drive.google.com/drive/folders/1XMadJkz4AqgHctLn0U2xnVChSjHxnyjb">Google Drive repository</a>. Google Drive is an excellent location for sharing files among staff for easy off-site access. Google drive, however, should not be treated as a final storage location for data. Files can be stored here in perpetuity and as appropriate, but data should not. As projects and/or collaborations are completed, data should either be deleted (if they are temporary) or archived to the appropriate location on the network.</p>
+</section>
+<section id="network-aka-lan" class="level4">
+<h4 class="anchored" data-anchor-id="network-aka-lan">Network (aka LAN)</h4>
+<p>All original data and supplemental information to data collection will be stored on the LAN in the appropriate location (detailed below). If you have questions about where to store data for a project, contact S. Koslovsky.&nbsp;</p>
+<ul>
+<li><p>For those projects where data are stored on other locations on the network (e.g.&nbsp;CHESS, harbor seal survey images), create shortcuts to these other network locations within each project folder.&nbsp;</p></li>
+<li><p>Final files from intermediate locations will need to be moved to the appropriate location(s) on the network when processing is completed OR when the project becomes collaborative and multiple staff will need access. Project folders should contain final data, datasheets, databases, manuals, metadata, scripts, and intermediate files (as needed).</p></li>
+<li><p>Manuals or other workflow documentation may be best suited to storage on Google Drive. Ensure that these workflows are clearly accessible.</p></li>
+<li><p>For folders under Polar\Analytics, Polar\Data, Polar\Projects on the network, this is a suggested folder structure for each project subfolder. If files easily fit into this schema, use it; if not, files and data should be organized and documented such that anyone in the program can identify what is where. Not all projects will be able to fit this mold, but this structure will help keep data organized across multiple projects.</p>
+<ul>
+<li><p><strong>\Data</strong> – contains data collected in numerous formats, including databases, spreadsheets, etc.</p></li>
+<li><p><strong>\Docs</strong> – contains project proposals, reports, processing manuals, original field data sheets, etc.</p></li>
+<li><p><strong>\GIS</strong> – spatial data and programs associated with the project.</p></li>
+<li><p><strong>\Scripts</strong> – R, Python, etc. script files.</p></li>
+<li><p><strong>READ_MEs</strong> – include read me files wherever appropriate to provide additional information on files within folders.</p></li>
+</ul></li>
+</ul>
+<p>We store our files in a variety of locations on the AFSC internal network:</p>
+<ul>
+<li><p><a href="about:blank">\\nmfs\akc-nmml\NMML_CHESS_Imagery</a> - images and associated from 2016 CHESS survey</p></li>
+<li><p><a href="about:blank">\\nmfs\akc-nmml\Polar</a></p>
+<ul>
+<li><p>\Analytics</p>
+<ul>
+<li><p>Will store files related to analytical processes.</p></li>
+<li><p>Subfolders should be named YYYY_LastNamePI_ProjectTitle.</p></li>
+<li><p>The PI is ultimately responsible for ensuring that all files get stored in this location.</p></li>
+<li><p>You do not have to store files in this location if it is inconvenient while you are working; files just need to be archived from computers and Google Drive when processing is complete.</p></li>
+</ul></li>
+<li><p>\Data</p>
+<ul>
+<li><p>Will store files related to data collection and creating final datasets.</p></li>
+<li><p>Each folder should be a project name, but we do not want too many files to clutter up this location such that it becomes hard to find project data. Folders are likely to rarely be added the root directory.</p></li>
+<li><p>Archive datasheets, raw data, etc. should be stored within this directory. When data processing is complete (either for a field season or entirely), files from computers and Google Drive need to be archived to this location.</p></li>
+<li><p>\CapturesAndHandling</p>
+<ul>
+<li>\Data_CruiseUnderway: subfolders should be named YYYY_Location_Species_CruiseName and should match planning folder name under Projects.</li>
+</ul></li>
+</ul></li>
+<li><p>\Legacy</p>
+<ul>
+<li><p>Will store older project planning and data files that need to be kept for long-term storage, but were not broken out into the new structure.</p></li>
+<li><p>Subfolders should be named YYYY-YYYY_ProjectName (as appropriate).</p></li>
+</ul></li>
+<li><p>\Projects</p>
+<ul>
+<li><p>Will store files, maps and other information related to field operations (e.g.&nbsp;a folder for coastal harbor seal surveys would include maps for the plane, instructions for the field season, etc.).</p></li>
+<li><p>Subfolders should be named in the following format: YYYY_Region_Species_Platform (e.g.&nbsp;2018_BeringSea_IceSeal_DysonCruise).</p></li>
+<li><p>After field work is complete, associated files from computers and Google Drive need to be archived to this location.</p></li>
+</ul></li>
+<li><p>\ProgramMgmt – will store budget, library, permit, etc. information.</p></li>
+<li><p>\ResearchProducts</p>
+<ul>
+<li><p>\Manuscripts: subfolders or pdfs should be named YYYY_Author_Subject.</p></li>
+<li><p>\Presentations: final presentations should be named YYYY_Author_Subject.</p></li>
+<li><p>\Reports: subfolders or pdfs should be named YYYY_ Subject.</p></li>
+<li><p>\WorkshopsAndConferences: subfolders or pdfs should be named YYYY_Author_Subject.</p></li>
+</ul></li>
+<li><p>\Users</p>
+<ul>
+<li><p>Subfolder should be named with the staff member’s last name.</p></li>
+<li><p>Subfolders should been cleaned out and what needs to be kept moved to _Legacy when staff are no longer employed/involved.</p></li>
+</ul></li>
+</ul></li>
+<li><p><a href="about:blank">\\nmfs\akc-nmml\Polar_Imagery</a></p>
+<ul>
+<li><p>\Field_Photos – Portfolio monitors this folder for new images</p></li>
+<li><p>\Field_Video – Portfolio monitors this folder for new videos</p></li>
+<li><p>\Inbox</p></li>
+<li><p>\PhotoConsentForms – contains consent forms</p></li>
+<li><p>\Portfolio</p></li>
+<li><p>\Portfolio_Previews</p></li>
+<li><p>\Surveys_HS – contains original and processed images for coastal and glacial harbor seal surveys</p></li>
+<li><p>\Surveys_IceSeals – contains original and processed images for ice seal surveys, except CHESS and some BOSS (which can be found on NMML_CHESS_Imagery and Polar_Imagery_2, respectively)</p></li>
+<li><p>\Techniques_Test – contains images collected from flights testing equipment and image processing</p></li>
+<li><p>\User_Photos – photos taken by staff that do not need to be managed in Portfolio; each staff member has a folder, and they are responsible for managing the photos in this location</p></li>
+</ul></li>
+<li><p><a href="about:blank">\\nmfs\akc-nmml\Polar_Imagery_2</a></p>
+<ul>
+<li><p>\Aleutian_HarborSeals_CaptureSiteAnalysis</p></li>
+<li><p>\Surveys_IceSeasl_BOSS_2013</p></li>
+<li><p>\Surveys_Iliamna_2013</p></li>
+<li><p>\Techniques_test</p></li>
+<li><p>\xTEMP_BOSS13_Skeyes - can this be deleted?</p></li>
+</ul></li>
+<li><p><a href="about:blank">\\nmfs\akc-nmml\Polar_Imagery_3</a></p>
+<ul>
+<li>\jobss_2021</li>
+</ul></li>
+</ul>
 
 
 </section>
+</details></section>
 </section>
 
 </main> <!-- /main -->

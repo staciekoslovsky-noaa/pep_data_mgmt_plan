@@ -1,0 +1,69 @@
+# Staff Engagement in PEP Data Management
+
+It is important for staff to be engaged in PEP data management. It goes beyond the processing of data and includes how staff are engaged and considered in our data management practices.
+
+-   **Recognizing and appreciating our different skills, technical abilities, ideas, backgrounds, and ways of learning (among many other things).** It is my intent to approach data management application and training in our program with this in mind. Our jobs and how we interact with data vary across staff; different people will have different needs and different applications for the data we collect and maintain.
+
+-   **Ensuring data practices promote fair, just and beneficial outcomes for all individuals and projects**.
+
+-   **Ensuring that data collection, storage, and analysis processes actively consider our perspectives, experiences, and skills (in our case, largely focused on ensuring this for how we collect and store data, trainings on those processes, etc.).** Some considerations include:
+
+    -   Developing data collection protocols: design surveys and data gathering methods that are accessible.
+
+    -   Implementing data governance practices: establish clear guidelines for collecting, storing, and using data. While this document is a blueprint for program projects, it does not replace the need for this to be considered and applied on a project-by-project basis.
+
+-   **The data and the information about the data are accessible to staff to us**e. This document (plus other efforts, like PEP Data Days) are intended to make information as accessible as possible for the variety of needs and users within our program.
+
+-   **Feeling accepted and supported in each project and within our program**. Ultimately, it is my goal that everyone feels like they have access to the information they need and are getting the support that is required. This is a two-way street between project and data management.
+
+## Staff Engagement in Data Management Workflow
+
+Each step in this process is an opportunity to ensure we are achieving staff engagement in our data management practices within our projects. Misses at each step have the potential to introduce delays in processing, to cause staff to feel unwelcome, or to introduce errors.
+
+-   Planning
+
+    -   Is the planning process inclusive (as appropriate)?
+
+-   Integrating
+
+    -   Has feedback from a diversity of staff been incorporated into changes for the upcoming work?
+
+-   Collecting
+
+    -   Are there clear instructions for how data will be collected?
+
+    -   Have staff been trained and are they confident in their ability to collect data?
+
+    -   Are staff comfortable sharing mis-steps or issues with data collection?
+
+-   Processing
+
+    -   Have staff been given the appropriate training for processing data?
+
+    -   Does documentation of processing steps exist? Is it accessible?
+
+    -   Do we have processes in place to reduce process errors, and especially individual responsibility?
+
+-   Debriefing
+
+    -   Are all perspectives being heard?
+
+-   Analyzing
+
+    -   Is the information accessible and appropriate for analysis?
+
+    -   Does the process for retrieving and updating data clear and avoidant of errors?
+
+    -   Is the process for sharing data for an analysis inclusive of a diversity of perspectives? The people who collected the data might have different concerns about how data are analyzed based on their own observations/experiences than the project lead or data lead...
+
+-   Evaluating
+
+    -   Do we have a process for evaluating a dataset and/or analysis that is inclusive of all staff?
+
+-   Sharing
+
+    -   Are we ensuring that our data are accessible from an availability perspective?
+
+    -   Are the data available in a format that is accessible?
+
+    -   Are we ensuring that our data are accessible from an equity perspective? [From the Urban Institute](https://www.urban.org/sites/default/files/2021/06/08/do-no-harm-guide-recommendations.pdf), these are considerations for applying equity awareness in data visualization.

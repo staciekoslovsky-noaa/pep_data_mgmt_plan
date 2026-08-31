@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PEP Data Management Plan</title>
+<title>database – PEP Data Management Plan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -90,16 +125,261 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This document was created in June-ish 2018 (several months after SMK was hired), migrated to Markdown in November 2024, and last updated on <code>r Sys.Date()</code>.</p>
-<p>The NOAA Data Management Handbook can be found at this site (ADD WEBLINK).</p>
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.</p>
-<section id="main-sections" class="level2">
-<h2 class="anchored" data-anchor-id="main-sections">Main Sections</h2>
-
-
+<section id="pep-postgresql-database" class="level3">
+<h3 class="anchored" data-anchor-id="pep-postgresql-database">PEP PostgreSQL Database</h3>
+<details>
+<summary>
+Click to Expand
+</summary>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>The table below details the final data are stored in the pep PostgreSQL database.</p>
+<ul>
+<li><p>All staff will have read-only access to all data.&nbsp;</p></li>
+<li><p>Staff will only have read-write access to the data they are required to edit.</p></li>
+<li><p>There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. <strong>Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.</strong></p></li>
+<li><p>QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS.&nbsp;ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB or from the pepGeodatabase.</p></li>
+</ul>
 </section>
+<section id="current-schemas" class="level4">
+<h4 class="anchored" data-anchor-id="current-schemas">Current Schemas</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Project</strong></th>
+<th><strong>Schema</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Acoustics</strong></td>
+<td>acoustics</td>
+<td>Contains data received from CAEP Acoustics program and pre-processed for import into the DB.</td>
+</tr>
+<tr class="even">
+<td><strong>PEP Dashboard</strong></td>
+<td>administrative</td>
+<td>Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.). An Access front-end is available for managing data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Annotations</strong></td>
+<td>annotations</td>
+<td>Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="even">
+<td><strong>Base</strong></td>
+<td>base</td>
+<td>Contains “THE” grid and environmental covariates extracted to the grid.</td>
+</tr>
+<tr class="odd">
+<td><strong>UAS Body Condition</strong></td>
+<td>body_condition</td>
+<td>Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="even">
+<td><strong>Capture</strong></td>
+<td>capture</td>
+<td>Data have been imported from Excel files, which were exports from the Oracle DB. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Environmental</strong></td>
+<td>environ</td>
+<td>Includes NARR weather data from 2004-2016 and NSIDC CDR sea ice concentration data*.</td>
+</tr>
+<tr class="even">
+<td><strong>Inventory</strong></td>
+<td>inventory</td>
+<td>Contains data for managing PEP gear inventory and field packlists. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Species Misclassification</strong></td>
+<td>species_misclass</td>
+<td>Contains ice seal species misclassification information from across all ice seal survey projects.</td>
+</tr>
+<tr class="even">
+<td><strong>Stock</strong></td>
+<td>stock</td>
+<td>All data have been migrated from pepgeo to this database.</td>
+</tr>
+<tr class="odd">
+<td><strong>BOSS</strong></td>
+<td>surv_boss</td>
+<td>All data from Oracle and from the original FMC logs have been ingested into DB. An Access front-end is available for viewing/querying data.</td>
+</tr>
+<tr class="even">
+<td><strong>ChESS</strong></td>
+<td>surv_chess</td>
+<td>Data are uploaded to DB from CSV files through R script. All imported data have been QA/QC’ed.&nbsp;A final effort trackline is available. An Access front-end is available for viewing/querying data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Ice Seals: 2024</strong></td>
+<td>surv_ice_seals_2024</td>
+<td>Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea).</td>
+</tr>
+<tr class="even">
+<td><strong>Ice Seals: 2025</strong></td>
+<td>surv_ice_seals_2025</td>
+<td>To be created/populated after 2025 surveys.</td>
+</tr>
+<tr class="odd">
+<td><strong>JoBSS</strong></td>
+<td>surv_jobss</td>
+<td>Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys. An Access front-end is available for viewing/querying data.</td>
+</tr>
+<tr class="even">
+<td><strong>Ice Seal: Polar Bear</strong></td>
+<td>surv_polar_bear</td>
+<td>Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears.</td>
+</tr>
+<tr class="odd">
+<td><strong>Harbor Seal: Coastal Surveys</strong></td>
+<td>surv_pv_cst</td>
+<td>Image metadata/inventory and counts from 2004-2021 are currently QA/QC’ed and available in the DB. ADF&amp;G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="even">
+<td><strong>Harbor Seal: Glacial Surveys</strong></td>
+<td>surv_pv_gla</td>
+<td>Fliight data and counts from surveys are available in the DB. An Access front-end is available for managing data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Ice Seal: Kotz</strong></td>
+<td>surv_test_kotz</td>
+<td>Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Fight 01 and R camera views should not be used for any AI/ML.</td>
+</tr>
+<tr class="even">
+<td><strong>Telemetry</strong></td>
+<td>telem</td>
+<td>All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end.</td>
+</tr>
+</tbody>
+</table>
+<p>*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.</p>
+</section>
+<section id="naming-conventions" class="level4">
+<h4 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h4>
+<p>General Guidelines</p>
+<ul>
+<li><p>Coordinate with S. Koslovsky before adding new data tables to the database or if you need a stored query added to the database.</p></li>
+<li><p>Do not use spaces in database item names. Use underscores between words.</p></li>
+<li><p>Data for analyses:</p>
+<ul>
+<li><p>If you are using data products that are finalized (e.g.&nbsp;CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query.</p></li>
+<li><p>If you are using data products that will continue to be updated (e.g.&nbsp;telemetry data) and you need the processed data preserved, the processed data should either be stored in the database as a separate table or be exported and stored elsewhere (network or computer) with other associated files.</p></li>
+</ul></li>
+<li><p>For tables</p>
+<ul>
+<li><p>lku_ - use this prefix for look-up tables.</p></li>
+<li><p>geo_ - use this prefix for spatially explicit datasets that are stored in the postgres DB. If you have a table that has spatial data, use the tbl_ prefix. If you have raster, basemap, etc., use the geo_ prefix.</p></li>
+<li><p>tbl_ - use this prefix for data tables. These can be spatially enabled.</p></li>
+<li><p>res_ - use this prefix for results tables. These are tables that are derived from data stored in tables (tbl_) that need to be stored but are not “raw” data. These should have clear indication of what they are, and if appropriate, a date</p></li>
+</ul></li>
+<li><p>For views</p>
+<ul>
+<li><p>qa_ - use this prefix for QA/QC queries.</p></li>
+<li><p>res – use this prefix for views that are for analytical purposes.</p></li>
+<li><p>Anything else – use logical consistency for any other views stored.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="accessing-data" class="level4">
+<h4 class="anchored" data-anchor-id="accessing-data">Accessing Data</h4>
+<section id="spatial-data" class="level5">
+<h5 class="anchored" data-anchor-id="spatial-data"><strong>Spatial Data</strong></h5>
+<p>For viewing spatial data, you can access data from one of these platforms:</p>
+<ul>
+<li><p>pep_geodatabase</p>
+<ul>
+<li><p>Available on Google Shared Drive: G:\Shared drives\NMFS MML PEP Data\_PEP_SpatialData4Esri.gdb</p></li>
+<li><p>Contains the same data available from the PostgreSQL connection in QGIS (see details below), just not updated immediately (usually once per month)</p></li>
+</ul></li>
+<li><p>ArcMap and ArcPro (to connect to the spatial data available on AGOL)</p>
+<ul>
+<li><p>ArcMap</p>
+<ul>
+<li><p>Click on the Add Data button, and select “Add Data From ArcGIS Online”</p></li>
+<li><p>In the upper right corner of the pop-up window, sign into ArcGIS online using your CAC credentials.</p></li>
+<li><p>Once you are logged in, you can add data shared with the PEP SpatialData group under “My Groups”.</p></li>
+</ul></li>
+<li><p>ArcPro</p>
+<ul>
+<li><p>You are automatically logged into ArcGIS online when you open ArcPro.&nbsp;</p></li>
+<li><p>Once you have created a new project, you can add data from the Portal. Data shared to the PEP Spatial Data group will be accessible from Groups under Portal.</p></li>
+</ul></li>
+<li><p>ArcGIS Online</p>
+<ul>
+<li><p>Once signed in to ArcGIS online, click on “Groups” at the top of the page</p></li>
+<li><p>Click on the group, “PEP Spatial Data” and open the item page for the dataset you want to download</p></li>
+<li><p>On the right side of the page, go to “Export Data” and choose the format you want to export</p></li>
+<li><p>An export box will appear with a default title for the data export. You can rename this if you’d like. You must enter at least one tag for your dataset to allow for export. Exported items from ArcGIS online are stored in the root folder of “My Content”. If exporting to shapefile, a compressed file (.zip) is created and can be downloaded and saved your computer.</p></li>
+</ul></li>
+</ul></li>
+<li><p>QGIS (to connect to spatial data)&nbsp;</p>
+<ul>
+<li><p>Right click PostGIS, and select “New Connection…”</p></li>
+<li><p>In the Create a New PostGIS Connection window, specify the following options; then, click OK.</p>
+<ul>
+<li><p>Name: pep</p></li>
+<li><p>Service: (leave blank)</p></li>
+<li><p>Host: 161.55.120.122</p></li>
+<li><p>Port: 5432</p></li>
+<li><p>Database: pep</p></li>
+<li><p>Username: your user name (check box to save)</p></li>
+<li><p>Password: your password (check box to save)</p></li>
+</ul></li>
+<li><p>Once created, you will see a new connection to the database under PostGIS. The available data are listed under each schema, and only spatial data are visible.</p></li>
+</ul></li>
+</ul>
+<p>For entering spatial data, process the data as instructed for each individual project.&nbsp;</p>
+</section>
+<section id="tabular-data" class="level5">
+<h5 class="anchored" data-anchor-id="tabular-data"><strong>Tabular Data</strong></h5>
+<p>For viewing tabular data:&nbsp;</p>
+<ul>
+<li><p>Project-specific Access frontends are available for the following projects:</p>
+<ul>
+<li><p>Capture (for entering/viewing data entered from datasheets)</p></li>
+<li><p>Coastal Harbor Seal Surveys (for track level metadata)</p></li>
+</ul></li>
+<li><p>You can directly connect to the pep DB using R with the RPostgreSQL package. This connection string will get you started: con &lt;- dbConnect(PostgreSQL(), dbname = “pep”, host = “161.55.120.122”, user = “UserName”, password = “Password”)</p></li>
+<li><p>If you need access to or exports of other tabular data from the pep DB, contact S. Koslovsky.</p></li>
+</ul>
+</section>
+<section id="pepdataconnect-r-package" class="level5">
+<h5 class="anchored" data-anchor-id="pepdataconnect-r-package">pepDataConnect (R package)</h5>
+<pre><code>install.packages("devtools") devtools::install_github("StacieKoslovsky-noaa/pepDataConnect")</code></pre>
+<p>There are of tables (and linkages among them) in PEP database, and this can be overwhelming to learn and can lead to potential issues in how data are linked together or extracted from the DB. The pepDataConnect R package was created to easily connect PEP staff to the database and to ensure the quality of the data being retrieved. The R code snippet below will guide you through the process of installing the R package and an example of code to get a data table from the DB. There is <em>extensive</em> documentation in the</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting started with pepDataConnect remotes::install_github('staciekoslovsky-noaa/pepDataConnect')  # To connect to the database, create a connection con &lt;- pepDataConnect::pep_connect()  # To load data into your R workspace, use one of the table functions data &lt;- pepDataConnect::surv_jobss.tbl_detections_processed_ir(con)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Currently, the pepDataConnect R package has been set-up to interact with the database for the following schemas:</p>
+<ul>
+<li><p>Coastal harbor seal survey data (surv_pv_cst)</p></li>
+<li><p>JoBSS ice seal survey (surv_jobss)</p></li>
+</ul>
+<p>Other schemas will slowly be added to the R package, as prioritized each year</p>
+</section>
+</section>
+<section id="backup-procedure" class="level4">
+<h4 class="anchored" data-anchor-id="backup-procedure">Backup Procedure</h4>
+<p>The pepDB will be backed up according to the following schedule:</p>
+<ul>
+<li><p>Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM.&nbsp;</p></li>
+<li><p>Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.</p></li>
+</ul>
+<p>The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.</p>
+</section>
+</details></section>
+<section id="details-for-odbc-driver-installation" class="level3">
+<h3 class="anchored" data-anchor-id="details-for-odbc-driver-installation">Details for ODBC Driver Installation</h3>
+<p>In order to connect to the DB from Access, you will need to ask IT to update your ODBC Data Sources to allow connection to PostgreSQL. Here’s a website for reference: <a href="https://help.interfaceware.com/v6/connect-to-postgresql-from-windows-with-odbc" class="uri">https://help.interfaceware.com/v6/connect-to-postgresql-from-windows-with-odbc</a>. The most recent driver from this site: <a href="https://www.postgresql.org/ftp/odbc/releases/" class="uri">https://www.postgresql.org/ftp/odbc/releases/</a> (click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version).</p>
+<p>The connection details for setting up the PostgreSQL ANSI ODBC connection configured after the driver is installed are in the screenshot below. Just use your own username and password. Once they add PostgreSQL to the System DSN, they can test your connection using an existing Access database by using the “Test” button in the Driver Setup screen.</p>
+<p><img src="images/clipboard-4182424335.png" class="img-fluid"></p>
+
+
 </section>
 
 </main> <!-- /main -->

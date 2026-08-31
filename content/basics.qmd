@@ -1,0 +1,81 @@
+# Overview
+
+Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff (and others) in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current and future users. This includes:
+
+-   Keeping files organized and up-to-date;
+
+-   Storing data in machine-readable, human-readable, and tidy formats;
+
+-   Documenting information about the files and the process(es) for creating the files;
+
+-   Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g. intermediate files, outdated information); and
+
+-   Sharing data with the public and interested partners.
+
+## Foundations to Data Management
+
+A recently-ish published paper in PLOS ONE, [Good Enough Practices in Scientific Computing](https://arxiv.org/pdf/1609.00037.pdf), provides a thorough overview of best practices and workflows for managing scientific data. While some of the focus is out of our scope, a few key principles in the data management section are worth focusing on:
+
+1.  **Create the data you wish to see in the world**. The original, raw data collected in the field or offloaded from sensors is rarely the data type and quality of data we would like to share with the world and have our names associated with. Data formats, data organization, column names, value data types and formats (e.g. date-time) can all be transformed and improved into higher quality forms. The better formed the data are, the easier subsequent analyses will be, the more reproducible our science will be, and the more likely it is that others will find use in our data.
+
+2.  **Create analysis-friendly (e.g. tidy) data**. In many cases, analysis-friendly data will be equivalent to the data you wish to see in the world. The key principle at play here is that of "tidy" data. Hadley Wickham's [2014 manuscript](https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf) does an excellent job outlining the ideal structure of tidy data.
+
+    1.  The key components of tidy data are:
+
+        a.  Each variable forms a column.
+
+        b.  Each observation forms a row.
+
+        c.  Each type of observational unit forms a table.
+
+    2.  Not only are these principles important for analyzing data in programming languages (such as R or Python), they are also key components to a well-organized database. Organizing data in this way will allow easier ingestion into a database; once your data are in a central database, the more tools for exploring and analyzing your data will be available.
+
+3.  **Record all the steps used to process data**. Embracing scripts developed in a programming language (such as R or Python) is essential to providing a robust, reproducible workflow for your data. With large, complex datasets, manually processing data via mouse clicks and spreadsheet-centric workflows are often time-consuming and difficult to reproduce. As part of the planning process for the PEP data management workflow, we will evaluate existing data management processes and identify ways to simplify and automate existing or new steps.
+
+## General Guidelines
+
+### Create folders with a top-down hierarchy
+Folders should get more specific as you get deeper into folder organization. This will make long-term organization more efficient, will consolidate files to a layout that will be easy for others to interpret, and will improve information transfer among staff.
+
+### Create and maintain metadata documentation for your files
+These can be shorter documents describing the files within a specific folder or longer documents describing the work that went into creating each of the files. The complexity of each file/folder dictates the level of detail that should be documented in the metadata. This level of metadata can be most simply managed using a word document or a text file.
+
+### Apply clean and logical naming conventions to your files
+Name and organize your files in such a way that you know what they mean at 3 am (or in a crunch)!
+
+#### Three Principles for File Naming
+
+-   **Human readable**
+
+    -   File names are easy to understand by anyone, not just you.
+
+    -   Using versioning (when appropriate) to track different versions of your files (dates are a great way to do this).
+
+    -   Keep file names as short as possible.
+
+-   **Machine readable**
+
+    -   Avoid spaces, punctuation, accented characters.
+
+    -   Case-sensitivity!
+
+    -   Deliberately use of delimiters (e.g.\_ - .) instead of spaces.
+
+-   **Orders logically**
+
+    -   Name files from most general to most specific, so similar items cluster together when sorted by name and are easy to read (e.g. HarborSeal_Locations and HarborSeal_Polygons).
+
+    -   YYYY-MM-DD sorts better than DD-MMM-YYYY.
+
+    -   Use leading zeroes! (e.g. 01, 02, 10 – instead of 1, 2, 10).
+
+#### File Naming Examples
+
+| Not-so-good           | Improved File Name         |
+|-----------------------|----------------------------|
+| Plan 1.docx           | DataMgmtPlan_20170825.docx |
+| Why won’t this work.R | CHESS_DataImport.R         |
+| Asdfasdf.jpg          | Figure01.jpg               |
+| New.pdf               | ActivityPlan_20170815.pdf  |
+| NewFinal.pdf          | ActivityPlan_20170818.pdf  |
+| NewFinalFinal.pdf     | ActivityPlan_20170822.pdf  |

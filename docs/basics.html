@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PEP Data Management Plan</title>
+<title>basics – PEP Data Management Plan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,16 +90,121 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This document was created in June-ish 2018 (several months after SMK was hired), migrated to Markdown in November 2024, and last updated on <code>r Sys.Date()</code>.</p>
-<p>The NOAA Data Management Handbook can be found at this site (ADD WEBLINK).</p>
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.</p>
-<section id="main-sections" class="level2">
-<h2 class="anchored" data-anchor-id="main-sections">Main Sections</h2>
-
-
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff (and others) in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current and future users. This includes:</p>
+<ul>
+<li><p>Keeping files organized and up-to-date;</p></li>
+<li><p>Storing data in machine-readable, human-readable, and tidy formats;</p></li>
+<li><p>Documenting information about the files and the process(es) for creating the files;</p></li>
+<li><p>Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g.&nbsp;intermediate files, outdated information); and</p></li>
+<li><p>Sharing data with the public and interested partners.</p></li>
+</ul>
+<section id="foundations-to-data-management" class="level2">
+<h2 class="anchored" data-anchor-id="foundations-to-data-management">Foundations to Data Management</h2>
+<p>A recently-ish published paper in PLOS ONE, <a href="https://arxiv.org/pdf/1609.00037.pdf">Good Enough Practices in Scientific Computing</a>, provides a thorough overview of best practices and workflows for managing scientific data. While some of the focus is out of our scope, a few key principles in the data management section are worth focusing on:</p>
+<ol type="1">
+<li><p><strong>Create the data you wish to see in the world</strong>. The original, raw data collected in the field or offloaded from sensors is rarely the data type and quality of data we would like to share with the world and have our names associated with. Data formats, data organization, column names, value data types and formats (e.g.&nbsp;date-time) can all be transformed and improved into higher quality forms. The better formed the data are, the easier subsequent analyses will be, the more reproducible our science will be, and the more likely it is that others will find use in our data.</p></li>
+<li><p><strong>Create analysis-friendly (e.g.&nbsp;tidy) data</strong>. In many cases, analysis-friendly data will be equivalent to the data you wish to see in the world. The key principle at play here is that of “tidy” data. Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf">2014 manuscript</a> does an excellent job outlining the ideal structure of tidy data.</p>
+<ol type="1">
+<li><p>The key components of tidy data are:</p>
+<ol type="a">
+<li><p>Each variable forms a column.</p></li>
+<li><p>Each observation forms a row.</p></li>
+<li><p>Each type of observational unit forms a table.</p></li>
+</ol></li>
+<li><p>Not only are these principles important for analyzing data in programming languages (such as R or Python), they are also key components to a well-organized database. Organizing data in this way will allow easier ingestion into a database; once your data are in a central database, the more tools for exploring and analyzing your data will be available.</p></li>
+</ol></li>
+<li><p><strong>Record all the steps used to process data</strong>. Embracing scripts developed in a programming language (such as R or Python) is essential to providing a robust, reproducible workflow for your data. With large, complex datasets, manually processing data via mouse clicks and spreadsheet-centric workflows are often time-consuming and difficult to reproduce. As part of the planning process for the PEP data management workflow, we will evaluate existing data management processes and identify ways to simplify and automate existing or new steps.</p></li>
+</ol>
 </section>
+<section id="general-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="general-guidelines">General Guidelines</h2>
+<p><strong>Create folders with a top-down hierarchy</strong>, i.e.&nbsp;folders should get more specific as you get deeper into folder organization. This will make long-term organization more efficient, will consolidate files to a layout that will be easy for others to interpret, and will improve information transfer among staff.</p>
+<p><strong>Create and maintain metadata documentation for your files</strong>.&nbsp;These can be shorter documents describing the files within a specific folder or longer documents describing the work that went into creating each of the files. The complexity of each file/folder dictates the level of detail that should be documented in the metadata. This level of metadata can be most simply managed using a word document or a text file.</p>
+<p><strong>Copy files…do not drag-and-drop</strong>.&nbsp;When you need to move files on the network or your computer, move them by either copying the files to the new location and deleting the files from the old location or cutting and pasting from the old location to the new location (either option instead of drag-and-drop). Use batch processing whenever dealing with large volumes of data (example link to SMK code for this in R).</p>
+</section>
+<section id="file-naming-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="file-naming-conventions">File Naming Conventions</h2>
+<p>Name and organize your files in such a way that you know what they mean at 3 am (or in a crunch)!</p>
+<section id="three-principles-for-file-naming" class="level3">
+<h3 class="anchored" data-anchor-id="three-principles-for-file-naming">Three Principles for File Naming</h3>
+<ul>
+<li><p><strong>Human readable</strong></p>
+<ul>
+<li><p>File names are easy to understand by anyone, not just you. ☺</p></li>
+<li><p>Using versioning (when appropriate) to track different versions of your files (dates are a great way to do this).</p></li>
+<li><p>Keep file names as short as possible.</p></li>
+</ul></li>
+<li><p><strong>Machine readable</strong></p>
+<ul>
+<li><p>Avoid spaces, punctuation, accented characters.</p></li>
+<li><p>Case-sensitivity!</p></li>
+<li><p>Deliberately use of delimiters (e.g._ - .) instead of spaces.</p></li>
+</ul></li>
+<li><p><strong>Orders logically</strong></p>
+<ul>
+<li><p>Name files from most general to most specific, so similar items cluster together when sorted by name and are easy to read (e.g.&nbsp;HarborSeal_Locations and HarborSeal_Polygons).</p></li>
+<li><p>YYYY-MM-DD sorts better than DD-MMM-YYYY.</p></li>
+<li><p>Use leading zeroes! (e.g.&nbsp;01, 02, 10 – instead of 1, 2, 10).</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="file-naming-examples" class="level3">
+<h3 class="anchored" data-anchor-id="file-naming-examples">File Naming Examples</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Not-so-good</th>
+<th>Improved File Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Plan 1.docx</td>
+<td>DataMgmtPlan_20170825.docx</td>
+</tr>
+<tr class="even">
+<td>Why won’t this work.R</td>
+<td>CHESS_DataImport.R</td>
+</tr>
+<tr class="odd">
+<td>Asdfasdf.jpg</td>
+<td>Figure01.jpg</td>
+</tr>
+<tr class="even">
+<td>New.pdf</td>
+<td>ActivityPlan_20170815.pdf</td>
+</tr>
+<tr class="odd">
+<td>NewFinal.pdf</td>
+<td>ActivityPlan_20170818.pdf</td>
+</tr>
+<tr class="even">
+<td>NewFinalFinal.pdf</td>
+<td>ActivityPlan_20170822.pdf</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="staff-engagement-in-pep-data-management" class="level1">
+<h1>Staff Engagement in PEP Data Management</h1>
+<p>It is important for staff to be engaged in PEP data management. It goes beyond the processing of data and includes how staff are engaged and considered in our data management practices.</p>
+<ul>
+<li><p><strong>Recognizing and appreciating our different skills, technical abilities, ideas, backgrounds, and ways of learning (among many other things).</strong> It is my intent to approach data management application and training in our program with this in mind. Our jobs and how we interact with data vary across staff; different people will have different needs and different applications for the data we collect and maintain.</p></li>
+<li><p><strong>Ensuring data practices promote fair, just and beneficial outcomes for all individuals and projects</strong>.</p></li>
+<li><p><strong>Ensuring that data collection, storage, and analysis processes actively consider our perspectives, experiences, and skills (in our case, largely focused on ensuring this for how we collect and store data, trainings on those processes, etc.).</strong> Some considerations include:</p>
+<ul>
+<li><p>Developing data collection protocols: design surveys and data gathering methods that are accessible.</p></li>
+<li><p>Implementing data governance practices: establish clear guidelines for collecting, storing, and using data. While this document is a blueprint for program projects, it does not replace the need for this to be considered and applied on a project-by-project basis.</p></li>
+</ul></li>
+<li><p><strong>The data and the information about the data are accessible to staff to us</strong>e. This document (plus other efforts, like PEP Data Days) are intended to make information as accessible as possible for the variety of needs and users within our program.</p></li>
+<li><p><strong>Feeling accepted and supported in each project and within our program</strong>. Ultimately, it is my goal that everyone feels like they have access to the information they need and are getting the support that is required. This is a two-way street between project and data management.</p></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

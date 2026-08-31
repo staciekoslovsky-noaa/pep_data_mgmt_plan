@@ -1,0 +1,30 @@
+# Objective
+
+Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.
+
+## Main sections
+Choose a section from the sidebar, or start here:
+
+### [Basics](basics.qmd)
+Introduces core data management principles, file naming practices, and general expectations for organizing and documenting data.
+
+### [Workflow](workflow.qmd)
+Describes the PEP data management lifecycle, including planning, collection, processing, analysis, sharing, and evaluation.
+
+### [PEP Data Storage](storage.qmd)
+Explains where data should be stored, how shared storage is organized, and what staff should use for temporary versus long-term storage.
+
+### [PEP Database](database.qmd)
+Summarizes the PostgreSQL database structure, naming conventions, and access methods.
+
+### [Onboarding](onboarding.qmd)
+Lists software requirements, recommended tools, and orientation information for new staff.
+
+### [Staff Engagement](staff_engagement.qmd)
+Describes best practices for working with one another with respect to data management and workflow development/implentation.
+
+## Notes
+
+This document was originally created in 2018, migrated to Quarto in 2024, and substantially overhauled in 2026 (at the time of the migration of files and the PEP database to the cloud). The PEP data management plan is updated as workflows and requirements evolve.
+
+This document was last updated on `r Sys.Date()`.

@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "PEP Data Management Plan"
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - text: "Home"
+        file: content/index.qmd
+      - text: "Basics"
+        file: content/basics.qmd
+      - text: "Workflow"
+        file: content/workflow.qmd
+      - text: "PEP Data Storage"
+        file: content/storage.qmd
+      - text: "PEP Database"
+        file: content/database.qmd
+      - text: "Onboarding"
+        file: content/onboarding.qmd
+      - text: "Staff Engagement"
+        file: content/staff_engagement.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    page-layout: article
+    smooth-scroll: true
+    anchor-sections: true
