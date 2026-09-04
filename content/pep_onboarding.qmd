@@ -134,7 +134,7 @@ If using an R workstation, use this script to mount buckets to R. FINISH
 
 ### PEP Database
 
-This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.
+This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software. If you are working remotely, you will need to connect to the VPN before connecting to the database.
 
 #### Connect from Microsoft Access
 To use any of the PEP database Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an AFSC Service Desk ticket to update your ODBC Data Sources to allow connection to PostgreSQL. 

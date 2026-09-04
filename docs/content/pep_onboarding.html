@@ -603,17 +603,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pep-database" class="level3">
 <h3 class="anchored" data-anchor-id="pep-database">PEP Database</h3>
-<p>This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.</p>
+<p>This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software. If you are working remotely, you will need to connect to the VPN before connecting to the database.</p>
 <section id="connect-from-microsoft-access" class="level4">
 <h4 class="anchored" data-anchor-id="connect-from-microsoft-access">Connect from Microsoft Access</h4>
 <p>To use any of the PEP database Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an AFSC Service Desk ticket to update your ODBC Data Sources to allow connection to PostgreSQL.</p>
 <p>The connection details for setting up the ODBC connection are as follows:</p>
 <ul>
-<li>Install the ODBC driver with Service Desk Ticket.
+<li>Install the ODBC driver with Service Desk Ticket, if not already installed (typically, only when you are working on a new laptop or VM).
 <ul>
-<li>You will want to <a href="https://www.postgresql.org/ftp/odbc/releases/">download the most recent driver</a>.Click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version.</li>
-<li>If you have a new laptop or VM, you will need to submit a Service Desk Ticket. I recommend you work through the remaining steps with OFIS to ensure the correct driver was installed.</li>
-<li>If you already have this installed (which all staff as of 9/1/2026 do based on past usage of the PEP database), skip to the next step. You do not need to work with OFIS to add the data source.</li>
+<li>You will want to <a href="https://www.postgresql.org/ftp/odbc/releases/">download the most recent driver</a>. Click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version.</li>
+<li>If you already have this installed, skip to the next step. You do not need to work with OFIS to add the data source.</li>
 </ul></li>
 <li>From the start menu, open the ODBC Data Source Administrator (64-bit), click “Add…”.</li>
 <li>In the list of drivers available, select “PostgreSQL Unicode(x64)” and click Finish.</li>
