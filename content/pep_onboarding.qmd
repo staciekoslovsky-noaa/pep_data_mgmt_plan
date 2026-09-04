@@ -141,10 +141,9 @@ To use any of the PEP database Access front-ends or to create your own connectio
 
 The connection details for setting up the ODBC connection are as follows:
 
--   Install the ODBC driver with Service Desk Ticket. 
-    -   You will want to [download the most recent driver](https://www.postgresql.org/ftp/odbc/releases/).Click on the most recent folder *without* "-mimalloc" at the end of the file name; install the **psqlodbc_x64.msi** version.
-    -   If you have a new laptop or VM, you will need to submit a Service Desk Ticket. I recommend you work through the remaining steps with OFIS to ensure the correct driver was installed.
-    -   If you already have this installed (which all staff as of 9/1/2026 do based on past usage of the PEP database), skip to the next step. You do not need to work with OFIS to add the data source.
+-   Install the ODBC driver with Service Desk Ticket, if not already installed (typically, only when you are working on a new laptop or VM).
+    -   You will want to [download the most recent driver](https://www.postgresql.org/ftp/odbc/releases/). Click on the most recent folder *without* "-mimalloc" at the end of the file name; install the **psqlodbc_x64.msi** version.
+    -   If you already have this installed, skip to the next step. You do not need to work with OFIS to add the data source.
 -   From the start menu, open the ODBC Data Source Administrator (64-bit), click "Add...".
 -   In the list of drivers available, select "PostgreSQL Unicode(x64)" and click Finish.
 -   In the PostgreSQL Unicode ODBC Driver (psqlODBC) Setup, enter the following details:
