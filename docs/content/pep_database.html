@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – PEP Data Management Plan</title>
+<title>pep_database – PEP Data Management Plan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/pep_database.html">PEP Database</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../content/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/pep_database.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_database.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PEP Database</span></a>
   </div>
 </li>
@@ -164,19 +164,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective">Objective</a>
+  <li><a href="#pep-database" id="toc-pep-database" class="nav-link active" data-scroll-target="#pep-database">PEP Database</a>
   <ul>
-  <li><a href="#main-sections" id="toc-main-sections" class="nav-link" data-scroll-target="#main-sections">Main sections</a>
-  <ul class="collapse">
-  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#pep-data-storage" id="toc-pep-data-storage" class="nav-link" data-scroll-target="#pep-data-storage">PEP Data Storage</a></li>
-  <li><a href="#pep-database" id="toc-pep-database" class="nav-link" data-scroll-target="#pep-database">PEP Database</a></li>
-  <li><a href="#pep-onboarding" id="toc-pep-onboarding" class="nav-link" data-scroll-target="#pep-onboarding">PEP Onboarding</a></li>
-  <li><a href="#staff-engagement" id="toc-staff-engagement" class="nav-link" data-scroll-target="#staff-engagement">Staff Engagement</a></li>
-  <li><a href="#offboarding" id="toc-offboarding" class="nav-link" data-scroll-target="#offboarding">Offboarding</a></li>
-  </ul></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#connection-details" id="toc-connection-details" class="nav-link" data-scroll-target="#connection-details">Connection Details</a></li>
+  <li><a href="#current-schemas" id="toc-current-schemas" class="nav-link" data-scroll-target="#current-schemas">Current Schemas</a></li>
+  <li><a href="#naming-conventions" id="toc-naming-conventions" class="nav-link" data-scroll-target="#naming-conventions">Naming Conventions</a></li>
+  <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -187,45 +181,235 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.</p>
-<section id="main-sections" class="level2">
-<h2 class="anchored" data-anchor-id="main-sections">Main sections</h2>
-<p>Choose a section from the sidebar, or start here:</p>
-<section id="basics" class="level3">
-<h3 class="anchored" data-anchor-id="basics"><a href="../content/basics.html">Basics</a></h3>
-<p>Introduces core data management principles, file naming practices, and general expectations for organizing and documenting data.</p>
+<section id="pep-database" class="level1">
+<h1>PEP Database</h1>
+<p>This section details what PEP information is stored where within the cloud. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with the PEP database.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The table below details the final data are stored in the pep PostgreSQL database.</p>
+<ul>
+<li>All staff will have read-only access to all data.&nbsp;</li>
+<li>Staff will only have read-write access to the data they are required to edit.</li>
+<li>There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. <strong>Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.</strong></li>
+<li>QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS.&nbsp;ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB or from the pepGeodatabase.</li>
+</ul>
 </section>
-<section id="workflow" class="level3">
-<h3 class="anchored" data-anchor-id="workflow"><a href="../content/workflow.html">Workflow</a></h3>
-<p>Describes the data management lifecycle, including planning, collection, processing, analysis, sharing, and evaluation.</p>
+<section id="connection-details" class="level2">
+<h2 class="anchored" data-anchor-id="connection-details">Connection Details</h2>
+<ul>
+<li>Database name = mml_pep</li>
+<li>Local host = afsc.postgres.prod.nmfs.local (use this to connect)</li>
+<li>IP address = 10.27.26.20 (for reference; use only if necessary)</li>
+<li>Port = 5432</li>
+<li>As a managed cloud-based database, the SSL mode needs to be set to require or allow depending on the context. More details in <a href="../content/pep_onboarding.html">PEP Onboarding</a>.</li>
+</ul>
 </section>
-<section id="pep-data-storage" class="level3">
-<h3 class="anchored" data-anchor-id="pep-data-storage"><a href="../content/pep_storage.html">PEP Data Storage</a></h3>
-<p>Explains where PEP data should be stored, how shared storage is organized, and how data are accessed.</p>
+<section id="current-schemas" class="level2">
+<h2 class="anchored" data-anchor-id="current-schemas">Current Schemas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 12%">
+<col style="width: 19%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Project</strong></th>
+<th><strong>Schema</strong></th>
+<th><strong>Access front-end?</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PEP Administration</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><em>PEP Dashboard</em></td>
+<td>administrative</td>
+<td>Yes</td>
+<td>Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.).</td>
+</tr>
+<tr class="odd">
+<td><em>Inventory</em></td>
+<td>inventory</td>
+<td>Yes</td>
+<td>Contains data for managing PEP gear inventory and field packlists.</td>
+</tr>
+<tr class="even">
+<td><strong>Capture and Tagging</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><em>Capture</em></td>
+<td>capture</td>
+<td>Yes</td>
+<td>Data have been imported from Excel files, which were exports from the Oracle DB.</td>
+</tr>
+<tr class="even">
+<td><em>Telemetry</em></td>
+<td>telem</td>
+<td>No</td>
+<td>All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end.</td>
+</tr>
+<tr class="odd">
+<td><strong>Harbor Seal Surveys</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><em>Coastal Surveys</em></td>
+<td>surv_pv_cst</td>
+<td>Yes</td>
+<td>Image metadata/inventory and counts from 2004-present are currently QA/QC’ed and available in the DB. ADF&amp;G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema.</td>
+</tr>
+<tr class="odd">
+<td><em>Glacial Surveys</em></td>
+<td>surv_pv_gla</td>
+<td>Yes</td>
+<td>Flight data and counts from surveys are available in the DB.</td>
+</tr>
+<tr class="even">
+<td><strong>Ice Seal Surveys</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><em>Annotations</em></td>
+<td>annotations</td>
+<td>Yes</td>
+<td>Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management.</td>
+</tr>
+<tr class="even">
+<td><em>Species Misclassification</em></td>
+<td>species_misclass</td>
+<td>No</td>
+<td>Contains ice seal species misclassification information from across all ice seal survey projects.</td>
+</tr>
+<tr class="odd">
+<td><em>BOSS</em></td>
+<td>surv_ice_seals_2012_13</td>
+<td>Yes</td>
+<td>Image data and annotations from BOSS 2012-2013 surveys.</td>
+</tr>
+<tr class="even">
+<td><em>ChESS</em></td>
+<td>surv_ice_seals_2016</td>
+<td>Yes</td>
+<td>Image data and annotations from ChESS 2016 survey.</td>
+</tr>
+<tr class="odd">
+<td><em>Ice Seal: Kotz</em></td>
+<td>surv_ice_seals_2019_test</td>
+<td>Yes</td>
+<td>Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Flight 01 and R camera views should not be used for any AI/ML.</td>
+</tr>
+<tr class="even">
+<td><em>JoBSS</em></td>
+<td>surv_ice_seals_2021</td>
+<td>Yes</td>
+<td>Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys (JoBSS).</td>
+</tr>
+<tr class="odd">
+<td><em>Ice Seals: 2024</em></td>
+<td>surv_ice_seals_2024_test</td>
+<td>No</td>
+<td>Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea).</td>
+</tr>
+<tr class="even">
+<td><em>Ice Seals: 2025</em></td>
+<td>surv_ice_seals_2025</td>
+<td>No</td>
+<td>Image metadata/inventory and annotations from 2025 Ice Seal Surveys.</td>
+</tr>
+<tr class="odd">
+<td><strong>Other Projects</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><em>Acoustics</em></td>
+<td>acoustics</td>
+<td>No</td>
+<td>Contains data received from CAEP Acoustics program and pre-processed for import into the DB.</td>
+</tr>
+<tr class="odd">
+<td><em>Base</em></td>
+<td>base</td>
+<td>No</td>
+<td>Contains “THE” grid and environmental covariates extracted to the grid.</td>
+</tr>
+<tr class="even">
+<td><em>Polar Bear Sightings</em></td>
+<td>polar_bear</td>
+<td>No</td>
+<td>Infomation about all polar bears sighted across ice seal and polar bear survey efforts.</td>
+</tr>
+<tr class="odd">
+<td><em>Polar Bear Survey</em></td>
+<td>surv_polar_bear_ 2019_deadhorse</td>
+<td>Yes</td>
+<td>Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears. Flight 08 accidentally recorded as polar_bear when should be included with 2019_test data.</td>
+</tr>
+<tr class="even">
+<td><em>Stock</em></td>
+<td>stock</td>
+<td>No</td>
+<td>All data have been migrated from pepgeo to this database.</td>
+</tr>
+<tr class="odd">
+<td><em>UAS Body Condition</em></td>
+<td>body_condition</td>
+<td>Yes</td>
+<td>Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="pep-database" class="level3">
-<h3 class="anchored" data-anchor-id="pep-database"><a href="../content/pep_database.html">PEP Database</a></h3>
-<p>Summarizes the PEP PostgreSQL database structure, naming conventions, and access methods.</p>
+<section id="naming-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h2>
+<p>General Guidelines</p>
+<ul>
+<li>Coordinate with S. Koslovsky before adding new data tables to the database or if you need a stored query added to the database.</li>
+<li>Do not use spaces in database item names. Use underscores between words.</li>
+<li>Data for analyses:
+<ul>
+<li>If you are using data products that are finalized (e.g.&nbsp;CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query.</li>
+<li>If you are using data products that will continue to be updated (e.g.&nbsp;telemetry data) and you need the processed data preserved, the processed data should either be stored in the database as a separate table or be exported and stored elsewhere (network or computer) with other associated files.</li>
+</ul></li>
+<li>For tables
+<ul>
+<li>lku_ - use this prefix for look-up tables.</li>
+<li>geo_ - use this prefix for spatially explicit datasets that are stored in the postgres DB. If you have a table that has spatial data, use the tbl_ prefix. If you have raster, basemap, etc., use the geo_ prefix.</li>
+<li>tbl_ - use this prefix for data tables. These can be spatially enabled.</li>
+<li>res_ - use this prefix for results tables. These are tables that are derived from data stored in tables (tbl_) that need to be stored but are not “raw” data. These should have clear indication of what they are, and if appropriate, a date</li>
+</ul></li>
+<li>For views
+<ul>
+<li>qa_ - use this prefix for QA/QC queries.</li>
+<li>res – use this prefix for views that are for analytical purposes.</li>
+<li>Anything else – use logical consistency for any other views stored.</li>
+</ul></li>
+</ul>
 </section>
-<section id="pep-onboarding" class="level3">
-<h3 class="anchored" data-anchor-id="pep-onboarding"><a href="../content/pep_onboarding.html">PEP Onboarding</a></h3>
-<p>Lists software requirements, recommended tools, and orientation information for PEP staff.</p>
-</section>
-<section id="staff-engagement" class="level3">
-<h3 class="anchored" data-anchor-id="staff-engagement"><a href="../content/staff_engagement.html">Staff Engagement</a></h3>
-<p>Describes best practices for working with one another with respect to data management and workflow development/implentation.</p>
-</section>
-<section id="offboarding" class="level3">
-<h3 class="anchored" data-anchor-id="offboarding">Offboarding</h3>
-<p>Details related to staff departures will be added later.</p>
-</section>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>This document was originally created in 2018, migrated to Quarto in 2024, and substantially overhauled in 2026 (at the time of the migration of files and the PEP database to the cloud). The PEP data management plan is updated as workflows and requirements evolve.</p>
-<p>This document was last updated on <code>r Sys.Date()</code>.</p>
+<section id="backuprecovery-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h2>
+<p>TBD for cloud-based database</p>
+<p>OLD INFORMATION: The pepDB will be backed up according to the following schedule:</p>
+<ul>
+<li><p>Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM.&nbsp;</p></li>
+<li><p>Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.</p></li>
+</ul>
+<p>The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.</p>
 
 
 </section>

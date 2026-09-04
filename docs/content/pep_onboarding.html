@@ -2,23 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>onboarding – PEP Data Management Plan</title>
+<title>pep_onboarding – PEP Data Management Plan</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -32,15 +73,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/onboarding.html">Onboarding</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/pep_onboarding.html">PEP Onboarding</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,8 +136,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">PEP Data Management Plan</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -126,20 +167,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/storage.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_storage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PEP Data Storage</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/database.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_database.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PEP Database</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/onboarding.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Onboarding</span></a>
+  <a href="../content/pep_onboarding.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PEP Onboarding</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,18 +200,28 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#on-boarding" id="toc-on-boarding" class="nav-link active" data-scroll-target="#on-boarding">On-boarding</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#software-requirements-and-recommendations" id="toc-software-requirements-and-recommendations" class="nav-link" data-scroll-target="#software-requirements-and-recommendations">Software Requirements and Recommendations</a></li>
   <li><a href="#how-to-work-with-pep-data" id="toc-how-to-work-with-pep-data" class="nav-link" data-scroll-target="#how-to-work-with-pep-data">How to Work with PEP Data</a>
   <ul class="collapse">
+  <li><a href="#what-works-with-what" id="toc-what-works-with-what" class="nav-link" data-scroll-target="#what-works-with-what">What Works with What?</a></li>
+  <li><a href="#google-shared-drive" id="toc-google-shared-drive" class="nav-link" data-scroll-target="#google-shared-drive">Google Shared Drive</a></li>
+  <li><a href="#gcp-bucket" id="toc-gcp-bucket" class="nav-link" data-scroll-target="#gcp-bucket">GCP Bucket</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#general-guidance" id="toc-general-guidance" class="nav-link" data-scroll-target="#general-guidance">General Guidance</a></li>
   <li><a href="#connect-from-laptop" id="toc-connect-from-laptop" class="nav-link" data-scroll-target="#connect-from-laptop">Connect from Laptop</a></li>
   <li><a href="#connect-from-virtual-machine" id="toc-connect-from-virtual-machine" class="nav-link" data-scroll-target="#connect-from-virtual-machine">Connect from Virtual Machine</a></li>
   <li><a href="#connect-from-workstation" id="toc-connect-from-workstation" class="nav-link" data-scroll-target="#connect-from-workstation">Connect from Workstation</a></li>
-  <li><a href="#what-works-with-what" id="toc-what-works-with-what" class="nav-link" data-scroll-target="#what-works-with-what">What Works with What?</a></li>
-  <li><a href="#google-shared-drive" id="toc-google-shared-drive" class="nav-link" data-scroll-target="#google-shared-drive">Google Shared Drive</a></li>
-  <li><a href="#gcp-bucket" id="toc-gcp-bucket" class="nav-link" data-scroll-target="#gcp-bucket">GCP Bucket</a></li>
-  <li><a href="#pep-database" id="toc-pep-database" class="nav-link" data-scroll-target="#pep-database">PEP Database</a></li>
-  <li><a href="#cost-of-storage" id="toc-cost-of-storage" class="nav-link" data-scroll-target="#cost-of-storage">Cost of Storage</a></li>
+  </ul></li>
+  <li><a href="#pep-database" id="toc-pep-database" class="nav-link" data-scroll-target="#pep-database">PEP Database</a>
+  <ul class="collapse">
+  <li><a href="#connect-from-microsoft-access" id="toc-connect-from-microsoft-access" class="nav-link" data-scroll-target="#connect-from-microsoft-access">Connect from Microsoft Access</a></li>
+  <li><a href="#connect-from-r" id="toc-connect-from-r" class="nav-link" data-scroll-target="#connect-from-r">Connect from R</a></li>
+  <li><a href="#connect-from-qgis" id="toc-connect-from-qgis" class="nav-link" data-scroll-target="#connect-from-qgis">Connect from QGIS</a></li>
+  <li><a href="#connection-from-arcgis" id="toc-connection-from-arcgis" class="nav-link" data-scroll-target="#connection-from-arcgis">Connection from ArcGIS</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#frequently-used-program-wide-tools" id="toc-frequently-used-program-wide-tools" class="nav-link" data-scroll-target="#frequently-used-program-wide-tools">Frequently Used Program-wide Tools</a>
   <ul class="collapse">
@@ -240,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
 <td>For connecting to PEP database via Microsoft Access (see details [below][add link to the right section!])</td>
 </tr>
 <tr class="odd">
-<td>QGIS</td>
+<td>QGIS version 3.28 or higher</td>
 <td>Service Desk Ticket</td>
 <td>For the most direct connection to PEP database for spatial data</td>
 </tr>
@@ -302,26 +353,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="how-to-work-with-pep-data" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-work-with-pep-data">How to Work with PEP Data</h2>
 <p>With the migration to the cloud, there is a lot going on now. Lots of new ways to connect with data and major changes to many of our workflows. We are all learning together. We probably made some mis-steps with how data were migrated to the cloud, and we probably don’t yet know all the ways that we’ll work with data moving forward. Be patient with yourself and each other!</p>
-<section id="connect-from-laptop" class="level3">
-<h3 class="anchored" data-anchor-id="connect-from-laptop">Connect from Laptop</h3>
-<p>View the contents of the bucket through the <a href="https://console.cloud.google.com/storage/browser/afsc_mml_pep?project=nmfs-trusted-images">web browser</a>.</p>
-<p>While there are different reasons for using your laptop or virtual machine to connect to a bucket (see <a href="../content/onboarding.html">Onboarding</a>), the methods are generally the same. There are two main options for viewing information stored in our bucket: Mount the afsc_mml_pep bucket as network drive (preferably S:\).</p>
-<p>View the contents of the bucket through the <a href="https://console.cloud.google.com/storage/browser/afsc_mml_pep?project=nmfs-trusted-images">web browser</a>.</p>
-</section>
-<section id="connect-from-virtual-machine" class="level3">
-<h3 class="anchored" data-anchor-id="connect-from-virtual-machine">Connect from Virtual Machine</h3>
-<p>You can follow the same steps for viewing and connecting to cloud data from your laptop (above), but</p>
-</section>
-<section id="connect-from-workstation" class="level3">
-<h3 class="anchored" data-anchor-id="connect-from-workstation">Connect from Workstation</h3>
-<p>If using an R workstation, use this script to mount buckets to R.</p>
-<p>Proposed configuration for the new VMs and monitoring AFSC VMs in GCP are available: workflow (https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit) and request (https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e) High GPU will need to be justified - will require Division Director approval Cost is with use, not to have GPUs can be limited within a region – LLMs are hogging the resources at the moment Will be nagged to shut VM off if it’s been out of commission for periods of time and will be contacted if the compute needs exceed what is actually used Can have concurrent users up to 2 and multiple uses with access to VMs</p>
-<p>*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.</p>
-<p>https://cloud.google.com/learn/training</p>
-</section>
+<p>Here are some great <a href="https://cloud.google.com/learn/training">resources</a> for learning more about the Google cloud offerings.</p>
 <section id="what-works-with-what" class="level3">
 <h3 class="anchored" data-anchor-id="what-works-with-what">What Works with What?</h3>
-<p>We now have both new tools and new locations for working our data. The chart below details what tools work with data in different locations.</p>
+<p>We now have both new tools and new locations for working our data. The chart below details what tools work with data in different locations and will be updated as new tools and/or information is available.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 38%">
@@ -352,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>GCP Bucket</td>
-<td>Yes, but limit</td>
+<td>Limit</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
@@ -400,42 +435,42 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Browse files</strong></td>
+<td>Browse files</td>
 <td>Yes!</td>
 <td>Yes!</td>
 </tr>
 <tr class="even">
-<td><strong>Search files</strong></td>
+<td>Search files</td>
 <td>Using file explorer search engine</td>
 <td>Yes, using Google search engine</td>
 </tr>
 <tr class="odd">
-<td><strong>Share folders with people</strong></td>
+<td>Share folders with people</td>
 <td>No</td>
 <td>Yes!</td>
 </tr>
 <tr class="even">
-<td><strong>Share files with people</strong></td>
+<td>Share files with people</td>
 <td>No-ish (can open a file from G:\ and share)</td>
 <td>Yes!</td>
 </tr>
 <tr class="odd">
-<td><strong>Open a G-suite file</strong></td>
+<td>Open a G-suite file</td>
 <td>Yes – will open web browser (if not already open)</td>
 <td>Yes – will open a new tab within web broswer</td>
 </tr>
 <tr class="even">
-<td><strong>Open a non-G-suite file</strong></td>
+<td>Open a non-G-suite file</td>
 <td>Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time)</td>
 <td>Not likely</td>
 </tr>
 <tr class="odd">
-<td><strong>Open Access database</strong></td>
+<td>Open Access database</td>
 <td>Yes!</td>
 <td>No</td>
 </tr>
 <tr class="even">
-<td><strong>Work with data in other software (e.g.&nbsp;R, QGIS)</strong></td>
+<td>Work with data in other software (e.g.&nbsp;R, QGIS)</td>
 <td>Yes!</td>
 <td>No</td>
 </tr>
@@ -444,7 +479,29 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="gcp-bucket" class="level3">
 <h3 class="anchored" data-anchor-id="gcp-bucket">GCP Bucket</h3>
-<p>There is no cost to move data into a bucket. There are costs for storing, accessing, and modifying the data in our buckets when data are pulled to our local machines. When we work with the data from a workstation or virtual machine (that are stored in the same region as our bucket), there is no cost to working with the data (though there is a cost to having a VM or using a workstation). Each programs costs are heavily monitored, and we will be notified (individually and/or programmatically) if our usage is anomolous. Given this, we need to take caution in how we are connecting to bucket spaces. The specifics for connecting to the bucket are detailed in sections below, but please reference this chart as guidance (not authority) to help you get started selecting the right tool you use for connecting to the data.</p>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>There are some fundamental differences in how we work with data in a bucket versus how we work with data on a local machine or in a shared drive.</p>
+<ul>
+<li>Data in a bucket are stored as objects, so folders are useful for our organization, but not necessary for the bucket to function.</li>
+<li>Data in a bucket are not stored on your local machine, so data are downloaded to your local machine or virtual machine when you work with it. This is different than a shared drive, where the data are stored on a server and you can work with the data without downloading it to your local machine.</li>
+<li>Data in a bucket cannot be modified the same way as files are on a local machine or shared drive.
+<ul>
+<li>The only actions you can take on data in a bucket are read, write, and delete. No modify!</li>
+<li>You will need to download the data, modify it, and then upload it back to the bucket. This is different than a shared drive, where you can modify the data directly on the server.</li>
+<li>This also applies to renaming files, so it’s best to ensure the data are named properly and are organized based on the project protocols before the data are uploaded to a bucket.</li>
+<li>There is also a cost for each of these actions if done from your local machine.</li>
+</ul></li>
+</ul>
+<p>Based on these fundamental differences in the data, read-write access to the PEP buckets is limited to a small number of staff. Most of PEP only has read-only access to the data in the <em>afsc_mml_pep</em> bucket. The <em>pep_storage</em> bucket is intended to allow for staff to have more flexible access to the data. Contact S. Koslovsky if you need different permissions to the afsc_mml_pep bucket.</p>
+</section>
+<section id="authentication" class="level4">
+<h4 class="anchored" data-anchor-id="authentication">Authentication</h4>
+<p>Authentication for bucket access is now limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long-running processes. This is a recent change so more details will be provided about workarounds as more information is available. For now, be aware of this limitation and plan accordingly.</p>
+</section>
+<section id="general-guidance" class="level4">
+<h4 class="anchored" data-anchor-id="general-guidance">General Guidance</h4>
+<p>There is no cost to move data into a bucket, but there are costs for storing, accessing, and modifying the data in our buckets when data are pulled to our local machines. When we work with the data from a workstation or virtual machine (that are stored in the same region as our bucket), there is no cost to working with the data (though there is a cost to having a VM or using a workstation). Each program’s costs are heavily monitored, and we will be notified (individually and/or programmatically) if our usage is anomalous. For now, be aware of how you’re interacting with the buckets, and reference this chart as guidance (not authority) to help you get started selecting the right tool you use for connecting to the data.</p>
 <p>General guidance when working with data in a bucket:</p>
 <ul>
 <li>Use your laptop for light access</li>
@@ -453,11 +510,11 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 40%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -470,58 +527,58 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Browse files</strong></td>
+<td>Browse files</td>
 <td>Yes</td>
 <td>Yes</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>View an image or two</strong></td>
+<td>View an image or two</td>
 <td>Yes</td>
 <td>No</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>Access data entry/viewing</strong></td>
+<td>Access data entry/viewing</td>
 <td>Yes</td>
 <td>No</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>Annotate images</strong></td>
+<td>Annotate images</td>
 <td>No</td>
 <td>No</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>Run AI/ML workflow</strong></td>
+<td>Run AI/ML workflow</td>
 <td>No</td>
 <td>Yes</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>Heavy ArcGIS or QGIS usage of database or bucket data</strong></td>
+<td>Heavy ArcGIS or QGIS usage of database or bucket data</td>
 <td>No</td>
 <td>No</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>Run custom R code on data</strong></td>
+<td>Run custom R code on data</td>
 <td>No</td>
 <td>Yes</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>Run KAMERA camera model development</strong></td>
+<td>Run KAMERA camera model development</td>
 <td>No</td>
-<td>Not sure</td>
+<td>Yes</td>
 <td>Yes</td>
 <td></td>
 </tr>
@@ -529,25 +586,41 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>This list will be updated periodically.</p>
 </section>
+<section id="connect-from-laptop" class="level4">
+<h4 class="anchored" data-anchor-id="connect-from-laptop">Connect from Laptop</h4>
+<p>View the contents of the bucket through the <a href="https://console.cloud.google.com/storage/browser/afsc_mml_pep?project=nmfs-trusted-images">web browser</a>. FINISH</p>
+<p>While there are different reasons for using your laptop or virtual machine to connect to a bucket, the methods are generally the same. There are two main options for viewing information stored in our bucket: Mount the afsc_mml_pep bucket as network drive (preferably S:\). FINISH</p>
+</section>
+<section id="connect-from-virtual-machine" class="level4">
+<h4 class="anchored" data-anchor-id="connect-from-virtual-machine">Connect from Virtual Machine</h4>
+<p>You can follow the same steps for viewing and connecting to cloud data from your laptop (above), but FINISH</p>
+<p>Proposed configuration for the new VMs and monitoring AFSC VMs in GCP are available: workflow (https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit) and request (https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e) High GPU will need to be justified - will require Division Director approval Cost is with use, not to have GPUs can be limited within a region – LLMs are hogging the resources at the moment Will be nagged to shut VM off if it’s been out of commission for periods of time and will be contacted if the compute needs exceed what is actually used Can have concurrent users up to 2 and multiple uses with access to VMs</p>
+</section>
+<section id="connect-from-workstation" class="level4">
+<h4 class="anchored" data-anchor-id="connect-from-workstation">Connect from Workstation</h4>
+<p>If using an R workstation, use this script to mount buckets to R. FINISH</p>
+</section>
+</section>
 <section id="pep-database" class="level3">
 <h3 class="anchored" data-anchor-id="pep-database">PEP Database</h3>
 <p>This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.</p>
 <section id="connect-from-microsoft-access" class="level4">
 <h4 class="anchored" data-anchor-id="connect-from-microsoft-access">Connect from Microsoft Access</h4>
 <p>To use any of the PEP database Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an AFSC Service Desk ticket to update your ODBC Data Sources to allow connection to PostgreSQL.</p>
-<p>Here’s a website for reference: <a href="https://help.interfaceware.com/v6/connect-to-postgresql-from-windows-with-odbc" class="uri">https://help.interfaceware.com/v6/connect-to-postgresql-from-windows-with-odbc</a>. The most recent driver from this site: <a href="https://www.postgresql.org/ftp/odbc/releases/" class="uri">https://www.postgresql.org/ftp/odbc/releases/</a> (click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version).</p>
 <p>The connection details for setting up the ODBC connection are as follows:</p>
 <ul>
 <li>Install the ODBC driver with Service Desk Ticket.
 <ul>
+<li>You will want to <a href="https://www.postgresql.org/ftp/odbc/releases/">download the most recent driver</a>.Click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version.</li>
 <li>If you have a new laptop or VM, you will need to submit a Service Desk Ticket. I recommend you work through the remaining steps with OFIS to ensure the correct driver was installed.</li>
 <li>If you already have this installed (which all staff as of 9/1/2026 do based on past usage of the PEP database), skip to the next step. You do not need to work with OFIS to add the data source.</li>
 </ul></li>
-<li>In the ODBC Data Source Administrator (64-bit), click “Add…”.</li>
+<li>From the start menu, open the ODBC Data Source Administrator (64-bit), click “Add…”.</li>
 <li>In the list of drivers available, select “PostgreSQL Unicode(x64)” and click Finish.</li>
 <li>In the PostgreSQL Unicode ODBC Driver (psqlODBC) Setup, enter the following details:
 <ul>
 <li>Data Source: mml_pep</li>
+<li>Description: (leave blank)</li>
 <li>Database: mml_pep</li>
 <li>SSL Mode: allow</li>
 <li>Server: afsc.postgres.prod.nmfs.local</li>
@@ -556,35 +629,62 @@ ul.task-list li input[type="checkbox"] {
 <li>Password: your password</li>
 </ul></li>
 <li>Before saving, click “Test” to confirm the connection to the database.</li>
-<li>Click “Save” and clost the window.</li>
+<li>Click “Save” and close the window.</li>
 </ul>
-<p>Once configured, you can open any of the program databases and should no longer need to enter your user name and password each time. Hooray!</p>
-<p>If you have a database connection to the old, internal PEP database (pep), delete that from the ODBC connections list.</p>
+<p>Once configured, you can open any of the program databases and should no longer need to enter your user name and password each time. Hooray! If you are not experiencing this, you might need to update to a newer version of the ODBC driver.</p>
+<p>ONLY AFTER WE MIGRATE THE PEP DASHBOARD: If you have a database connection to the old, internal PEP database (pep), delete that from the ODBC connections list.</p>
 </section>
 <section id="connect-from-r" class="level4">
 <h4 class="anchored" data-anchor-id="connect-from-r">Connect from R</h4>
 <p>To connect to the PEP database from R, there are two different steps:</p>
 <ol type="1">
-<li>First is creating a .Renviron file to store the connection details to the database. This only needs to be done once.
+<li>First, create an .Renviron file to store the connection details to the database. This only needs to be done once.
 <ol type="a">
 <li>Create a new text file in your Documents folder on your laptop (typically in C:.LastName) named “.Renviron”. There will be no file name and the file extension is Renviron (weird, I know).</li>
 <li>Open the file in a text editor (Notepad or Notepad++).</li>
-<li>Enter the following details: mml_pep_ip = afsc.postgres.prod.nmfs.local mml_pep_port = 5432 mml_pep_db = mml_pep mml_pep_user = your user name (as provided) mml_pep_user_pw = your password (as provided)</li>
-<li>Save the file.</li>
-</ol></li>
-<li>Second is connecting to the database during an R working session.
-<ol type="a">
-<li>Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)</li>
-<li>Use the following code to create a connection to the DB using the details in your .Renviron file: con &lt;- RPostgres::dbConnect(Postgres(), host = Sys.getenv(“mml_pep_ip”), port = Sys.getenv(“mml_pep_port”), dbname = Sys.getenv(“mml_pep_db”), user = Sys.getenv(“mml_pep_user”), password = Sys.getenv(“mml_pep_user_pw”), sslmode = “require”)</li>
-<li>Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example: data &lt;- RPostgres::dbGetQuery(con, “SELECT * FROM administrative.tbl_activity_plans”) will return all details for PEP activity plans stored in the database.</li>
+<li>Enter the following details and save the file.</li>
 </ol></li>
 </ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mml_pep_ip <span class="ot">=</span> afsc.postgres.prod.nmfs.local</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mml_pep_port <span class="ot">=</span> <span class="dv">5432</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mml_pep_db <span class="ot">=</span> mml_pep</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mml_pep_user <span class="ot">=</span> your user <span class="fu">name</span> (as provided)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mml_pep_user_pw <span class="ot">=</span> your <span class="fu">password</span> (as provided)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>Second, connect to the database during an R working session. You will need to do this each time you connect to the database. The following steps are required:
+<ol type="a">
+<li>Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)</li>
+<li>Use the following code to create a connection to the DB using the details in your .Renviron file:</li>
+</ol></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RPostgres)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> RPostgres<span class="sc">::</span><span class="fu">dbConnect</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Postgres</span>(),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">host =</span> <span class="fu">Sys.getenv</span>(<span class="st">"mml_pep_ip"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">port =</span> <span class="fu">Sys.getenv</span>(<span class="st">"mml_pep_port"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dbname =</span> <span class="fu">Sys.getenv</span>(<span class="st">"mml_pep_db"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">user =</span> <span class="fu">Sys.getenv</span>(<span class="st">"mml_pep_user"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"mml_pep_user_pw"</span>) <span class="co">#,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">sslmode =</span> <span class="st">"require"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>c. Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example, the following code will return all details for PEP activity plans stored in the database.</code></pre>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> RPostgres<span class="sc">::</span><span class="fu">dbGetQuery</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  con,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SELECT * FROM administrative.tbl_activity_plans"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="connect-from-qgis" class="level4">
 <h4 class="anchored" data-anchor-id="connect-from-qgis">Connect from QGIS</h4>
 <p>To view spatial data stored in the PEP database:</p>
 <ul>
-<li>Right click PostgreSQL in the Browser window, and select “New Connection…”</li>
+<li>Open QGIS.</li>
+<li>Right click “PostgreSQL” in the Browser window, and select “New Connection…”. <em><strong>NOTE:</strong> If you see “PostGIS” instead of “PostgreSQL”, you need to submit a Service Desk Ticket to update your version of QGIS. You should be working with QGIS 3.28 or higher.</em></li>
 <li>In the Create a New PostGIS Connection window, specify the following options:
 <ul>
 <li>Name: mml_pep</li>
@@ -603,32 +703,59 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="connection-from-arcgis" class="level4">
 <h4 class="anchored" data-anchor-id="connection-from-arcgis">Connection from ArcGIS</h4>
-<p>In ArcCatalog in the Catalog Tree, navigate to the “Database Connections” OR in ArcPro under Insert/Connections. Select “Add Database Connection”. In the pop-up window, select or enter the following details: Database Platform: PostgreSQL Instance: afsc.postgres.prod.nmfs.local Authentication Type: Database authentication User name: your user name (as provided) Password: your password (as provided) Save user name and password: OK to save! Database: mml_pep</p>
-<p>Once connected, you can view all data and add spatial data to your maps!</p>
+<p>To view spatial data stored in the PEP database in ArcGIS, you will need to create a database connection. This can be done in ArcCatalog or ArcPro:</p>
+<ul>
+<li>In ArcCatalog in the Catalog Tree, navigate to the “Database Connections” OR in ArcPro under Insert/Connections. Select “Add Database Connection”.</li>
+<li>In the pop-up window, select or enter the following details:
+<ul>
+<li>Database Platform: PostgreSQL</li>
+<li>Instance: afsc.postgres.prod.nmfs.local</li>
+<li>Authentication Type: Database authentication</li>
+<li>User name: your user name (as provided)</li>
+<li>Password: your password (as provided)</li>
+<li>Save user name and password: OK to save!</li>
+<li>Database: mml_pep</li>
+</ul></li>
+<li>Once connected, you can view all data and add spatial data to your maps.</li>
+</ul>
+<p>Do not make any changes to the spatial data from ArcGIS software. QGIS is our authoritative software for editing spatial data.</p>
 </section>
-</section>
-<section id="cost-of-storage" class="level3">
-<h3 class="anchored" data-anchor-id="cost-of-storage">Cost of Storage</h3>
-<p>A new thing with storing all our data in the cloud FINISH!</p>
 </section>
 </section>
 <section id="frequently-used-program-wide-tools" class="level2">
 <h2 class="anchored" data-anchor-id="frequently-used-program-wide-tools">Frequently Used Program-wide Tools</h2>
 <section id="pep-dashboard" class="level3">
 <h3 class="anchored" data-anchor-id="pep-dashboard">PEP Dashboard</h3>
-<p>The PEP dashboard is a schema (administrative) within the PEP PostgreSQL database that is used for tracking the roles of staff on projects and associated timelines and for entering responsibilities into the PAWS performance planning system. For more information: - Documentation (need link) - <a href="https://htmlpreview.github.io/?https://github.com/staciekoslovsky-noaa/PEP_Dashboard/blob/main/SchedulingReport/SchedulingReport.html">Weekly report</a> - Contact M. Cameron</p>
+<p>The PEP dashboard is a schema (administrative) within the PEP PostgreSQL database that is used for tracking the roles of staff on projects and associated timelines and for entering responsibilities into the PAWS performance planning system. For more information:</p>
+<ul>
+<li>Documentation (need link)</li>
+<li><a href="https://htmlpreview.github.io/?https://github.com/staciekoslovsky-noaa/PEP_Dashboard/blob/main/SchedulingReport/SchedulingReport.html">Weekly report</a></li>
+<li>Contact M. Cameron</li>
+</ul>
 </section>
 <section id="inventory-database" class="level3">
 <h3 class="anchored" data-anchor-id="inventory-database">Inventory Database</h3>
-<p>This database is a schema (inventory) within the PEP PostgreSQL database and tracks inventory of gear and supplies used by staff in PEP for projects. For more information: - Documentation (need link) - Contact H. Ziel</p>
+<p>This database is a schema (inventory) within the PEP PostgreSQL database and tracks inventory of gear and supplies used by staff in PEP for projects. For more information:</p>
+<ul>
+<li>Documentation (need link)</li>
+<li>Contact H. Ziel</li>
+</ul>
 </section>
 <section id="extensis-portfolio" class="level3">
 <h3 class="anchored" data-anchor-id="extensis-portfolio">Extensis Portfolio</h3>
-<p>Extensis Portfolio is software used for tagging and querying images taken during PEP projects. For more information: - Documentation (need link) - Contact S. Walcott</p>
+<p>Extensis Portfolio is software used for tagging and querying images taken during PEP projects. For more information:</p>
+<ul>
+<li>Documentation (need link)</li>
+<li>Contact S. Walcott</li>
+</ul>
 </section>
 <section id="endnotezotero" class="level3">
 <h3 class="anchored" data-anchor-id="endnotezotero">EndNote/Zotero</h3>
-<p>EndNote and Zotero house the PEP central library of journal articles, reports and other references. For more information: - Documentation (need link) - Contact S. Walcott</p>
+<p>EndNote and Zotero house the PEP central library of journal articles, reports and other references. For more information:</p>
+<ul>
+<li>Documentation (need link)</li>
+<li>Contact S. Walcott</li>
+</ul>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – PEP Data Management Plan</title>
+<title>pep_storage – PEP Data Management Plan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/pep_storage.html">PEP Data Storage</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../content/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/pep_storage.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_storage.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PEP Data Storage</span></a>
   </div>
 </li>
@@ -164,19 +164,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective">Objective</a>
+  <li><a href="#pep-data-storage" id="toc-pep-data-storage" class="nav-link active" data-scroll-target="#pep-data-storage">PEP Data Storage</a>
   <ul>
-  <li><a href="#main-sections" id="toc-main-sections" class="nav-link" data-scroll-target="#main-sections">Main sections</a>
+  <li><a href="#individual-storage" id="toc-individual-storage" class="nav-link" data-scroll-target="#individual-storage">Individual Storage</a>
   <ul class="collapse">
-  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#pep-data-storage" id="toc-pep-data-storage" class="nav-link" data-scroll-target="#pep-data-storage">PEP Data Storage</a></li>
-  <li><a href="#pep-database" id="toc-pep-database" class="nav-link" data-scroll-target="#pep-database">PEP Database</a></li>
-  <li><a href="#pep-onboarding" id="toc-pep-onboarding" class="nav-link" data-scroll-target="#pep-onboarding">PEP Onboarding</a></li>
-  <li><a href="#staff-engagement" id="toc-staff-engagement" class="nav-link" data-scroll-target="#staff-engagement">Staff Engagement</a></li>
-  <li><a href="#offboarding" id="toc-offboarding" class="nav-link" data-scroll-target="#offboarding">Offboarding</a></li>
+  <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a>
+  <ul class="collapse">
+  <li><a href="#laptop" id="toc-laptop" class="nav-link" data-scroll-target="#laptop">Laptop</a></li>
+  <li><a href="#google-drive" id="toc-google-drive" class="nav-link" data-scroll-target="#google-drive">Google Drive</a></li>
   </ul></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul></li>
+  <li><a href="#pep-storage-overview" id="toc-pep-storage-overview" class="nav-link" data-scroll-target="#pep-storage-overview">PEP Storage Overview</a></li>
+  <li><a href="#pep-google-shared-drives" id="toc-pep-google-shared-drives" class="nav-link" data-scroll-target="#pep-google-shared-drives">PEP Google Shared Drives</a>
+  <ul class="collapse">
+  <li><a href="#backuprecovery-procedures-1" id="toc-backuprecovery-procedures-1" class="nav-link" data-scroll-target="#backuprecovery-procedures-1">Backup/Recovery Procedures</a></li>
+  </ul></li>
+  <li><a href="#pep-google-cloud-platform" id="toc-pep-google-cloud-platform" class="nav-link" data-scroll-target="#pep-google-cloud-platform">PEP Google Cloud Platform</a>
+  <ul class="collapse">
+  <li><a href="#afsc_mml_pep-bucket" id="toc-afsc_mml_pep-bucket" class="nav-link" data-scroll-target="#afsc_mml_pep-bucket">afsc_mml_pep Bucket</a>
+  <ul class="collapse">
+  <li><a href="#environmental-covariates-finish" id="toc-environmental-covariates-finish" class="nav-link" data-scroll-target="#environmental-covariates-finish">Environmental Covariates FINISH</a></li>
+  </ul></li>
+  <li><a href="#pep_storage-bucket" id="toc-pep_storage-bucket" class="nav-link" data-scroll-target="#pep_storage-bucket">pep_storage Bucket</a></li>
+  <li><a href="#backuprecovery-procedures-2" id="toc-backuprecovery-procedures-2" class="nav-link" data-scroll-target="#backuprecovery-procedures-2">Backup/Recovery Procedures</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -187,47 +198,212 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="objective" class="level1">
-<h1>Objective</h1>
-<p>Welcome to the Polar Ecosystems Program (PEP; pronounced both as P-E-P and pep) Data Management Plan. The objective of this document is to outline and implement consistent information management procedures for PEP data.</p>
-<section id="main-sections" class="level2">
-<h2 class="anchored" data-anchor-id="main-sections">Main sections</h2>
-<p>Choose a section from the sidebar, or start here:</p>
-<section id="basics" class="level3">
-<h3 class="anchored" data-anchor-id="basics"><a href="../content/basics.html">Basics</a></h3>
-<p>Introduces core data management principles, file naming practices, and general expectations for organizing and documenting data.</p>
+<section id="pep-data-storage" class="level1">
+<h1>PEP Data Storage</h1>
+<p>This section details what PEP information is stored where within the cloud. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with data in these various locations.</p>
+<section id="individual-storage" class="level2">
+<h2 class="anchored" data-anchor-id="individual-storage">Individual Storage</h2>
+<p>The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your <strong>laptop</strong> or individual <strong>Google Drive</strong> (“My Drive”). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to <a href="../content/basics.html">Basics</a> for suggestions for file naming and folder organization.</p>
+<section id="backuprecovery-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h3>
+<section id="laptop" class="level4">
+<h4 class="anchored" data-anchor-id="laptop">Laptop</h4>
+<p>Your laptop needs to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under “Computers” in the left navigation pane).</p>
 </section>
-<section id="workflow" class="level3">
-<h3 class="anchored" data-anchor-id="workflow"><a href="../content/workflow.html">Workflow</a></h3>
-<p>Describes the data management lifecycle, including planning, collection, processing, analysis, sharing, and evaluation.</p>
-</section>
-<section id="pep-data-storage" class="level3">
-<h3 class="anchored" data-anchor-id="pep-data-storage"><a href="../content/pep_storage.html">PEP Data Storage</a></h3>
-<p>Explains where PEP data should be stored, how shared storage is organized, and how data are accessed.</p>
-</section>
-<section id="pep-database" class="level3">
-<h3 class="anchored" data-anchor-id="pep-database"><a href="../content/pep_database.html">PEP Database</a></h3>
-<p>Summarizes the PEP PostgreSQL database structure, naming conventions, and access methods.</p>
-</section>
-<section id="pep-onboarding" class="level3">
-<h3 class="anchored" data-anchor-id="pep-onboarding"><a href="../content/pep_onboarding.html">PEP Onboarding</a></h3>
-<p>Lists software requirements, recommended tools, and orientation information for PEP staff.</p>
-</section>
-<section id="staff-engagement" class="level3">
-<h3 class="anchored" data-anchor-id="staff-engagement"><a href="../content/staff_engagement.html">Staff Engagement</a></h3>
-<p>Describes best practices for working with one another with respect to data management and workflow development/implentation.</p>
-</section>
-<section id="offboarding" class="level3">
-<h3 class="anchored" data-anchor-id="offboarding">Offboarding</h3>
-<p>Details related to staff departures will be added later.</p>
+<section id="google-drive" class="level4">
+<h4 class="anchored" data-anchor-id="google-drive">Google Drive</h4>
+<p>The files you store on Google Drive are backed up using Google specifications:</p>
+<ul>
+<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
+<ul>
+<li>For G-suite files can be viewed within the file (File/Version History).</li>
+<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
+<ul>
+<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
+<li>Click File informationversions.</li>
+<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
+</ul></li>
+</ul></li>
+<li>To recover files, you need to act quickly:
+<ul>
+<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
+<li>After 30 days, the file can no longer be recovered.</li>
+</ul></li>
+</ul>
 </section>
 </section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>This document was originally created in 2018, migrated to Quarto in 2024, and substantially overhauled in 2026 (at the time of the migration of files and the PEP database to the cloud). The PEP data management plan is updated as workflows and requirements evolve.</p>
-<p>This document was last updated on <code>r Sys.Date()</code>.</p>
+</section>
+<section id="pep-storage-overview" class="level2">
+<h2 class="anchored" data-anchor-id="pep-storage-overview">PEP Storage Overview</h2>
+<p>Generally speaking, all original data and supplemental information to data collection are stored in a program storage resource.</p>
+<p>In 2026, all files were migrated from the LAN (local network) to the cloud. PEP has data stored in two locations: Google Shared Drive and Google Cloud Platform. The following flow chart provides general guidelines for what can be found where: <img src="../images/what_where01.png" class="img-fluid quarto-figure quarto-figure-center"> <img src="../images/what_where02.png" class="img-fluid quarto-figure quarto-figure-center"></p>
+<p>PEP also has access to a traditional Windows File Server in the cloud (“X Drive”). The use of this resource is at an extremely high cost. No specific use for this resource has been identified for PEP at this time; the data management plan will be updated to reflect any changes to this in the future.</p>
+</section>
+<section id="pep-google-shared-drives" class="level2">
+<h2 class="anchored" data-anchor-id="pep-google-shared-drives">PEP Google Shared Drives</h2>
+<p>Google Shared Drives might also be referenced as “GSD” or “Shared Drives”. Each Google Shared Drive has a 500k item limit (folders and files), so PEP has a number of Shared Drives to store information:</p>
+<ul>
+<li><strong>NMFS MML PEP</strong>
+<ul>
+<li>\ProgramMgmt – will store budget, library, permit, etc. information</li>
+<li>\ResearchProducts
+<ul>
+<li>\Manuscripts: subfolders or pdfs should be named YYYY_Author_Subject</li>
+<li>\Presentations: final presentations should be named YYYY_Author_Subject</li>
+<li>\Reports: subfolders or pdfs should be named YYYY_ Subject</li>
+<li>\WorkshopsAndConferences: subfolders or pdfs should be named YYYY_Author_Subject</li>
+</ul></li>
+</ul></li>
+<li><strong>NMFS MML PEP Data</strong>
+<ul>
+<li>Will store files related to data collection and creating final datasets for projects as detailed by the workflow above</li>
+<li>Each folder should be a project name, but we do not want too many files to clutter up this location such that it becomes hard to find project data; folders are likely to rarely be added the root directory</li>
+<li>Manuals or other workflow documentation may be stored here (or in NMFS MML PEP Projects), depending on the project</li>
+</ul></li>
+<li><strong>NMFS MML PEP Field Photos</strong>
+<ul>
+<li>\Field_Photos – Portfolio monitors this folder for new images</li>
+<li>\Field_Video – Portfolio monitors this folder for new videos</li>
+<li>\Inbox</li>
+<li>\PhotoConsentForms – contains consent forms</li>
+<li>\Portfolio</li>
+<li>\Portfolio_Previews</li>
+</ul></li>
+<li><strong>NMFS MML PEP Legacy Projects</strong>
+<ul>
+<li>Stores older project planning and data files that need to be kept for long-term storage, but were not broken out into the new structure</li>
+<li>Subfolders should be named YYYY-YYYY_ProjectName (as appropriate).</li>
+</ul></li>
+<li><strong>NMFS MML PEP Legacy Users A-M</strong> - files that PEP is retaining from previous staff for archival purposes (last names A-M)</li>
+<li><strong>NMFS MML PEP Legacy Users N-Z</strong> - files that PEP is retaining from previous staff for archival purposes (last names N-Z)</li>
+<li><strong>NMFS MML PEP Projects 1</strong>
+<ul>
+<li>Stores files, maps and other information related to field operations (e.g.&nbsp;a folder for coastal harbor seal surveys would include maps for the plane, instructions for the field season, etc.)</li>
+<li>Subfolders should be named in the following format: YYYY_Region_Species_Platform (e.g.&nbsp;2018_BeringSea_IceSeal_DysonCruise)</li>
+<li>Manuals or other workflow documentation may be stored here (or in NMFS MML PEP Data), depending on the project</li>
+</ul></li>
+<li><strong>NMFS MML PEP Survey Harbor Seal Coastal</strong> - stores counted images/annotation files + other project information</li>
+<li><strong>NMFS MML PEP Survey Harbor Seal Glacial</strong> - stores counted images/annotation files + other project information</li>
+<li><strong>NMFS MML PEP Survey Ice Seal</strong> - stores files/data associated with multiple ice seal survey efforts (e.g.&nbsp;annotations, species misclassification)</li>
+<li><strong>NMFS MML PEP Survey Ice Seal Projects 1/2/3</strong> - stores files/data associated with individual ice seal survey efforts (e.g.&nbsp;surveys_ice_seals_2016); data are ordered chronologically across the multiple project folders</li>
+</ul>
+<section id="backuprecovery-procedures-1" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures-1">Backup/Recovery Procedures</h3>
+<p>The files you store on Google Drive are backed up using Google specifications:</p>
+<ul>
+<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
+<ul>
+<li>For G-suite files can be viewed within the file (File/Version History).</li>
+<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
+<ul>
+<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
+<li>Click File informationversions.</li>
+<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
+</ul></li>
+</ul></li>
+<li>To recover files, you need to act quickly:
+<ul>
+<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
+<li>From days 31-55, you can submit a service desk ticket to get support recovering the file.</li>
+<li>After 55 days, the file can no longer be recovered.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="pep-google-cloud-platform" class="level2">
+<h2 class="anchored" data-anchor-id="pep-google-cloud-platform">PEP Google Cloud Platform</h2>
+<p>Google Cloud Platform might also be referenced as “GCP” or “bucket(s)”. PEP currently has access to two bucket locations: afsc_mml_pep and pep_storage. These buckets are stored within the ggn-nmfs-afscinf-infra-01 project or within the aliased nmfs-trusted-images project. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with data in buckets.</p>
+<p>Authentication for bucket access is now limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long FINISH</p>
+<p>Once data have been uploaded a bucket, they are difficult to modify! There are known changes that will likely happen with KAMERA-collected data after returning from the field (i.e.&nbsp;running post-processing), but our plan should be to only archive data to the cloud when we are confident they are formatted correctly.</p>
+<section id="afsc_mml_pep-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="afsc_mml_pep-bucket">afsc_mml_pep Bucket</h3>
+<p>The data stored in the afsc_mml_pep bucket:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Bucket Folder</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>environ</strong></td>
+<td>contains data downloaded from other sources that are used primarily as environmental covariates for ice seal survey analyses</td>
+</tr>
+<tr class="even">
+<td><strong>kamera_calibration</strong></td>
+<td>images and associated data products for generating KAMERA calibration files</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_harbor_seals_coastal</strong></td>
+<td>original images for coastal harbor seal surveys (including datasheets and GPS tracklines)</td>
+</tr>
+<tr class="even">
+<td><strong>survey_harbor_seals_glacial</strong></td>
+<td>original images for glacial harbor seal surveys (including datasheets and GPS tracklines)</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_harbor_seals_uas_2023</strong></td>
+<td>images collected during 2023 USPAI survey</td>
+</tr>
+<tr class="even">
+<td><strong>survey_ice_seals_2012</strong></td>
+<td>images collected during 2012 BOSS survey</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_ice_seals_2013</strong></td>
+<td>images collected during 2013 BOSS survey</td>
+</tr>
+<tr class="even">
+<td><strong>survey_ice_seals_2016</strong></td>
+<td>images collected during 2016 ChESS survey</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_ice_seals_2019_test</strong></td>
+<td>images collected during testing of the KAMERA system in 2019 in Kotzebue (these images were later processed for ice seals)</td>
+</tr>
+<tr class="even">
+<td><strong>survey_ice_seals_2021</strong></td>
+<td>images collected during 2021 JoBSS survey</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_ice_seals_2024_test</strong></td>
+<td>images collected during testing of the KAMERA system in the King Air in 2024 in Nome</td>
+</tr>
+<tr class="even">
+<td><strong>survey_ice_seals_2025</strong></td>
+<td>images collected during 2025 Ice Seals survey</td>
+</tr>
+<tr class="odd">
+<td><strong>survey_polar_bear</strong></td>
+<td>images collected of polar bears from a variety of locations (including PEP effort in 2019 in Deadhorse)</td>
+</tr>
+<tr class="even">
+<td><strong>test_imagery</strong></td>
+<td>images collected from flights testing equipment and image processing</td>
+</tr>
+</tbody>
+</table>
+<p>There are likely items that need to be better organized and/or cleaned up. Coordinate with S. Koslovsky to support reorg/transfers. Most of PEP has read-only access to the data in this location. Contact S. Koslovsky if you need different permissions.</p>
+<section id="environmental-covariates-finish" class="level4">
+<h4 class="anchored" data-anchor-id="environmental-covariates-finish">Environmental Covariates FINISH</h4>
+<p>*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.</p>
+</section>
+</section>
+<section id="pep_storage-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="pep_storage-bucket">pep_storage Bucket</h3>
+<p>PEP has a working bucket space for analytics: pep_storage. Coordinate with J. London for access and usage.</p>
+</section>
+<section id="backuprecovery-procedures-2" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures-2">Backup/Recovery Procedures</h3>
+<p>Data are backed up based on AFSC back-up and recovery procedures: - 30 days “soft delete” (i.e.&nbsp;recycle bin) - Versioning: keep the most recent 5 versions of a file - Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data) - Our data will move between hot and almost as hot classes - Data will not go down to the coldest data classes because of cost to move between tiers - We can evaluate options in time to move our least access data to archival cold buckets where it will require a service desk ticket for access - Disaster Recovery Snapshots (i.e.&nbsp;copies stored elsewhere) - Monthly snapshots for 12 months - Annual snapshots for 7 years</p>
 
 
+</section>
 </section>
 </section>
 

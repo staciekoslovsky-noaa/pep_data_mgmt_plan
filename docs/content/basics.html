@@ -132,20 +132,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/storage.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_storage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PEP Data Storage</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/database.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_database.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PEP Database</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/onboarding.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/pep_onboarding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Onboarding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/staff_engagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Staff Engagement</span></a>
   </div>
 </li>
     </ul>
@@ -159,12 +165,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#foundations-to-data-management" id="toc-foundations-to-data-management" class="nav-link" data-scroll-target="#foundations-to-data-management">Foundations to Data Management</a></li>
   <li><a href="#general-guidelines" id="toc-general-guidelines" class="nav-link" data-scroll-target="#general-guidelines">General Guidelines</a>
   <ul class="collapse">
+  <li><a href="#create-folders-with-a-top-down-hierarchy" id="toc-create-folders-with-a-top-down-hierarchy" class="nav-link" data-scroll-target="#create-folders-with-a-top-down-hierarchy">Create folders with a top-down hierarchy</a></li>
+  <li><a href="#create-and-maintain-metadata-documentation-for-your-files" id="toc-create-and-maintain-metadata-documentation-for-your-files" class="nav-link" data-scroll-target="#create-and-maintain-metadata-documentation-for-your-files">Create and maintain metadata documentation for your files</a></li>
+  <li><a href="#apply-clean-and-logical-naming-conventions-to-your-files" id="toc-apply-clean-and-logical-naming-conventions-to-your-files" class="nav-link" data-scroll-target="#apply-clean-and-logical-naming-conventions-to-your-files">Apply clean and logical naming conventions to your files</a>
+  <ul class="collapse">
   <li><a href="#three-principles-for-file-naming" id="toc-three-principles-for-file-naming" class="nav-link" data-scroll-target="#three-principles-for-file-naming">Three Principles for File Naming</a></li>
   <li><a href="#file-naming-examples" id="toc-file-naming-examples" class="nav-link" data-scroll-target="#file-naming-examples">File Naming Examples</a></li>
+  </ul></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -180,60 +191,68 @@ ul.task-list li input[type="checkbox"] {
 <h1>Overview</h1>
 <p>Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff (and others) in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current and future users. This includes:</p>
 <ul>
-<li><p>Keeping files organized and up-to-date;</p></li>
-<li><p>Storing data in machine-readable, human-readable, and tidy formats;</p></li>
-<li><p>Documenting information about the files and the process(es) for creating the files;</p></li>
-<li><p>Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g.&nbsp;intermediate files, outdated information); and</p></li>
-<li><p>Sharing data with the public and interested partners.</p></li>
+<li>Keeping files organized and up-to-date;</li>
+<li>Storing data in machine-readable, human-readable, and tidy formats;</li>
+<li>Documenting information about the files and the process(es) for creating the files;</li>
+<li>Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g.&nbsp;intermediate files, outdated information); and</li>
+<li>Sharing data with the public and interested partners.</li>
 </ul>
 <section id="foundations-to-data-management" class="level2">
 <h2 class="anchored" data-anchor-id="foundations-to-data-management">Foundations to Data Management</h2>
 <p>A recently-ish published paper in PLOS ONE, <a href="https://arxiv.org/pdf/1609.00037.pdf">Good Enough Practices in Scientific Computing</a>, provides a thorough overview of best practices and workflows for managing scientific data. While some of the focus is out of our scope, a few key principles in the data management section are worth focusing on:</p>
 <ol type="1">
-<li><p><strong>Create the data you wish to see in the world</strong>. The original, raw data collected in the field or offloaded from sensors is rarely the data type and quality of data we would like to share with the world and have our names associated with. Data formats, data organization, column names, value data types and formats (e.g.&nbsp;date-time) can all be transformed and improved into higher quality forms. The better formed the data are, the easier subsequent analyses will be, the more reproducible our science will be, and the more likely it is that others will find use in our data.</p></li>
-<li><p><strong>Create analysis-friendly (e.g.&nbsp;tidy) data</strong>. In many cases, analysis-friendly data will be equivalent to the data you wish to see in the world. The key principle at play here is that of “tidy” data. Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf">2014 manuscript</a> does an excellent job outlining the ideal structure of tidy data.</p>
-<ol type="1">
-<li><p>The key components of tidy data are:</p>
+<li><strong>Create the data you wish to see in the world</strong>. The original, raw data collected in the field or offloaded from sensors is rarely the data type and quality of data we would like to share with the world and have our names associated with. Data formats, data organization, column names, value data types and formats (e.g.&nbsp;date-time) can all be transformed and improved into higher quality forms. The better formed the data are, the easier subsequent analyses will be, the more reproducible our science will be, and the more likely it is that others will find use in our data.</li>
+<li><strong>Create analysis-friendly (e.g.&nbsp;tidy) data</strong>. In many cases, analysis-friendly data will be equivalent to the data you wish to see in the world. The key principle at play here is that of “tidy” data. Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf">2014 manuscript</a> does an excellent job outlining the ideal structure of tidy data.
 <ol type="a">
-<li><p>Each variable forms a column.</p></li>
-<li><p>Each observation forms a row.</p></li>
-<li><p>Each type of observational unit forms a table.</p></li>
+<li>The key components of tidy data are:
+<ol type="i">
+<li>Each variable forms a column.</li>
+<li>Each observation forms a row.</li>
+<li>Each type of observational unit forms a table.</li>
 </ol></li>
-<li><p>Not only are these principles important for analyzing data in programming languages (such as R or Python), they are also key components to a well-organized database. Organizing data in this way will allow easier ingestion into a database; once your data are in a central database, the more tools for exploring and analyzing your data will be available.</p></li>
+<li>Not only are these principles important for analyzing data in programming languages (such as R or Python), they are also key components to a well-organized database. Organizing data in this way will allow easier ingestion into a database; once your data are in a central database, the more tools for exploring and analyzing your data will be available.</li>
 </ol></li>
-<li><p><strong>Record all the steps used to process data</strong>. Embracing scripts developed in a programming language (such as R or Python) is essential to providing a robust, reproducible workflow for your data. With large, complex datasets, manually processing data via mouse clicks and spreadsheet-centric workflows are often time-consuming and difficult to reproduce. As part of the planning process for the PEP data management workflow, we will evaluate existing data management processes and identify ways to simplify and automate existing or new steps.</p></li>
+<li><strong>Record all the steps used to process data</strong>. Embracing scripts developed in a programming language (such as R or Python) is essential to providing a robust, reproducible workflow for your data. With large, complex datasets, manually processing data via mouse clicks and spreadsheet-centric workflows are often time-consuming and difficult to reproduce. As part of the planning process for the data management workflow, we will evaluate existing data management processes and identify ways to simplify and automate existing or new steps.</li>
 </ol>
 </section>
 <section id="general-guidelines" class="level2">
 <h2 class="anchored" data-anchor-id="general-guidelines">General Guidelines</h2>
-<p><strong>Create folders with a top-down hierarchy</strong>, i.e.&nbsp;folders should get more specific as you get deeper into folder organization. This will make long-term organization more efficient, will consolidate files to a layout that will be easy for others to interpret, and will improve information transfer among staff.</p>
-<p><strong>Create and maintain metadata documentation for your files</strong>.&nbsp;These can be shorter documents describing the files within a specific folder or longer documents describing the work that went into creating each of the files. The complexity of each file/folder dictates the level of detail that should be documented in the metadata. This level of metadata can be most simply managed using a word document or a text file.</p>
-<p><strong>Apply clean and logical naming conventions to your files</strong>. Name and organize your files in such a way that you know what they mean at 3 am (or in a crunch)!</p>
-<section id="three-principles-for-file-naming" class="level3">
-<h3 class="anchored" data-anchor-id="three-principles-for-file-naming">Three Principles for File Naming</h3>
+<section id="create-folders-with-a-top-down-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="create-folders-with-a-top-down-hierarchy">Create folders with a top-down hierarchy</h3>
+<p>Folders should get more specific as you get deeper into folder organization. This will make long-term organization more efficient, will consolidate files to a layout that will be easy for others to interpret, and will improve information transfer among staff.</p>
+</section>
+<section id="create-and-maintain-metadata-documentation-for-your-files" class="level3">
+<h3 class="anchored" data-anchor-id="create-and-maintain-metadata-documentation-for-your-files">Create and maintain metadata documentation for your files</h3>
+<p>These can be shorter documents describing the files within a specific folder or longer documents describing the work that went into creating each of the files. The complexity of each file/folder dictates the level of detail that should be documented in the metadata. This level of metadata can be most simply managed using a word document or a text file.</p>
+</section>
+<section id="apply-clean-and-logical-naming-conventions-to-your-files" class="level3">
+<h3 class="anchored" data-anchor-id="apply-clean-and-logical-naming-conventions-to-your-files">Apply clean and logical naming conventions to your files</h3>
+<p>Name and organize your files in such a way that you know what they mean at 3 am (or in a crunch)!</p>
+<section id="three-principles-for-file-naming" class="level4">
+<h4 class="anchored" data-anchor-id="three-principles-for-file-naming">Three Principles for File Naming</h4>
 <ul>
-<li><p><strong>Human readable</strong></p>
+<li><strong>Human readable</strong>
 <ul>
-<li><p>File names are easy to understand by anyone, not just you.</p></li>
-<li><p>Using versioning (when appropriate) to track different versions of your files (dates are a great way to do this).</p></li>
-<li><p>Keep file names as short as possible.</p></li>
+<li>File names are easy to understand by anyone, not just you.</li>
+<li>Using versioning (when appropriate) to track different versions of your files (dates are a great way to do this).</li>
+<li>Keep file names as short as possible.</li>
 </ul></li>
-<li><p><strong>Machine readable</strong></p>
+<li><strong>Machine readable</strong>
 <ul>
-<li><p>Avoid spaces, punctuation, accented characters.</p></li>
-<li><p>Case-sensitivity!</p></li>
-<li><p>Deliberately use of delimiters (e.g._ - .) instead of spaces.</p></li>
+<li>Avoid spaces, punctuation, accented characters.</li>
+<li>Case-sensitivity!</li>
+<li>Deliberately use of delimiters (e.g._ - .) instead of spaces.</li>
 </ul></li>
-<li><p><strong>Orders logically</strong></p>
+<li><strong>Orders logically</strong>
 <ul>
-<li><p>Name files from most general to most specific, so similar items cluster together when sorted by name and are easy to read (e.g.&nbsp;HarborSeal_Locations and HarborSeal_Polygons).</p></li>
-<li><p>YYYY-MM-DD sorts better than DD-MMM-YYYY.</p></li>
-<li><p>Use leading zeroes! (e.g.&nbsp;01, 02, 10 – instead of 1, 2, 10).</p></li>
+<li>Name files from most general to most specific, so similar items cluster together when sorted by name and are easy to read (e.g.&nbsp;HarborSeal_Locations and HarborSeal_Polygons).</li>
+<li>YYYY-MM-DD sorts better than DD-MMM-YYYY.</li>
+<li>Use leading zeroes! (e.g.&nbsp;01, 02, 10 – instead of 1, 2, 10).</li>
 </ul></li>
 </ul>
 </section>
-<section id="file-naming-examples" class="level3">
-<h3 class="anchored" data-anchor-id="file-naming-examples">File Naming Examples</h3>
+<section id="file-naming-examples" class="level4">
+<h4 class="anchored" data-anchor-id="file-naming-examples">File Naming Examples</h4>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -270,6 +289,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</section>
 </section>
 </section>
 </section>

@@ -1,0 +1,78 @@
+# PEP Database
+
+This section details what PEP information is stored where within the cloud. See [PEP Onboarding](pep_onboarding.qmd) for more information about how to work with the PEP database.
+
+## Overview
+
+General information about the PEP database
+
+-   All staff will have read-only access to all data. 
+-   Staff will only have read-write access to the data they are required to edit.
+-   There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. **Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.**
+-   QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS. ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB.
+
+## Connection Details
+-   Database name = mml_pep
+-   Local host = afsc.postgres.prod.nmfs.local (use this to connect)
+-   IP address = 10.27.26.20 (for reference; use only if necessary)
+-   Port = 5432
+-   As a managed cloud-based database, the SSL mode needs to be set to require or allow depending on the context. More details in [PEP Onboarding](pep_onboarding.qmd).
+
+## Current Schemas
+
+| **Project** | **Schema** | **Access front-end?** | **Details** |
+|----------------------------------|--------------|----------------------|---------------------------------------------|
+| **PEP Administration** | | | |
+| *PEP Dashboard* | administrative | Yes | Contains data associated with the PEP Dashboard (activity planning, data tracking, etc.). |
+| *Inventory* | inventory | Yes | Contains data for managing PEP gear inventory and field packlists. |
+| **Capture and Tagging**| | | |
+| *Capture* | capture | Yes | Data have been imported from Excel files, which were exports from the Oracle DB. |
+| *Telemetry* | telem | No | All field-related telemetry information has been entered into the DB. Tag inventory and deployment information is managed through the Capture Access front-end. |
+| **Harbor Seal Surveys**| | | |
+| *Coastal Surveys* | surv_pv_cst | Yes | Image metadata/inventory and counts from 2004-present are currently QA/QC’ed and available in the DB. ADF&G, NOAA 1996-1997, NOAA 1998-2002 and NOAA 2003 data are available in the DB. Authoritative Iliamna and Pribilof data are also actively managed within this schema. |
+| *Glacial Surveys* | surv_pv_gla | Yes | Flight data and counts from surveys are available in the DB. |
+| **Ice Seal Surveys**| | |
+| *Annotations* | annotations | Yes | Contains data associated with application of ML models to imagery; the annotations and imagery data are stored within their project schemas; this schema tracks information related to annotation management. |
+| *Species Misclassification* | species_misclass | No | Contains ice seal species misclassification information from across all ice seal survey projects. |
+| *BOSS* | surv_ice_seals_2012_13 | Yes | Image data and annotations from BOSS 2012-2013 surveys. |
+| *ChESS* | surv_ice_seals_2016 | Yes | Image data and annotations from ChESS 2016 survey. |
+| *Ice Seal: Kotz* | surv_ice_seals_2019_test | Yes | Image data and annotations from 2019 testing of in-flight system out of Kotzebue. Flight 01 and R camera views should not be used for any AI/ML. |
+| *JoBSS* | surv_ice_seals_2021 | Yes | Image metadata/inventory and annotations from 2021 Beaufort Sea Surveys (JoBSS). |
+| *Ice Seals: 2024* | surv_ice_seals_2024_test | No | Image metadata/inventory and annotations from 2024 Ice Seal Surveys (in Bering Sea). |
+| *Ice Seals: 2025* | surv_ice_seals_2025 | No | Image metadata/inventory and annotations from 2025 Ice Seal Surveys. |
+| **Other Projects**| | |
+| *Acoustics* | acoustics | No | Contains data received from CAEP Acoustics program and pre-processed for import into the DB. |
+| *Base* | base | No | Contains “THE” grid and environmental covariates extracted to the grid. |
+| *Polar Bear Sightings* | polar_bear | No | Infomation about all polar bears sighted across ice seal and polar bear survey efforts. |
+| *Polar Bear Survey* | surv_polar_bear_ 2019_deadhorse | Yes | Image metadata/inventory and annotations from 2019 surveys out of Kotzebue and Deadhorse targeting polar bears. Flight 08 accidentally recorded as polar_bear when should be included with 2019_test data. |
+| *Stock* | stock | No | All data have been migrated from pepgeo to this database. |
+| *UAS Body Condition* | body_condition | Yes | Contains image, LRF and measurement data related to the UAS body condition data. An Access front-end is available for managing data. |
+
+## Naming Conventions
+
+General Guidelines
+
+-   Coordinate with S. Koslovsky if you have new data that need to be added to the database or if you need help with creating or accessing a query.
+-   Do not use spaces in database item names. Use underscores between words.
+-   Data for analyses:
+    -   If you are using data products that are finalized (e.g. CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query or the process should be documented within the code in which the data are extracted.
+    -   If you are using data products that will continue to be updated (e.g. telemetry data) and you need the processed data preserved, the processed data should either be stored in the database as a separate table or be exported and stored elsewhere (network or computer) with other associated files.
+-   For tables
+    -   lku\_ - look-up tables
+    -   geo\_ - spatially explicit datasets (with the exception of one within the coastal surveys schema) 
+    -   tbl\_ - use this prefix for data tables
+    -   res\_ - use this prefix for results tables
+-   For views
+    -   qa\_ - QA/QC queries
+    -   res – views that are for analytical purposes
+    -   [Anything else] – apply logical consistency for any other stored views
+
+## Backup/Recovery Procedures
+The backup and recovery procedures are still under development. This section will be updated when more information is available.
+
+OLD INFORMATION:
+The pepDB will be backed up according to the following schedule:
+
+-   Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM. 
+-   Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.
+-   The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.

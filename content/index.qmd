@@ -9,22 +9,25 @@ Choose a section from the sidebar, or start here:
 Introduces core data management principles, file naming practices, and general expectations for organizing and documenting data.
 
 ### [Workflow](workflow.qmd)
-Describes the PEP data management lifecycle, including planning, collection, processing, analysis, sharing, and evaluation.
+Describes the data management lifecycle, including planning, collection, processing, analysis, sharing, and evaluation.
 
-### [PEP Data Storage](storage.qmd)
-Explains where data should be stored, how shared storage is organized, and what staff should use for temporary versus long-term storage.
+### [PEP Data Storage](pep_storage.qmd)
+Explains where PEP data should be stored, how shared storage is organized, and how data are accessed.
 
-### [PEP Database](database.qmd)
-Summarizes the PostgreSQL database structure, naming conventions, and access methods.
+### [PEP Database](pep_database.qmd)
+Summarizes the PEP PostgreSQL database structure, naming conventions, and access methods.
 
-### [Onboarding](onboarding.qmd)
-Lists software requirements, recommended tools, and orientation information for new staff.
+### [PEP Onboarding](pep_onboarding.qmd)
+Lists software requirements, recommended tools, and orientation information for PEP staff.
 
 ### [Staff Engagement](staff_engagement.qmd)
 Describes best practices for working with one another with respect to data management and workflow development/implentation.
+
+### Offboarding
+Details related to staff departures will be added later.
 
 ## Notes
 
 This document was originally created in 2018, migrated to Quarto in 2024, and substantially overhauled in 2026 (at the time of the migration of files and the PEP database to the cloud). The PEP data management plan is updated as workflows and requirements evolve.
 
-This document was last updated on `r Sys.Date()`.
+This document was last updated on `r Sys.Date()`. 

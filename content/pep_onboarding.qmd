@@ -1,0 +1,277 @@
+# On-boarding
+
+S. Koslovsky will orient new staff to the general information provided in the PEP Data Management Plan and the specifics detailed within this section. Staff responsible for other program-wide tools (e.g. PEP Dashboard, inventory DB, Zotero) should provide resources/training as needed.
+
+## Software Requirements and Recommendations
+
+Below is a list of software required for PEP computers and virtual machines.
+
+| Program | How Install? | Justification | 
+|------------------------|---------------------------|------------------------------------------------------|
+| ACDSee | Service Desk Ticket | For image management (field photos and data) |
+| Adobe Acrobat | Service Desk Ticket | For managing data and forms stored in pdf |
+| EndNote and/or Zotero | Self Service Portal | For accessing the PEP library |
+| Google Drive Desktop | Self Service Portal | For backing up laptop and connecting to Shared Drives |
+| Microsoft Office 365 with Access | Self Service Portal | For using PEP database front-ends |
+| ODBC driver for Postgres | Service Desk Ticket | For connecting to PEP database via Microsoft Access (see details [below][add link to the right section!]) |
+| QGIS version 3.28 or higher | Service Desk Ticket | For the most direct connection to PEP database for spatial data |
+
+Below is a list of software recommended for PEP computers and virtual machines.
+
+| Program | How Install? | Justification | 
+|------------------|---------------------------|------------------------------------------------------|
+| Anaconda (or miniconda) with Python\>=3.6 | Service Desk Ticket | Lots of our tools require Python |
+| ArcMap/Catalog/Pro | Service Desk Ticket | Spatial processing and analysis |
+| Git and/or Github Desktop | Self Service Portal | For interacting with project repositories |
+| Positron | (self) | A user-friendly GUI for R |
+| R | Self Service Portal | Lots of our tools require R (and kept updated) |
+| RStudio or Positron | Self Service Portal | A user-friendly GUI for R |
+| VLC Media Player | Self Service Portal | For video management |
+
+## How to Work with PEP Data
+With the migration to the cloud, there is a lot going on now. Lots of new ways to connect with data and major changes to many of our workflows. We are all learning together. We probably made some mis-steps with how data were migrated to the cloud, and we probably don't yet know all the ways that we'll work with data moving forward. Be patient with yourself and each other! 
+
+Here are some great [resources](https://cloud.google.com/learn/training) for learning more about the Google cloud offerings.
+
+### What Works with What?
+We now have both new tools and new locations for working our data. The chart below details what tools work with data in different locations and will be updated as new tools and/or information is available.
+
+| **Data Storage Location** | **Laptop** | **Virtual Machine** | **Workstation** |
+| -------------------| ---------- | ---------- | ---------- |
+| Locally (on laptop) | Yes | No | No |
+| Google Shared Drive | Yes | Yes | Yes* |
+| GCP Bucket | Limit | Yes| Yes |
+| AFSC X Drive | Yes | Yes | No |
+| PEP Database | Yes | Yes | Yes |
+*Google Shared Drive can be accessed via a workstation, but not without some work on the end-user's part (via RClone)
+
+### Google Shared Drive
+
+The cost of doing business in Google Shared Drives is completely free!
+
+You can connect to Google Shared Drive from your laptop or a virtual machine in two ways:
+
+1.  **Mapped Network Drive**
+    a.  With Google Drive Desktop installed and configured, you have a network drive mapped to Google Drive (preferably G:\\).
+    b.  To install Google Drive Desktop, open the AFSC Self Service Portal and click to install Google Drive Desktop. 
+2.  **Web Browser** - from [Shared Drives](https://drive.google.com/drive/u/0/shared-drives)
+
+You will need to use both of these methods for connecting to Google Shared Drive files for different use cases:
+
+| **What To Do** | **Mapped Network Drive** | **Web Browser** |
+|-----------------------------|----------------------------------|----------------------------------|
+| Browse files | Yes! | Yes! |
+| Search files | Using file explorer search engine | Yes, using Google search engine |
+| Share folders with people | No | Yes! |
+| Share files with people | No-ish (can open a file from G:\\ and share) | Yes! |
+| Open a G-suite file | Yes – will open web browser (if not already open) | Yes – will open a new tab within web broswer |
+| Open a non-G-suite file | Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time) | Not likely |
+| Open Access database | Yes! | No |
+| Work with data in other software (e.g. R, QGIS) | Yes! | No |
+
+### GCP Bucket
+
+#### Overview
+
+There are some fundamental differences in how we work with data in a bucket versus how we work with data on a local machine or in a shared drive. 
+
+- Data in a bucket are stored as objects, so folders are useful for our organization, but not necessary for the bucket to function.
+- Data in a bucket are not stored on your local machine, so data are downloaded to your local machine or virtual machine when you work with it. This is different than a shared drive, where the data are stored on a server and you can work with the data without downloading it to your local machine.
+- Data in a bucket cannot be modified the same way as files are on a local machine or shared drive. 
+    -  The only actions you can take on data in a bucket are read, write, and delete. No modify!
+    -  You will need to download the data, modify it, and then upload it back to the bucket. This is different than a shared drive, where you can modify the data directly on the server. 
+    - This also applies to renaming files, so it's best to ensure the data are named properly and are organized based on the project protocols before the data are uploaded to a bucket.
+    - There is also a cost for each of these actions if done from your local machine.
+
+Based on these fundamental differences in the data, read-write access to the PEP buckets is limited to a small number of staff. Most of PEP only has read-only access to the data in the *afsc_mml_pep* bucket. The *pep_storage* bucket is intended to allow for staff to have more flexible access to the data. Contact S. Koslovsky if you need different permissions to the afsc_mml_pep bucket.
+
+#### Authentication
+Authentication for bucket access is now limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long-running processes. This is a recent change so more details will be provided about workarounds as more information is available. For now, be aware of this limitation and plan accordingly.
+
+#### General Guidance
+
+There is no cost to move data into a bucket, but there are costs for storing, accessing, and modifying the data in our buckets when data are pulled to our local machines. When we work with the data from a workstation or virtual machine (that are stored in the same region as our bucket), there is no cost to working with the data (though there is a cost to having a VM or using a workstation). Each program's costs are heavily monitored, and we will be notified (individually and/or programmatically) if our usage is anomalous. For now, be aware of how you're interacting with the buckets, and reference this chart as guidance (not authority) to help you get started selecting the right tool you use for connecting to the data.
+
+General guidance when working with data in a bucket:
+
+- Use your laptop for light access
+- Use a workstation for R, Python, or Visual Studio code development and execution
+- Use a virtual machine if you need access to software beyond those offered from a workstation (e.g. DIVE annotation)
+
+| **What To Do** | **Laptop** | **Workstation** | **Virtual Machine**
+|--------------------------------------|--------------|--------------|--------------|--------------|
+| Browse files | Yes | Yes | Yes |
+| View an image or two | Yes | No | Yes |
+| Access data entry/viewing | Yes | No | Yes |
+| Annotate images | No | No | Yes |
+| Run AI/ML workflow | No | Yes | Yes |
+| Heavy ArcGIS or QGIS usage of database or bucket data | No | No | Yes |
+| Run custom R code on data | No | Yes | Yes |
+| Run KAMERA camera model development | No | Yes | Yes |
+This list will be updated periodically.
+
+#### Connect from Laptop
+
+View the contents of the bucket through the [web browser](https://console.cloud.google.com/storage/browser/afsc_mml_pep?project=nmfs-trusted-images). FINISH
+
+While there are different reasons for using your laptop or virtual machine to connect to a bucket, the methods are generally the same. There are two main options for viewing information stored in our bucket:
+Mount the afsc_mml_pep bucket as network drive (preferably S:\\). FINISH
+
+#### Connect from Virtual Machine
+
+You can follow the same steps for viewing and connecting to cloud data from your laptop (above), but FINISH
+
+Proposed configuration for the new VMs and monitoring
+AFSC VMs in GCP are available: workflow (https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit) and request (https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e)
+High GPU will need to be justified - will require Division Director approval
+Cost is with use, not to have
+GPUs can be limited within a region – LLMs are hogging the resources at the moment
+Will be nagged to shut VM off if it’s been out of commission for periods of time and will be contacted if the compute needs exceed what is actually used
+Can have concurrent users up to 2 and multiple uses with access to VMs
+
+#### Connect from Workstation
+If using an R workstation, use this script to mount buckets to R. FINISH
+
+### PEP Database
+
+This section details the different methods for connecting to the PEP database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.
+
+#### Connect from Microsoft Access
+To use any of the PEP database Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an AFSC Service Desk ticket to update your ODBC Data Sources to allow connection to PostgreSQL. 
+
+The connection details for setting up the ODBC connection are as follows:
+
+-   Install the ODBC driver with Service Desk Ticket. 
+    -   You will want to [download the most recent driver](https://www.postgresql.org/ftp/odbc/releases/).Click on the most recent folder *without* "-mimalloc" at the end of the file name; install the **psqlodbc_x64.msi** version.
+    -   If you have a new laptop or VM, you will need to submit a Service Desk Ticket. I recommend you work through the remaining steps with OFIS to ensure the correct driver was installed.
+    -   If you already have this installed (which all staff as of 9/1/2026 do based on past usage of the PEP database), skip to the next step. You do not need to work with OFIS to add the data source.
+-   From the start menu, open the ODBC Data Source Administrator (64-bit), click "Add...".
+-   In the list of drivers available, select "PostgreSQL Unicode(x64)" and click Finish.
+-   In the PostgreSQL Unicode ODBC Driver (psqlODBC) Setup, enter the following details:
+    -   Data Source: mml_pep
+    -   Description: (leave blank)
+    -   Database: mml_pep
+    -   SSL Mode: allow
+    -   Server: afsc.postgres.prod.nmfs.local
+    -   Port: 5432
+    -   User Name: your user name 
+    -   Password: your password 
+-   Before saving, click "Test" to confirm the connection to the database.
+-   Click "Save" and close the window.
+
+Once configured, you can open any of the program databases and should no longer need to enter your user name and password each time. Hooray! If you are not experiencing this, you might need to update to a newer version of the ODBC driver. 
+
+ONLY AFTER WE MIGRATE THE PEP DASHBOARD: If you have a database connection to the old, internal PEP database (pep), delete that from the ODBC connections list.
+
+#### Connect from R
+To connect to the PEP database from R, there are two different steps:
+
+1.  First, create an .Renviron file to store the connection details to the database. This only needs to be done once.
+    a.  Create a new text file in your Documents folder on your laptop (typically in C:\Users\FirstName.LastName\Work\) named ".Renviron". There will be no file name and the file extension is Renviron (weird, I know).
+    b.  Open the file in a text editor (Notepad or Notepad++).
+    c.  Enter the following details and save the file.
+
+```{r rEnviron}
+#| eval: false
+mml_pep_ip = afsc.postgres.prod.nmfs.local
+mml_pep_port = 5432
+mml_pep_db = mml_pep
+mml_pep_user = your user name (as provided)
+mml_pep_user_pw = your password (as provided)
+```
+
+2. Second, connect to the database during an R working session. You will need to do this each time you connect to the database. The following steps are required:
+    a. Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)
+    b. Use the following code to create a connection to the DB using the details in your .Renviron file:
+```{r connect_string}
+#| eval: false
+library(RPostgres)
+con <- RPostgres::dbConnect(
+  Postgres(),
+  host = Sys.getenv("mml_pep_ip"),
+  port = Sys.getenv("mml_pep_port"),
+  dbname = Sys.getenv("mml_pep_db"),
+  user = Sys.getenv("mml_pep_user"),
+  password = Sys.getenv("mml_pep_user_pw") #,
+  sslmode = "require"
+)
+```
+
+    c. Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example, the following code will return all details for PEP activity plans stored in the database.
+
+```{r query_example}
+#| eval: false
+data <- RPostgres::dbGetQuery(
+  con,
+  "SELECT * FROM administrative.tbl_activity_plans"
+)
+```
+        
+
+#### Connect from QGIS
+
+To view spatial data stored in the PEP database:
+
+-   Open QGIS.
+-   Right click "PostgreSQL" in the Browser window, and select “New Connection…”. ***NOTE:** If you see "PostGIS" instead of "PostgreSQL", you need to submit a Service Desk Ticket to update your version of QGIS. You should be working with QGIS 3.28 or higher.*
+-   In the Create a New PostGIS Connection window, specify the following options:
+    -   Name: mml_pep
+    -   Service: (leave blank)
+    -   Host: afsc.postgres.prod.nmfs.local
+    -   Port: 5432
+    -   Database: mml_pep
+    -   SSL mode: require
+    -   Username: your user name (check box to save)
+    -   Password: your password (check box to save)
+-   Click "Test Connection" to confirm the connection to the database and before closing the menu.
+-   Once created, you will see a new connection to the database under PostgreSQL. The available data are listed under each schema, and only spatial data are visible (unless you have configured your connection otherwise).
+
+For entering or modifying spatial data, process the data as instructed for each individual project. 
+
+#### Connection from ArcGIS
+
+To view spatial data stored in the PEP database in ArcGIS, you will need to create a database connection. This can be done in ArcCatalog or ArcPro:
+
+-   In ArcCatalog in the Catalog Tree, navigate to the "Database Connections" OR in ArcPro under Insert/Connections. Select "Add Database Connection". 
+-   In the pop-up window, select or enter the following details:
+    -   Database Platform: PostgreSQL
+    -   Instance: afsc.postgres.prod.nmfs.local
+    -   Authentication Type: Database authentication
+    -   User name: your user name (as provided)
+    -   Password: your password (as provided)
+    -   Save user name and password: OK to save!
+    -   Database: mml_pep
+-   Once connected, you can view all data and add spatial data to your maps.
+
+Do not make any changes to the spatial data from ArcGIS software. QGIS is our authoritative software for editing spatial data.
+
+## Frequently Used Program-wide Tools
+
+### PEP Dashboard
+
+The PEP dashboard is a schema (administrative) within the PEP PostgreSQL database that is used for tracking the roles of staff on projects and associated timelines and for entering responsibilities into the PAWS performance planning system. For more information:
+
+-   Documentation (need link)
+-   [Weekly report](https://htmlpreview.github.io/?https://github.com/staciekoslovsky-noaa/PEP_Dashboard/blob/main/SchedulingReport/SchedulingReport.html)
+-   Contact M. Cameron
+
+### Inventory Database
+
+This database is a schema (inventory) within the PEP PostgreSQL database and tracks inventory of gear and supplies used by staff in PEP for projects. For more information:
+
+-   Documentation (need link)
+-   Contact H. Ziel
+
+### Extensis Portfolio
+
+Extensis Portfolio is software used for tagging and querying images taken during PEP projects. For more information:
+
+-   Documentation (need link)
+-   Contact S. Walcott
+
+### EndNote/Zotero
+
+EndNote and Zotero house the PEP central library of journal articles, reports and other references. For more information:
+
+-   Documentation (need link)
+-   Contact S. Walcott

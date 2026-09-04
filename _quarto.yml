@@ -15,11 +15,11 @@ website:
       - text: "Workflow"
         file: content/workflow.qmd
       - text: "PEP Data Storage"
-        file: content/storage.qmd
+        file: content/pep_storage.qmd
       - text: "PEP Database"
-        file: content/database.qmd
-      - text: "Onboarding"
-        file: content/onboarding.qmd
+        file: content/pep_database.qmd
+      - text: "PEP Onboarding"
+        file: content/pep_onboarding.qmd
       - text: "Staff Engagement"
         file: content/staff_engagement.qmd
 
@@ -27,7 +27,7 @@ format:
   html:
     theme: cosmo
     toc: true
-    toc-depth: 3
+    toc-depth: 4
     page-layout: article
     smooth-scroll: true
     anchor-sections: true
