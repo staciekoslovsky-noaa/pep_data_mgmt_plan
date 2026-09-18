@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>work_with_data – PEP Data Management Plan</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/work_with_data.html">Work with Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">PEP Data Management Plan</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/pep_storage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PEP Data Storage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/pep_database.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PEP Database</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/pep_onboarding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PEP Onboarding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/work_with_data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Work with Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/staff_engagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Staff Engagement</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-to-work-with-data" id="toc-how-to-work-with-data" class="nav-link active" data-scroll-target="#how-to-work-with-data">How to Work with Data</a>
+  <ul>
+  <li><a href="#individual-resources" id="toc-individual-resources" class="nav-link" data-scroll-target="#individual-resources">Individual Resources</a>
+  <ul class="collapse">
+  <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a>
+  <ul class="collapse">
+  <li><a href="#laptop" id="toc-laptop" class="nav-link" data-scroll-target="#laptop">Laptop</a></li>
+  <li><a href="#google-drive" id="toc-google-drive" class="nav-link" data-scroll-target="#google-drive">Google Drive</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#cloud-based-storage-and-services" id="toc-cloud-based-storage-and-services" class="nav-link" data-scroll-target="#cloud-based-storage-and-services">Cloud-based Storage and Services</a></li>
+  <li><a href="#virtual-machine" id="toc-virtual-machine" class="nav-link" data-scroll-target="#virtual-machine">Virtual Machine</a>
+  <ul class="collapse">
+  <li><a href="#remote-ssh-into-vm-from-positron" id="toc-remote-ssh-into-vm-from-positron" class="nav-link" data-scroll-target="#remote-ssh-into-vm-from-positron">Remote SSH into VM from Positron</a></li>
+  </ul></li>
+  <li><a href="#workstation" id="toc-workstation" class="nav-link" data-scroll-target="#workstation">Workstation</a></li>
+  <li><a href="#google-shared-drive" id="toc-google-shared-drive" class="nav-link" data-scroll-target="#google-shared-drive">Google Shared Drive</a>
+  <ul class="collapse">
+  <li><a href="#backuprecovery-procedures-1" id="toc-backuprecovery-procedures-1" class="nav-link" data-scroll-target="#backuprecovery-procedures-1">Backup/Recovery Procedures</a></li>
+  </ul></li>
+  <li><a href="#gcp-bucket" id="toc-gcp-bucket" class="nav-link" data-scroll-target="#gcp-bucket">GCP Bucket</a>
+  <ul class="collapse">
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#uploading-data-to-a-bucket" id="toc-uploading-data-to-a-bucket" class="nav-link" data-scroll-target="#uploading-data-to-a-bucket">Uploading Data to a Bucket</a></li>
+  <li><a href="#editing-data-in-a-bucket" id="toc-editing-data-in-a-bucket" class="nav-link" data-scroll-target="#editing-data-in-a-bucket">Editing Data in a Bucket</a></li>
+  <li><a href="#backuprecovery-procedures-2" id="toc-backuprecovery-procedures-2" class="nav-link" data-scroll-target="#backuprecovery-procedures-2">Backup/Recovery Procedures</a></li>
+  <li><a href="#connect-from-web-browser" id="toc-connect-from-web-browser" class="nav-link" data-scroll-target="#connect-from-web-browser">Connect from Web Browser</a></li>
+  <li><a href="#connect-from-mounted-drive" id="toc-connect-from-mounted-drive" class="nav-link" data-scroll-target="#connect-from-mounted-drive">Connect from Mounted Drive</a></li>
+  <li><a href="#connect-from-workstation" id="toc-connect-from-workstation" class="nav-link" data-scroll-target="#connect-from-workstation">Connect from Workstation</a></li>
+  </ul></li>
+  <li><a href="#postgresql-database" id="toc-postgresql-database" class="nav-link" data-scroll-target="#postgresql-database">PostgreSQL Database</a>
+  <ul class="collapse">
+  <li><a href="#backuprecovery-procedures-3" id="toc-backuprecovery-procedures-3" class="nav-link" data-scroll-target="#backuprecovery-procedures-3">Backup/Recovery Procedures</a></li>
+  <li><a href="#connect-from-microsoft-access" id="toc-connect-from-microsoft-access" class="nav-link" data-scroll-target="#connect-from-microsoft-access">Connect from Microsoft Access</a></li>
+  <li><a href="#connect-from-r" id="toc-connect-from-r" class="nav-link" data-scroll-target="#connect-from-r">Connect from R</a></li>
+  <li><a href="#connect-from-qgis" id="toc-connect-from-qgis" class="nav-link" data-scroll-target="#connect-from-qgis">Connect from QGIS</a></li>
+  <li><a href="#connection-from-arcgis" id="toc-connection-from-arcgis" class="nav-link" data-scroll-target="#connection-from-arcgis">Connection from ArcGIS</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="how-to-work-with-data" class="level1">
+<h1>How to Work with Data</h1>
+<p>With the migration to the cloud, there is a lot going on now. Lots of new ways to connect with data and major changes to many of our workflows. We are all learning together. We probably made some mis-steps with how data were migrated to the cloud, and we probably don’t yet know all the ways that we’ll work with data moving forward. Be patient with yourself and each other!</p>
+<p>Here are some great <a href="https://cloud.google.com/learn/training">resources</a> for learning more about the Google cloud offerings.</p>
+<p><em>For suggestions, updates, or errors, please submit an issue on <a href="https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues">GitHub</a>.</em></p>
+<section id="individual-resources" class="level2">
+<h2 class="anchored" data-anchor-id="individual-resources">Individual Resources</h2>
+<p>The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your <strong>laptop</strong> or individual <strong>Google Drive</strong> (“My Drive”). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to <a href="../content/basics.html">Basics</a> for suggestions for file naming and folder organization.</p>
+<section id="backuprecovery-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h3>
+<section id="laptop" class="level4">
+<h4 class="anchored" data-anchor-id="laptop">Laptop</h4>
+<p>Your laptop needs to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under “Computers” in the left navigation pane).</p>
+</section>
+<section id="google-drive" class="level4">
+<h4 class="anchored" data-anchor-id="google-drive">Google Drive</h4>
+<p>The files you store on Google Drive are backed up using Google specifications:</p>
+<ul>
+<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
+<ul>
+<li>For G-suite files can be viewed within the file (File/Version History).</li>
+<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
+<ul>
+<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
+<li>Click File informationversions.</li>
+<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
+</ul></li>
+</ul></li>
+<li>To recover files, you need to act quickly:
+<ul>
+<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
+<li>After 30 days, the file can no longer be recovered.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="cloud-based-storage-and-services" class="level2">
+<h2 class="anchored" data-anchor-id="cloud-based-storage-and-services">Cloud-based Storage and Services</h2>
+<p>We now have both new tools and new locations for working our data. The chart below details what tools work with data in different locations, and will be updated as new tools and/or information is available.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Cloud-based Storage Location</strong></th>
+<th><strong>Laptop</strong></th>
+<th><strong>Virtual Machine</strong></th>
+<th><strong>Workstation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Google Shared Drive</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes*</td>
+</tr>
+<tr class="even">
+<td>GCP Bucket</td>
+<td>Limit</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>AFSC X Drive</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>PostgreSQL Database</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>*Google Shared Drive can be accessed via a workstation, but not without some work on the end-user’s part (via RClone)</p>
+<p>The “Need VPN?” column in the following table denotes if you need to use a VPN connection to access the cloud resource when working offsite.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Resource</strong></th>
+<th><strong>Need VPN?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Locally (on laptop)</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Virtual Machine</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Workstation</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Google Shared Drive</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>GCP Bucket</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>AFSC X Drive</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>PostgreSQL Database</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="virtual-machine" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-machine">Virtual Machine</h2>
+<p>Virtual machines (VMs) are a great option for accessing cloud-based data when you need access to more than one piece of software. Example use cases for a VM are image-based analysis, spatial data access and analyses using QGIS or ArcGIS, opening Access databases, etc.</p>
+<p>This <a href="https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit">workflow</a> details the process for obtaining a virtual machine, and requests for virtual machines can be made <a href="https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e">here</a>. In the request form, there are different options available for CPU and GPU. For most cases, a basic configuration will be more than sufficient for PEP work. Due to costs, the “high GPU” will need to be justified and will require Division Director approval.</p>
+<p>A few things to note:</p>
+<ul>
+<li>You need to “Start/Resume” a VM resource before connecting to it through Remote Desktop Connection and “Stop” a VM when your work is complete. This is the equivalent of booting up and shutting down. Use <a href="https://console.cloud.google.com/compute/instances?project=ggn-nmfs-afscuservm-infra-1">this site</a> to complete these actions.</li>
+<li><em>WARNING</em>: you will get an email if your VM sits idle for more than 12 hours (that will make you not want to forget again).</li>
+<li>The cost for a VM is based on active use. If you expect to have any need for one, make the request and get it set-up!</li>
+<li>The Self Service Portal is available within the VM, so the software installation experience is the same as your laptop (see Software Requirements and Recommendations above).</li>
+<li>VMs can have a number of shared users assigned to a VM and up to two concurrent users. Since costs are based on active use, it is only in rare cases that we should need to share a VM (e.g.&nbsp;KAMERA post-processing GPU).</li>
+<li>GPUs can be limited within a region – LLMs are hogging the resources at the moment, so you might not always be able to start a GPU VM when you need it.</li>
+<li>Accessing our bucket and database comes as no cost when using a VM. There <em>is</em> a cost for the same activities when working from your laptop.</li>
+<li>OFIS will be monitoring usage and you will be contacted if the compute needs exceed what is actually used.</li>
+</ul>
+<section id="remote-ssh-into-vm-from-positron" class="level3">
+<h3 class="anchored" data-anchor-id="remote-ssh-into-vm-from-positron">Remote SSH into VM from Positron</h3>
+<p>There is a nifty trick for connecting to a Linux VM via Positron (using a remote SSH connection) to take advantage of the VMs compute resources while working in R on your laptop:</p>
+<ol type="1">
+<li><strong>Open the Command Palette</strong>: Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (macOS) inside Positron.</li>
+<li><strong>Find the Remote Menu</strong>: Type Remote Menu and select Remote SSH: Show Remote Menu.</li>
+<li><strong>Connect to Host</strong>: Click Connect to Host and enter your VM’s hostname and login credentials (like your username and SSH key or password).</li>
+<li><strong>Work on the VM</strong>: Once connected, a small indicator will appear in the bottom-left corner. The file explorer will now show the files living inside your VM instead of your local computer.</li>
+</ol>
+<p>Note: Your VM must be running Linux and have at least 2 GB to 4 GB of RAM to run the remote Positron server smoothly.</p>
+</section>
+</section>
+<section id="workstation" class="level2">
+<h2 class="anchored" data-anchor-id="workstation">Workstation</h2>
+<p>Workstations are a great option for accessing cloud-based data using a single piece of software: either R/RStudio, Python, or Visual Studio. Example use cases for a workstation are code-based development and workflows.</p>
+<p>Use <a href="https://apps-st.fisheries.noaa.gov/jira/servicedesk/customer/portal/14">this form</a> to request a workstation. After your request has been processed, you will receive more information about how to access/use your workstation.</p>
+</section>
+<section id="google-shared-drive" class="level2">
+<h2 class="anchored" data-anchor-id="google-shared-drive">Google Shared Drive</h2>
+<p>The cost of doing business in Google Shared Drives is completely free!</p>
+<p>You can connect to Google Shared Drive from your laptop or a virtual machine in two ways:</p>
+<ol type="1">
+<li><strong>Mapped Network Drive</strong>
+<ol type="a">
+<li>With Google Drive Desktop installed and configured, you have a network drive mapped to Google Drive (preferably G:\).</li>
+<li>To install Google Drive Desktop, open the Self Service Portal and click to install Google Drive Desktop.</li>
+</ol></li>
+<li><strong>Web Browser</strong> - from <a href="https://drive.google.com/drive/u/0/shared-drives">Shared Drives</a></li>
+</ol>
+<p>You will need to use both of these methods for connecting to Google Shared Drive files for different use cases:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>What To Do</strong></th>
+<th><strong>Mapped Network Drive</strong></th>
+<th><strong>Web Browser</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Browse files</td>
+<td>Yes!</td>
+<td>Yes!</td>
+</tr>
+<tr class="even">
+<td>Search files</td>
+<td>Using file explorer search engine</td>
+<td>Yes, using Google search engine</td>
+</tr>
+<tr class="odd">
+<td>Share folders with people</td>
+<td>No</td>
+<td>Yes!</td>
+</tr>
+<tr class="even">
+<td>Share files with people</td>
+<td>No-ish (can open a file from G:\ and share)</td>
+<td>Yes!</td>
+</tr>
+<tr class="odd">
+<td>Open a G-suite file</td>
+<td>Yes – will open web browser (if not already open)</td>
+<td>Yes – will open a new tab within web broswer</td>
+</tr>
+<tr class="even">
+<td>Open a non-G-suite file</td>
+<td>Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time)</td>
+<td>Not likely</td>
+</tr>
+<tr class="odd">
+<td>Open Access database</td>
+<td>Yes!</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Work with data in other software (e.g.&nbsp;R, QGIS)</td>
+<td>Yes!</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<section id="backuprecovery-procedures-1" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures-1">Backup/Recovery Procedures</h3>
+<p>The files you store on Google Drive are backed up using Google specifications:</p>
+<ul>
+<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
+<ul>
+<li>For G-suite files can be viewed within the file (File/Version History).</li>
+<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
+<ul>
+<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
+<li>Click File informationversions.</li>
+<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
+</ul></li>
+</ul></li>
+<li>To recover files, you need to act quickly:
+<ul>
+<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
+<li>From days 31-55, you can submit a service desk ticket to get support recovering the file.</li>
+<li>After 55 days, the file can no longer be recovered.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="gcp-bucket" class="level2">
+<h2 class="anchored" data-anchor-id="gcp-bucket">GCP Bucket</h2>
+<p>There are some fundamental differences in how we work with data in a bucket versus how we work with data on a local machine or in a shared drive.</p>
+<ul>
+<li>Data in a bucket are stored as objects, so folders are useful for our organization, but not necessary for the bucket to function.</li>
+<li>Data in a bucket are not stored on your local machine, so data are downloaded to your local machine or virtual machine when you work with it. This is different than a shared drive, where the data are stored on a server and you can work with the data without downloading it to your local machine.</li>
+<li>Data in a bucket cannot be modified the same way as files are on a local machine or shared drive.
+<ul>
+<li>The only actions you can take on data in a bucket are read, write, and delete. No modify!</li>
+<li>You will need to download the data, modify it, and then upload it back to the bucket. This is different than a shared drive, where you can modify the data directly on the server.</li>
+<li>This also applies to renaming files, so it’s best to ensure the data are named properly and are organized based on the project protocols before the data are uploaded to a bucket.</li>
+</ul></li>
+</ul>
+<p>There is no cost to move data into a bucket, but there are costs for storing, accessing, and modifying the data in our buckets when data are pulled to our local machines. When we work with the data from a workstation or virtual machine (that are stored in the same region as our bucket), there is no cost to working with the data (though there is a cost to having a VM or using a workstation). Each program’s costs are heavily monitored, and we will be notified (individually and/or programmatically) if our usage is anomalous. For now, be aware of how you’re interacting with the buckets, and reference this chart as guidance (not authority) to help you get started selecting the right tool you use for connecting to the data.</p>
+<p>General guidance when working with data in a bucket:</p>
+<ul>
+<li>Use your laptop for light access</li>
+<li>Use a workstation for R, Python, or Visual Studio code development and execution</li>
+<li>Use a virtual machine if you need access to software beyond those offered from a workstation (e.g.&nbsp;DIVE annotation)</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>What To Do</strong></th>
+<th><strong>Laptop</strong></th>
+<th><strong>Workstation</strong></th>
+<th><strong>Virtual Machine</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Browse files</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>View an image or two</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Access data entry/viewing</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Annotate images</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run AI/ML workflow</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Heavy ArcGIS or QGIS usage of database or bucket data</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run custom R code on data</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run KAMERA camera model development</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This list will be updated periodically.</p>
+<section id="authentication" class="level3">
+<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
+<p>Authentication for bucket access is limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long-running processes. This is a recent change so more details will be provided about alternative methods for authentication as more information is available. For now, be aware of this limitation and plan accordingly.</p>
+</section>
+<section id="uploading-data-to-a-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="uploading-data-to-a-bucket">Uploading Data to a Bucket</h3>
+<p>There are a few ways to upload data to the bucket:</p>
+<ul>
+<li>In the web browser (best for small numbers of files)</li>
+<li>Using the most recent version of the Cloud Data Transfer Tool (preferred method)
+<ul>
+<li>This tool is available through the Self Service Portal</li>
+<li>Follow <a href="https://docs.google.com/document/d/1Hm5I8qBpaZQ3gEyMJzXjGdOEZCYV5gNFaeLhKkFZ-u8/edit?tab=t.0">these instructions</a> to configure and move data</li>
+<li>This tool supports extended connection to the bucket, so you will not be required to authenticate every 16 hours!</li>
+</ul></li>
+<li>Using NOAA Jetstream (not supported by OFIS)
+<ul>
+<li>Download from <a href="https://github.com/MichaelAkridge-NOAA/archive-toolbox/blob/main/toolbox/cloud/jetstream/">this repository</a> and follow the instructions in the README</li>
+<li>Requires the installation of Python and Powershell</li>
+</ul></li>
+</ul>
+</section>
+<section id="editing-data-in-a-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="editing-data-in-a-bucket">Editing Data in a Bucket</h3>
+<p>Changes to data made in the bucket should be made sparingly and via the command line in a web browser. One of the most common changes is reorganizing or renaming data. To do so</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> storage mv <span class="pp">[</span><span class="ss">old_location</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">new_location</span><span class="pp">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>There are various wildcards (*) that can be used in this command to apply specific changes to your data.</p>
+</section>
+<section id="backuprecovery-procedures-2" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures-2">Backup/Recovery Procedures</h3>
+<p>Data are backed up based on AFSC back-up and recovery procedures: - 30 days “soft delete” (i.e.&nbsp;recycle bin) - Versioning: keep the most recent 5 versions of a file - Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data) - Our data will move between hot and almost as hot classes - Data will not go down to the coldest data classes because of cost to move between tiers - We can evaluate options in time to move our least access data to archival cold buckets where it will require a service desk ticket for access - Disaster Recovery Snapshots (i.e.&nbsp;copies stored elsewhere) - Monthly snapshots for 12 months - Annual snapshots for 7 years</p>
+</section>
+<section id="connect-from-web-browser" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-web-browser">Connect from Web Browser</h3>
+<p>View the contents of the bucket through the web browser:</p>
+<ul>
+<li><a href="https://console.cloud.google.com/storage/browser/afsc_mml_pep?project=nmfs-trusted-images">afsc_mml_pep</a></li>
+<li><a href="https://console.cloud.google.com/storage/browser/pep_storage?project=nmfs-trusted-images">pep_storage</a></li>
+</ul>
+</section>
+<section id="connect-from-mounted-drive" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-mounted-drive">Connect from Mounted Drive</h3>
+<p>To mirror the look and feel of the buckets in your Windows File Explorer, you can mount to a bucket as a network drive:</p>
+<ul>
+<li>From the Self Service Portal, install the GCS Bucket Mounting Tool</li>
+<li>Once installed, open the mounting tool from the Start menu</li>
+<li>In the tool, you will need to create new connections to the buckets using <a href="https://docs.google.com/document/d/1aRGu1za_75-PBif_tx8Q35cMDAgYF8F4HALgSno9nwQ/edit?tab=t.0#heading=h.e59rzpo58ch8">these instructions</a>
+<ul>
+<li>Mount the <em>afsc_mml_pep</em> bucket as S:\</li>
+<li>Mount the <em>pep_storage</em> bucket as P:\</li>
+</ul></li>
+</ul>
+</section>
+<section id="connect-from-workstation" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-workstation">Connect from Workstation</h3>
+<p>If using an R workstation, use this script to mount buckets to R using the Terminal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Terminal code for mounting Google Cloud Buckets to Google Cloud Workstations</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Alexandra Norelli with Gemini assistance for R to BASH translations.  </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the .sh file with the code commented below and follow the instructions to </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># authenticate your google account.  </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this script as a .sh file by copying and pasting this code in your bash </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># terminal:  </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#bash mount_bucket_folder.sh</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your bucket and the mount point.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># replace "nmfs-opensci" with your bucket name</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add the path to folder within the bucket for FOLDER_NAME</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure to put a / at the end of the folder path</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># The `$HOME` symbol is a shortcut for your home directory, so this will</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># create the folder at /home/your_username/my_gcs_bucket.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="va">BUCKET_NAME</span><span class="op">=</span><span class="st">"user_to_specify"</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="va">FOLDER_NAME</span><span class="op">=</span><span class="st">"user_to_specify"</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="va">MOUNT_POINT</span><span class="op">=</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/user_to_specify"</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Authentication ---</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># This command authenticates your user account with Google Cloud.</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># You'll be prompted to open a browser to complete the login process.</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Running gcloud authentication. Please follow the instructions to log in in your browser."</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> auth application-default login <span class="at">--no-launch-browser</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Installation and Setup (Run only once) ---</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the mount point if it doesn't exist.</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Since this directory is in your home folder, you don't need `sudo` to create it.</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">"</span><span class="va">$MOUNT_POINT</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$MOUNT_POINT</span><span class="st">"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the Google Cloud GPG key to your system's trusted keys.</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a critical step to verify the authenticity of the packages.</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="kw">|</span> <span class="fu">sudo</span> gpg <span class="at">--dearmor</span> <span class="at">-o</span> /etc/apt/trusted.gpg.d/gcsfuse.gpg</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the GCS FUSE repository to your system's sources list.</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"deb [signed-by=/etc/apt/trusted.gpg.d/gcsfuse.gpg] https://packages.cloud.google.com/apt gcsfuse-</span><span class="kw">`</span><span class="ex">lsb_release</span> <span class="at">-c</span> <span class="at">-s</span><span class="kw">`</span><span class="st"> main"</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/gcsfuse.list <span class="op">&gt;</span> /dev/null</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the package list to include the new repository.</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Updating package list..."</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Install gcsfuse.</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Installing gcsfuse..."</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> gcsfuse</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Mounting the Bucket ---  you might only need to run this if restarting a workstation</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the gcsfuse tool to mount the bucket to the specified mount point.</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co"># The mount point is in your home directory, so `sudo` is no longer needed.</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Mounting the bucket..."</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ex">gcsfuse</span> <span class="at">--implicit-dirs</span> <span class="at">--only-dir</span> <span class="st">"</span><span class="va">$FOLDER_NAME</span><span class="st">"</span> <span class="st">"</span><span class="va">$BUCKET_NAME</span><span class="st">"</span> <span class="st">"</span><span class="va">$MOUNT_POINT</span><span class="st">"</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Mounting complete. You can now access the bucket contents at </span><span class="va">$MOUNT_POINT</span><span class="st">"</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: List the contents to verify the mount was successful.</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> <span class="st">"</span><span class="va">$MOUNT_POINT</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="postgresql-database" class="level2">
+<h2 class="anchored" data-anchor-id="postgresql-database">PostgreSQL Database</h2>
+<p>This section details the different methods for connecting to the PostgreSQL database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.</p>
+<section id="backuprecovery-procedures-3" class="level3">
+<h3 class="anchored" data-anchor-id="backuprecovery-procedures-3">Backup/Recovery Procedures</h3>
+<p>The database runs on a scheduled back-up routine. If a substantial error in data has been made (e.g.&nbsp;table deleted, records are completely untrustworthy), contact S. Koslovsky to get the table restored. The following steps will be applied:</p>
+<ul>
+<li>Restore from backup to a new, temporary PostgreSQL instance (platform defaults to this manner of restore)</li>
+<li>Export the individual database or components from the temporary instance that needs to be restored.</li>
+<li>“Patch” in the exported database components over the live postgres instance database (depending on what’s needed, granular modify or full delete / reupload).</li>
+</ul>
+</section>
+<section id="connect-from-microsoft-access" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-microsoft-access">Connect from Microsoft Access</h3>
+<p>To use any of the project Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an Service Desk Ticket to update your ODBC Data Sources to allow connection to PostgreSQL.</p>
+<p>The connection details for setting up the ODBC connection are as follows:</p>
+<ul>
+<li>Install the ODBC driver with Service Desk Ticket, if not already installed (typically, only when you are working on a new laptop or VM).
+<ul>
+<li>You will want to <a href="https://www.postgresql.org/ftp/odbc/releases/">download the most recent driver</a>. Click on the most recent folder <em>without</em> “-mimalloc” at the end of the file name; install the <strong>psqlodbc_x64.msi</strong> version.</li>
+<li>If you already have this installed, skip to the next step. You do not need to work with OFIS to add the data source.</li>
+</ul></li>
+<li>From the start menu, open the ODBC Data Source Administrator (64-bit), click “Add…”.</li>
+<li>In the list of drivers available, select “PostgreSQL Unicode(x64)” and click Finish.</li>
+<li>In the PostgreSQL Unicode ODBC Driver (psqlODBC) Setup, enter the following details:
+<ul>
+<li>Data Source: database_name</li>
+<li>Description: (leave blank)</li>
+<li>Database: database_name</li>
+<li>SSL Mode: allow</li>
+<li>Server: afsc.postgres.prod.nmfs.local</li>
+<li>Port: 5432</li>
+<li>User Name: your_user_name</li>
+<li>Password: your_password</li>
+</ul></li>
+<li>Before saving, click “Test” to confirm the connection to the database.</li>
+<li>Click “Save” and close the window.</li>
+</ul>
+<p>Once configured, you can open any of the program databases and should no longer need to enter your user name and password each time. Hooray! If you are not experiencing this, you might need to update to a newer version of the ODBC driver.</p>
+<p>ONLY AFTER WE MIGRATE THE PEP DASHBOARD: If you have a database connection to the old, internal PEP database (pep), delete that from the ODBC connections list.</p>
+</section>
+<section id="connect-from-r" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-r">Connect from R</h3>
+<p>To connect to the PEP database from R, there are two different steps:</p>
+<ol type="1">
+<li>First, create an .Renviron file to store the connection details to the database. This only needs to be done once.
+<ol type="a">
+<li>Create a new text file in your Documents folder on your laptop (typically in C:.LastName) named “.Renviron”. There will be no file name and the file extension is Renviron (weird, I know).</li>
+<li>Open the file in a text editor (Notepad or Notepad++).</li>
+<li>Enter the following details and save the file. Replace the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).</li>
+</ol></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[database_name]_ip <span class="ot">&lt;-</span> afsc.postgres.prod.nmfs.local</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[database_name]_port <span class="ot">&lt;-</span> <span class="dv">5432</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[database_name]_db <span class="ot">&lt;-</span> database_name</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>[database_name]_user <span class="ot">&lt;-</span> your_user_name</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>[database_name]_user_pw <span class="ot">&lt;-</span> your_password</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>Second, connect to the database during an R working session. You will need to do this each time you connect to the database. The following steps are required:
+<ol type="a">
+<li>Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)</li>
+<li>Use the following code to create a connection to the DB using the details in your .Renviron file, again, replacing the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).</li>
+</ol></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RPostgres)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> RPostgres<span class="sc">::</span><span class="fu">dbConnect</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Postgres</span>(),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">host =</span> <span class="fu">Sys.getenv</span>(<span class="st">"[database_name]_ip"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">port =</span> <span class="fu">Sys.getenv</span>(<span class="st">"[database_name]_port"</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dbname =</span> <span class="fu">Sys.getenv</span>(<span class="st">"[database_name]_db"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">user =</span> <span class="fu">Sys.getenv</span>(<span class="st">"[database_name]_user"</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"[database_name]_user_pw"</span>) <span class="co">#,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">sslmode =</span> <span class="st">"require"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>c. Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example, the following code will return all details for PEP activity plans stored in the database.</code></pre>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> RPostgres<span class="sc">::</span><span class="fu">dbGetQuery</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  con,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SELECT * FROM administrative.tbl_activity_plans"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="connect-from-qgis" class="level3">
+<h3 class="anchored" data-anchor-id="connect-from-qgis">Connect from QGIS</h3>
+<p>To view spatial data stored in the PostgreSQL database:</p>
+<ul>
+<li>Open QGIS.</li>
+<li>Right click “PostgreSQL” in the Browser window, and select “New Connection…”. <em><strong>NOTE:</strong> If you see “PostGIS” instead of “PostgreSQL”, you need to submit a Service Desk Ticket to update your version of QGIS. You should be working with QGIS 3.28 or higher.</em></li>
+<li>In the Create a New PostGIS Connection window, specify the following options:
+<ul>
+<li>Name: database_name</li>
+<li>Service: (leave blank)</li>
+<li>Host: afsc.postgres.prod.nmfs.local</li>
+<li>Port: 5432</li>
+<li>Database: database_name</li>
+<li>SSL mode: require</li>
+<li>Username: your_user_name (check box to save)</li>
+<li>Password: your_password (check box to save)</li>
+</ul></li>
+<li>Click “Test Connection” to confirm the connection to the database and before closing the menu.</li>
+<li>Once created, you will see a new connection to the database under PostgreSQL. The available data are listed under each schema, and only spatial data are visible (unless you have configured your connection otherwise).</li>
+</ul>
+<p>For entering or modifying spatial data, process the data as instructed for each individual project.&nbsp;</p>
+</section>
+<section id="connection-from-arcgis" class="level3">
+<h3 class="anchored" data-anchor-id="connection-from-arcgis">Connection from ArcGIS</h3>
+<p>To view spatial data stored in the PostgreSQL database in ArcGIS, you will need to create a database connection. This can be done in ArcCatalog or ArcPro:</p>
+<ul>
+<li>In ArcCatalog in the Catalog Tree, navigate to the “Database Connections” OR in ArcPro under Insert/Connections. Select “Add Database Connection”.</li>
+<li>In the pop-up window, select or enter the following details:
+<ul>
+<li>Database Platform: PostgreSQL</li>
+<li>Instance: afsc.postgres.prod.nmfs.local</li>
+<li>Authentication Type: Database authentication</li>
+<li>User name: your_user_name</li>
+<li>Password: your_password</li>
+<li>Save user name and password: OK to save!</li>
+<li>Database: database_name</li>
+</ul></li>
+<li>Once connected, you can view all data and add spatial data to your maps.</li>
+</ul>
+<p>Do not make any changes to the spatial data from ArcGIS software. QGIS is the authoritative software for editing spatial data stored in PostgreSQL.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

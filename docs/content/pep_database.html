@@ -150,6 +150,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/work_with_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Work with Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/staff_engagement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Staff Engagement</span></a>
   </div>
@@ -170,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#connection-details" id="toc-connection-details" class="nav-link" data-scroll-target="#connection-details">Connection Details</a></li>
   <li><a href="#current-schemas" id="toc-current-schemas" class="nav-link" data-scroll-target="#current-schemas">Current Schemas</a></li>
   <li><a href="#naming-conventions" id="toc-naming-conventions" class="nav-link" data-scroll-target="#naming-conventions">Naming Conventions</a></li>
-  <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a></li>
+  <li><a href="#database-documentation" id="toc-database-documentation" class="nav-link" data-scroll-target="#database-documentation">Database Documentation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -183,15 +189,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="pep-database" class="level1">
 <h1>PEP Database</h1>
-<p>This section details what PEP information is stored where within the cloud. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with the PEP database.</p>
+<p>This section details what PEP information is stored where within the cloud. See <a href="../content/work_with_data.html">Work with Data</a> for more information about how to work with the PEP PostgreSQL database.</p>
+<p><em>For suggestions, updates, or errors, please submit an issue on <a href="https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues">GitHub</a>.</em></p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The table below details the final data are stored in the pep PostgreSQL database.</p>
+<p>General information about the PEP database</p>
 <ul>
 <li>All staff will have read-only access to all data.&nbsp;</li>
-<li>Staff will only have read-write access to the data they are required to edit.</li>
+<li>Staff will only have read-write access to the data they are required to edit. If you are new to entering data in a program Access DB, contact S. Koslovsky to get your permissions updated.</li>
 <li>There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. <strong>Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.</strong></li>
-<li>QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS.&nbsp;ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB or from the pepGeodatabase.</li>
+<li>QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS.&nbsp;ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB.</li>
 </ul>
 </section>
 <section id="connection-details" class="level2">
@@ -379,37 +386,31 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h2>
 <p>General Guidelines</p>
 <ul>
-<li>Coordinate with S. Koslovsky before adding new data tables to the database or if you need a stored query added to the database.</li>
+<li>Coordinate with S. Koslovsky if you have new data that need to be added to the database or if you need help with creating or accessing a query.</li>
 <li>Do not use spaces in database item names. Use underscores between words.</li>
 <li>Data for analyses:
 <ul>
-<li>If you are using data products that are finalized (e.g.&nbsp;CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query.</li>
+<li>If you are using data products that are finalized (e.g.&nbsp;CHESS survey) and you need data processed prior to use, the processed data should be stored in a view/query or the process should be documented within the code in which the data are extracted.</li>
 <li>If you are using data products that will continue to be updated (e.g.&nbsp;telemetry data) and you need the processed data preserved, the processed data should either be stored in the database as a separate table or be exported and stored elsewhere (network or computer) with other associated files.</li>
 </ul></li>
 <li>For tables
 <ul>
-<li>lku_ - use this prefix for look-up tables.</li>
-<li>geo_ - use this prefix for spatially explicit datasets that are stored in the postgres DB. If you have a table that has spatial data, use the tbl_ prefix. If you have raster, basemap, etc., use the geo_ prefix.</li>
-<li>tbl_ - use this prefix for data tables. These can be spatially enabled.</li>
-<li>res_ - use this prefix for results tables. These are tables that are derived from data stored in tables (tbl_) that need to be stored but are not “raw” data. These should have clear indication of what they are, and if appropriate, a date</li>
+<li>lku_ - look-up tables</li>
+<li>geo_ - spatially explicit datasets (with the exception of one within the coastal surveys schema)</li>
+<li>tbl_ - use this prefix for data tables</li>
+<li>res_ - use this prefix for results tables</li>
 </ul></li>
 <li>For views
 <ul>
-<li>qa_ - use this prefix for QA/QC queries.</li>
-<li>res – use this prefix for views that are for analytical purposes.</li>
-<li>Anything else – use logical consistency for any other views stored.</li>
+<li>qa_ - QA/QC queries</li>
+<li>res – views that are for analytical purposes</li>
+<li>[Anything else] – apply logical consistency for any other stored views</li>
 </ul></li>
 </ul>
 </section>
-<section id="backuprecovery-procedures" class="level2">
-<h2 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h2>
-<p>TBD for cloud-based database</p>
-<p>OLD INFORMATION: The pepDB will be backed up according to the following schedule:</p>
-<ul>
-<li><p>Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM.&nbsp;</p></li>
-<li><p>Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.</p></li>
-</ul>
-<p>The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.</p>
+<section id="database-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="database-documentation">Database Documentation</h2>
+<p>Efforts are underway in 2026 to develop a workflow for data dictionaries and database diagrams. More information about this work can be found <a href="https://drive.google.com/drive/u/0/folders/1XBQzy3yYRRy4mxtHUiFIZ8bjPiCcHKrM">here</a>. This section will be updated with more information when products are available.</p>
 
 
 </section>

@@ -100,7 +100,7 @@ After fieldwork is completed, part of the larger project debrief should include 
 
 (corresponds to "Access" in the NOAA Data Management Handbook)
 
-Part of the data workflow is to ensure the final products are easily usable and accessible for analyses. Accessing data for each analysis will be different; work with S. Koslovsky to identify the most efficient way to extract data from the DB and/or network for your needs.
+Part of the data workflow is to ensure the final products are easily usable and accessible for analyses. Accessing data for each analysis will be different; see [Work with Data](work_with_data.qmd) to identify the most efficient way to extract data from the DB and/or network for your needs.
 
 ## Evaluate
 
@@ -112,25 +112,15 @@ We want to emphasize the feedback loop from analytical processes to data managem
 
 (corresponds to "Share" in the NOAA Data Management Handbook)
 
-Data are considered final when a project is completed (e.g., ChESS) or when the annual data processing for a project (e.g., harbor seal surveys) is completed. After data are processed and considered final, S. Koslovsky will notify PI and data sharing staff to prepare final datasets for archive and distribution (when appropriate).
+Data are considered final when a project is completed (e.g., ChESS) or when the annual data processing for a project (e.g., harbor seal surveys) is completed. After data are processed and considered final, staff should prepare final datasets for archive and distribution (when appropriate).
 
 ### Metadata
 
-NOAA Fisheries requires that all data collected be documented within the official NOAA Fisheries metadata repository, [InPort](https://inport.nmfs.noaa.gov/inport). InPort provides an extensive suite of tools for editing and managing metadata. For our projects, we will update InPort as follows:
-
-1.  S. Koslovsky and C. Christman will work with project leads to establish a metadata plan and to get started with InPort.
-2.  The project lead will enter the appropriate metadata information into a GoogleForm that will be used to create and maintain program metadata records.
-    a.  The responsibility for creating, editing, and maintaining the GoogleForm entries is the responsibility of the project lead. Because these records will be available to the public and, in many cases, represent the authoritative documentation of the data set, project leads should devote an appropriate amount of time and thought to development of metadata records.
-    b.  Once the necessary and complete information is entered into the GoogleForm, notify C. Christman.
-3.  C. Christman will complete the necessary updates/entries.
-
-For more information on metadata workflow, [review this documentation](https://docs.google.com/document/d/1kmEoKzXjS-O2r-6euBCL7A3We8mfAre3fpcEvytBD84/edit?tab=t.0) and/or contact C. Christman.
+NOAA Fisheries requires that all data collected be documented within the official NOAA Fisheries metadata repository, [InPort](https://inport.nmfs.noaa.gov/inport). InPort provides an extensive suite of tools for editing and managing metadata. 
 
 ### Online Repositories
 
 Much of the data collected and processed as part of our research activities is intended for public release, either in compliance with NOAA policies (e.g. Public Access to Research Results \[PARR\]) or in support of best practices related to open science and reproducible research. Keeping track of the evolving policies and expanding tools/repositories available can be challenging. Here, we outline our plan for the use of available repositories.
-
-If you are publishing a manuscript and the journal requires the data to be provided on an open data portal, work with S. Koslovsky to identify the most appropriate repository and to ensure metadata are created.
 
 ## Dispose
 

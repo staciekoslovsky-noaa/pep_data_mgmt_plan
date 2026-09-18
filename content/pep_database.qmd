@@ -1,13 +1,15 @@
 # PEP Database
 
-This section details what PEP information is stored where within the cloud. See [PEP Onboarding](pep_onboarding.qmd) for more information about how to work with the PEP database.
+This section details what PEP information is stored where within the cloud. See [Work with Data](work_with_data.qmd) for more information about how to work with the PEP PostgreSQL database.
+
+*For suggestions, updates, or errors, please submit an issue on [GitHub](https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues).*
 
 ## Overview
 
 General information about the PEP database
 
 -   All staff will have read-only access to all data. 
--   Staff will only have read-write access to the data they are required to edit.
+-   Staff will only have read-write access to the data they are required to edit. If you are new to entering data in a program Access DB, contact S. Koslovsky to get your permissions updated.
 -   There are a number of automated scripts that will replicate and/or process data into their final product. This database should be the go-to location data anytime data are needed. **Intermediate copies and/or previous exports should always be replaced to ensure you are using the most up-to-date data.**
 -   QGIS is the only software we will use for editing spatial data stored in the DB. It will also be used for importing shapefiles to PostGIS. ArcGIS or other GIS software should only be used for viewing spatial data stored in the DB.
 
@@ -67,12 +69,6 @@ General Guidelines
     -   res – views that are for analytical purposes
     -   [Anything else] – apply logical consistency for any other stored views
 
-## Backup/Recovery Procedures
-The backup and recovery procedures are still under development. This section will be updated when more information is available.
+## Database Documentation
 
-OLD INFORMATION:
-The pepDB will be backed up according to the following schedule:
-
--   Daily directory backup: The pep DB will be backed up daily to tape. The last 5 days will also be stored on the VM. 
--   Monthly full VM backup: The virtual machine on which the pep DB resides will be fully backed up to tape monthly. The last 3 months will also be stored on the VM.
--   The DB backups will be tested every 6 months (March and September) to ensure they are working properly, and data can be restored.
+Efforts are underway in 2026 to develop a workflow for data dictionaries and database diagrams. More information about this work can be found [here](https://drive.google.com/drive/u/0/folders/1XBQzy3yYRRy4mxtHUiFIZ8bjPiCcHKrM). This section will be updated with more information when products are available.

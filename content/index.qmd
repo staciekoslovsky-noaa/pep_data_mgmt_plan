@@ -20,6 +20,9 @@ Summarizes the PEP PostgreSQL database structure, naming conventions, and access
 ### [PEP Onboarding](pep_onboarding.qmd)
 Lists software requirements, recommended tools, and orientation information for PEP staff.
 
+### [Work with Data](work_with_data.qmd)
+Details how to work with data using various platforms and connecting to various cloud-based resources.
+
 ### [Staff Engagement](staff_engagement.qmd)
 Describes best practices for working with one another with respect to data management and workflow development/implentation.
 
@@ -30,4 +33,6 @@ Details related to staff departures will be added later.
 
 This document was originally created in 2018, migrated to Quarto in 2024, and substantially overhauled in 2026 (at the time of the migration of files and the PEP database to the cloud). The PEP data management plan is updated as workflows and requirements evolve.
 
-This document was last updated on `r Sys.Date()`. 
+This document was last updated on 2026-09-17 by S. Koslovsky. 
+
+*For suggestions, updates, or errors, please submit an issue on [GitHub](https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues).*

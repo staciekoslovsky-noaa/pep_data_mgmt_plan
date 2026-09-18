@@ -150,6 +150,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/work_with_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Work with Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/staff_engagement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Staff Engagement</span></a>
   </div>
@@ -166,27 +172,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#pep-data-storage" id="toc-pep-data-storage" class="nav-link active" data-scroll-target="#pep-data-storage">PEP Data Storage</a>
   <ul>
-  <li><a href="#individual-storage" id="toc-individual-storage" class="nav-link" data-scroll-target="#individual-storage">Individual Storage</a>
-  <ul class="collapse">
-  <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a>
-  <ul class="collapse">
-  <li><a href="#laptop" id="toc-laptop" class="nav-link" data-scroll-target="#laptop">Laptop</a></li>
-  <li><a href="#google-drive" id="toc-google-drive" class="nav-link" data-scroll-target="#google-drive">Google Drive</a></li>
-  </ul></li>
-  </ul></li>
   <li><a href="#pep-storage-overview" id="toc-pep-storage-overview" class="nav-link" data-scroll-target="#pep-storage-overview">PEP Storage Overview</a></li>
-  <li><a href="#pep-google-shared-drives" id="toc-pep-google-shared-drives" class="nav-link" data-scroll-target="#pep-google-shared-drives">PEP Google Shared Drives</a>
-  <ul class="collapse">
-  <li><a href="#backuprecovery-procedures-1" id="toc-backuprecovery-procedures-1" class="nav-link" data-scroll-target="#backuprecovery-procedures-1">Backup/Recovery Procedures</a></li>
-  </ul></li>
+  <li><a href="#pep-google-shared-drives" id="toc-pep-google-shared-drives" class="nav-link" data-scroll-target="#pep-google-shared-drives">PEP Google Shared Drives</a></li>
   <li><a href="#pep-google-cloud-platform" id="toc-pep-google-cloud-platform" class="nav-link" data-scroll-target="#pep-google-cloud-platform">PEP Google Cloud Platform</a>
   <ul class="collapse">
-  <li><a href="#afsc_mml_pep-bucket" id="toc-afsc_mml_pep-bucket" class="nav-link" data-scroll-target="#afsc_mml_pep-bucket">afsc_mml_pep Bucket</a>
+  <li><a href="#afsc_mml_pep-bucket" id="toc-afsc_mml_pep-bucket" class="nav-link" data-scroll-target="#afsc_mml_pep-bucket"><em>afsc_mml_pep</em> Bucket</a>
   <ul class="collapse">
-  <li><a href="#environmental-covariates-finish" id="toc-environmental-covariates-finish" class="nav-link" data-scroll-target="#environmental-covariates-finish">Environmental Covariates FINISH</a></li>
+  <li><a href="#environmental-covariates" id="toc-environmental-covariates" class="nav-link" data-scroll-target="#environmental-covariates">Environmental Covariates</a></li>
   </ul></li>
-  <li><a href="#pep_storage-bucket" id="toc-pep_storage-bucket" class="nav-link" data-scroll-target="#pep_storage-bucket">pep_storage Bucket</a></li>
-  <li><a href="#backuprecovery-procedures-2" id="toc-backuprecovery-procedures-2" class="nav-link" data-scroll-target="#backuprecovery-procedures-2">Backup/Recovery Procedures</a></li>
+  <li><a href="#pep_storage-bucket" id="toc-pep_storage-bucket" class="nav-link" data-scroll-target="#pep_storage-bucket"><em>pep_storage</em> Bucket</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -200,39 +194,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="pep-data-storage" class="level1">
 <h1>PEP Data Storage</h1>
-<p>This section details what PEP information is stored where within the cloud. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with data in these various locations.</p>
-<section id="individual-storage" class="level2">
-<h2 class="anchored" data-anchor-id="individual-storage">Individual Storage</h2>
-<p>The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your <strong>laptop</strong> or individual <strong>Google Drive</strong> (“My Drive”). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to <a href="../content/basics.html">Basics</a> for suggestions for file naming and folder organization.</p>
-<section id="backuprecovery-procedures" class="level3">
-<h3 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h3>
-<section id="laptop" class="level4">
-<h4 class="anchored" data-anchor-id="laptop">Laptop</h4>
-<p>Your laptop needs to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under “Computers” in the left navigation pane).</p>
-</section>
-<section id="google-drive" class="level4">
-<h4 class="anchored" data-anchor-id="google-drive">Google Drive</h4>
-<p>The files you store on Google Drive are backed up using Google specifications:</p>
-<ul>
-<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
-<ul>
-<li>For G-suite files can be viewed within the file (File/Version History).</li>
-<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
-<ul>
-<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
-<li>Click File informationversions.</li>
-<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
-</ul></li>
-</ul></li>
-<li>To recover files, you need to act quickly:
-<ul>
-<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
-<li>After 30 days, the file can no longer be recovered.</li>
-</ul></li>
-</ul>
-</section>
-</section>
-</section>
+<p>This section details what information is stored locally and within the cloud. See <a href="../content/work_with_data.html">Work with Data</a> for more information about how to work with data in these various locations.</p>
+<p><em>For suggestions, updates, or errors, please submit an issue on <a href="https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues">GitHub</a>.</em></p>
 <section id="pep-storage-overview" class="level2">
 <h2 class="anchored" data-anchor-id="pep-storage-overview">PEP Storage Overview</h2>
 <p>Generally speaking, all original data and supplemental information to data collection are stored in a program storage resource.</p>
@@ -287,37 +250,14 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>NMFS MML PEP Survey Ice Seal</strong> - stores files/data associated with multiple ice seal survey efforts (e.g.&nbsp;annotations, species misclassification)</li>
 <li><strong>NMFS MML PEP Survey Ice Seal Projects 1/2/3</strong> - stores files/data associated with individual ice seal survey efforts (e.g.&nbsp;surveys_ice_seals_2016); data are ordered chronologically across the multiple project folders</li>
 </ul>
-<section id="backuprecovery-procedures-1" class="level3">
-<h3 class="anchored" data-anchor-id="backuprecovery-procedures-1">Backup/Recovery Procedures</h3>
-<p>The files you store on Google Drive are backed up using Google specifications:</p>
-<ul>
-<li>Google keeps a versioning history of files that can be viewed/recovered within the web browser.
-<ul>
-<li>For G-suite files can be viewed within the file (File/Version History).</li>
-<li>For all other files (e.g.&nbsp;CSV files, Access DBs, pdfs) can be viewed through the web browser.
-<ul>
-<li>Click on the 3 dots to open up the “More actions” options for the item of interest.</li>
-<li>Click File informationversions.</li>
-<li>Through this list of files, you can identify which version of a file to which you want to revert.</li>
-</ul></li>
-</ul></li>
-<li>To recover files, you need to act quickly:
-<ul>
-<li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
-<li>From days 31-55, you can submit a service desk ticket to get support recovering the file.</li>
-<li>After 55 days, the file can no longer be recovered.</li>
-</ul></li>
-</ul>
-</section>
 </section>
 <section id="pep-google-cloud-platform" class="level2">
 <h2 class="anchored" data-anchor-id="pep-google-cloud-platform">PEP Google Cloud Platform</h2>
-<p>Google Cloud Platform might also be referenced as “GCP” or “bucket(s)”. PEP currently has access to two bucket locations: afsc_mml_pep and pep_storage. These buckets are stored within the ggn-nmfs-afscinf-infra-01 project or within the aliased nmfs-trusted-images project. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with data in buckets.</p>
-<p>Authentication for bucket access is now limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long FINISH</p>
-<p>Once data have been uploaded a bucket, they are difficult to modify! There are known changes that will likely happen with KAMERA-collected data after returning from the field (i.e.&nbsp;running post-processing), but our plan should be to only archive data to the cloud when we are confident they are formatted correctly.</p>
+<p>Google Cloud Platform might also be referenced as “GCP” or “bucket(s)”. PEP currently has access to two bucket locations: <em>afsc_mml_pep</em> and <em>pep_storage</em>. These buckets are stored within the ggn-nmfs-afscinf-infra-01 project or within the aliased nmfs-trusted-images project. See <a href="../content/pep_onboarding.html">PEP Onboarding</a> for more information about how to work with data in buckets.</p>
 <section id="afsc_mml_pep-bucket" class="level3">
-<h3 class="anchored" data-anchor-id="afsc_mml_pep-bucket">afsc_mml_pep Bucket</h3>
-<p>The data stored in the afsc_mml_pep bucket:</p>
+<h3 class="anchored" data-anchor-id="afsc_mml_pep-bucket"><em>afsc_mml_pep</em> Bucket</h3>
+<p>All of PEP has read-only access to the <em>afsc_mml_pep</em> bucket, with a small number of users having read-write access ead-write access to the PEP buckets is limited to a small number of staff. Contact S. Koslovsky if you need read-write access to the <em>afsc_mml_pep</em> bucket. And for those with read-write access to the <em>afsc_mml_pep</em> bucket, please coordinate with S. Koslovsky before uploading new data to ensure consistent folder naming and bucket organization.</p>
+<p>The data stored in the <em>afsc_mml_pep</em> bucket:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 38%">
@@ -388,19 +328,15 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>There are likely items that need to be better organized and/or cleaned up. Coordinate with S. Koslovsky to support reorg/transfers. Most of PEP has read-only access to the data in this location. Contact S. Koslovsky if you need different permissions.</p>
-<section id="environmental-covariates-finish" class="level4">
-<h4 class="anchored" data-anchor-id="environmental-covariates-finish">Environmental Covariates FINISH</h4>
-<p>*The sea ice data stored on the pep database are the CDR and sea ice extent products. The original versions of these datasets are also on the network. In addition to these datasets, the bootstrap and nimbus are also stored on the network. The CDR and sea ice extent should be the go-to sea ice data products, which is why they are processed and available in the pep database.</p>
+<p>There are likely items that need to be better organized and/or cleaned up. Coordinate with S. Koslovsky to support reorg/transfers.</p>
+<section id="environmental-covariates" class="level4">
+<h4 class="anchored" data-anchor-id="environmental-covariates">Environmental Covariates</h4>
+<p>We are in the process of redeveloping the workflow for extracting environmental covariates for spatial datasets. This section will be updated when more information is available.</p>
 </section>
 </section>
 <section id="pep_storage-bucket" class="level3">
-<h3 class="anchored" data-anchor-id="pep_storage-bucket">pep_storage Bucket</h3>
-<p>PEP has a working bucket space for analytics: pep_storage. Coordinate with J. London for access and usage.</p>
-</section>
-<section id="backuprecovery-procedures-2" class="level3">
-<h3 class="anchored" data-anchor-id="backuprecovery-procedures-2">Backup/Recovery Procedures</h3>
-<p>Data are backed up based on AFSC back-up and recovery procedures: - 30 days “soft delete” (i.e.&nbsp;recycle bin) - Versioning: keep the most recent 5 versions of a file - Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data) - Our data will move between hot and almost as hot classes - Data will not go down to the coldest data classes because of cost to move between tiers - We can evaluate options in time to move our least access data to archival cold buckets where it will require a service desk ticket for access - Disaster Recovery Snapshots (i.e.&nbsp;copies stored elsewhere) - Monthly snapshots for 12 months - Annual snapshots for 7 years</p>
+<h3 class="anchored" data-anchor-id="pep_storage-bucket"><em>pep_storage</em> Bucket</h3>
+<p>PEP has a working bucket space for analytics: <em>pep_storage</em>. Coordinate with J. London for access and usage.</p>
 
 
 </section>

@@ -20,6 +20,8 @@ website:
         file: content/pep_database.qmd
       - text: "PEP Onboarding"
         file: content/pep_onboarding.qmd
+      - text: "Work with Data"
+        file: content/work_with_data.qmd
       - text: "Staff Engagement"
         file: content/staff_engagement.qmd
 
