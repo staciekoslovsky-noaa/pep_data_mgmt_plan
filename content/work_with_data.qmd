@@ -126,6 +126,24 @@ The files you store on Google Drive are backed up using Google specifications:
     -   Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.
     -   From days 31-55, you can submit a service desk ticket to get support recovering the file.
     -   After 55 days, the file can no longer be recovered.
+    
+### Connect from R
+
+You can connect to Google Shared Drives from R using the `googledrive` package. See below for an example and review the package documentation for more commands and ways to connect to the data.
+
+```{r connect2GSD}
+#| eval: false
+library(googledrive)
+
+# Authenticate your Google Account
+drive_auth()
+
+# Find a specific Shared Drive by name
+my_shared_drive <- shared_drive_get("Your Shared Drive Name")
+
+# List files inside that specific Shared Drive
+drive_find(shared_drive = my_shared_drive)
+```
 
 ## GCP Bucket
 
@@ -160,7 +178,13 @@ This list will be updated periodically.
 
 
 ### Authentication
-Authentication for bucket access is limited to 16-hour time windows, meaning your process will be interrupted if it is actively working with bucket data for more than 16 hours. This is most likely to impact AI/ML training and any potential long-running processes. This is a recent change so more details will be provided about alternative methods for authentication as more information is available. For now, be aware of this limitation and plan accordingly.
+Google Workspace has always enforced session token expirations, requiring users to log in daily. In June 2026, Google extended this default 16-hour session token expiration to Google Cloud Platform (GCP) user sessions, as well. NOAA has kept this new 16-hour default to align with NIST 800-53 R5 compliance controls. This timeout can interrupt long-running human session jobs or processes that exceed 16 hours. If your workflows are impacted, please use one of the following recommended workarounds:
+
+-   *Refresh authentication before long tasks*: Run gcloud auth login or gcloud auth application-default login immediately before starting a job to guarantee the full 16-hour execution window.
+-   *Attach service accounts to compute resources*: Assign a service account directly to GCP compute instances or containers. These resource-bound executions bypass user session limits entirely.
+-   *Impersonate service accounts*: Configure long-running scripts to impersonate a service account, allowing jobs to complete without user token restrictions.
+-   *Use workload identity pools*: Set up Workload Identity Federation where applicable to automatically manage short-lived access tokens.
+-   *Use service account keys* (last resort only): Service account keys can last up to 90 days before requiring rotation. Due to security risks, this method should only be used if no other options are viable.
 
 ### Uploading Data to a Bucket
 
@@ -214,8 +238,19 @@ To mirror the look and feel of the buckets in your Windows File Explorer, you ca
 -   In the tool, you will need to create new connections to the buckets using [these instructions](https://docs.google.com/document/d/1aRGu1za_75-PBif_tx8Q35cMDAgYF8F4HALgSno9nwQ/edit?tab=t.0#heading=h.e59rzpo58ch8)
     -   Mount the *afsc_mml_pep* bucket as S:\\
     -   Mount the *pep_storage* bucket as P:\\
+  
+Once mounted, you can work with the data using other software, such as R, ArcGIS, QGIS, etc.
 
-### Connect from Workstation
+### Connect from RStudio Workstation
+
+#### Use googleCloudBucketR package
+From Josh: 
+1. Setup authentication with gcloud auth to create a persistent Application Device Credential. 
+2. The gargle and googleCloudStorageR packages can be used to access buckets directly.
+
+(more details to come)
+
+#### Mount buckets using the terminal
 If using an R workstation, use this script to mount buckets to R using the Terminal. 
 
 ```bash
