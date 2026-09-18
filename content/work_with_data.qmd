@@ -284,7 +284,7 @@ This section details the different methods for connecting to the PostgreSQL data
 
 ### Backup/Recovery Procedures
 
-The database runs on a scheduled back-up routine. If a substantial error in data has been made (e.g. table deleted, records are completely untrustworthy), contact S. Koslovsky to get the table restored. The following steps will be applied:
+The database runs on a scheduled back-up routine (7 daily back-ups). If a substantial error in data has been made (e.g. table deleted, records are completely untrustworthy), contact S. Koslovsky ASAP to get the table restored. The following steps will be applied:
 
 -   Restore from backup to a new, temporary PostgreSQL instance (platform defaults to this manner of restore)
 -   Export the individual database or components from the temporary instance that needs to be restored. 

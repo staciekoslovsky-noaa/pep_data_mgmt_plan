@@ -717,7 +717,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This section details the different methods for connecting to the PostgreSQL database using Microsoft Access, R, QGIS, and ArcMap/Catalog/Pro software.</p>
 <section id="backuprecovery-procedures-3" class="level3">
 <h3 class="anchored" data-anchor-id="backuprecovery-procedures-3">Backup/Recovery Procedures</h3>
-<p>The database runs on a scheduled back-up routine. If a substantial error in data has been made (e.g.&nbsp;table deleted, records are completely untrustworthy), contact S. Koslovsky to get the table restored. The following steps will be applied:</p>
+<p>The database runs on a scheduled back-up routine (7 daily back-ups). If a substantial error in data has been made (e.g.&nbsp;table deleted, records are completely untrustworthy), contact S. Koslovsky ASAP to get the table restored. The following steps will be applied:</p>
 <ul>
 <li>Restore from backup to a new, temporary PostgreSQL instance (platform defaults to this manner of restore)</li>
 <li>Export the individual database or components from the temporary instance that needs to be restored.</li>
