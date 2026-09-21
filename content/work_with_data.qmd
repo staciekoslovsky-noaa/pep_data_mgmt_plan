@@ -328,7 +328,7 @@ The database runs on a scheduled back-up routine (7 daily back-ups). If a substa
 ### Connect from Microsoft Access
 To use any of the project Access front-ends or to create your own connection to the database via Access, you need to have the ODBC connection established. This requires support from an Service Desk Ticket to update your ODBC Data Sources to allow connection to PostgreSQL. 
 
-The connection details for setting up the ODBC connection are as follows:
+The connection details for setting up the ODBC connection are as follows. *Replace database_name with the database to which you are connecting (e.g. mml_pep).*
 
 -   Install the ODBC driver with Service Desk Ticket, if not already installed (typically, only when you are working on a new laptop or VM).
     -   You will want to [download the most recent driver](https://www.postgresql.org/ftp/odbc/releases/). Click on the most recent folder *without* "-mimalloc" at the end of the file name; install the **psqlodbc_x64.msi** version.
@@ -357,7 +357,7 @@ To connect to the PEP database from R, there are two different steps:
 1.  First, create an .Renviron file to store the connection details to the database. This only needs to be done once.
     a.  Create a new text file in your Documents folder on your laptop (typically in C:\Users\FirstName.LastName\Work\) named ".Renviron". There will be no file name and the file extension is Renviron (weird, I know).
     b.  Open the file in a text editor (Notepad or Notepad++).
-    c.  Enter the following details and save the file. Replace the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).
+    c.  Enter the following details and save the file. *Replace the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).*
 
 
 ```{r rEnviron}
@@ -371,7 +371,7 @@ To connect to the PEP database from R, there are two different steps:
 
 2. Second, connect to the database during an R working session. You will need to do this each time you connect to the database. The following steps are required:
     a. Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)
-    b. Use the following code to create a connection to the DB using the details in your .Renviron file, again, replacing the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).
+    b. Use the following code to create a connection to the DB using the details in your .Renviron file, again, *replacing the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip)*.
 ```{r connect_string}
 #| eval: false
 library(RPostgres)
@@ -404,7 +404,7 @@ To view spatial data stored in the PostgreSQL database:
 -   Open QGIS.
 -   Right click "PostgreSQL" in the Browser window, and select “New Connection…”. ***NOTE:** If you see "PostGIS" instead of "PostgreSQL", you need to submit a Service Desk Ticket to update your version of QGIS. You should be working with QGIS 3.28 or higher.*
 -   In the Create a New PostGIS Connection window, specify the following options:
-    -   Name: database_name
+    -   Name: database_name *(replace database_name with the database to which you are connecting (e.g. mml_pep))*
     -   Service: (leave blank)
     -   Host: afsc.postgres.prod.nmfs.local
     -   Port: 5432
@@ -429,7 +429,7 @@ To view spatial data stored in the PostgreSQL database in ArcGIS, you will need 
     -   User name: your_user_name
     -   Password: your_password
     -   Save user name and password: OK to save!
-    -   Database: database_name
+    -   Database: database_name *(replace database_name with the database to which you are connecting (e.g. mml_pep))*
 -   Once connected, you can view all data and add spatial data to your maps.
 
 Do not make any changes to the spatial data from ArcGIS software. QGIS is the authoritative software for editing spatial data stored in PostgreSQL.
