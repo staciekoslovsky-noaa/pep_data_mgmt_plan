@@ -207,11 +207,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#how-to-work-with-data" id="toc-how-to-work-with-data" class="nav-link active" data-scroll-target="#how-to-work-with-data">How to Work with Data</a>
   <ul>
+  <li><a href="#tldr-best-practices" id="toc-tldr-best-practices" class="nav-link" data-scroll-target="#tldr-best-practices">TL;DR Best Practices</a></li>
   <li><a href="#individual-resources" id="toc-individual-resources" class="nav-link" data-scroll-target="#individual-resources">Individual Resources</a>
   <ul class="collapse">
   <li><a href="#backuprecovery-procedures" id="toc-backuprecovery-procedures" class="nav-link" data-scroll-target="#backuprecovery-procedures">Backup/Recovery Procedures</a>
   <ul class="collapse">
-  <li><a href="#laptop" id="toc-laptop" class="nav-link" data-scroll-target="#laptop">Laptop</a></li>
+  <li><a href="#laptopvm" id="toc-laptopvm" class="nav-link" data-scroll-target="#laptopvm">Laptop/VM</a></li>
   <li><a href="#google-drive" id="toc-google-drive" class="nav-link" data-scroll-target="#google-drive">Google Drive</a></li>
   </ul></li>
   </ul></li>
@@ -263,14 +264,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>With the migration to the cloud, there is a lot going on now. Lots of new ways to connect with data and major changes to many of our workflows. We are all learning together. We probably made some mis-steps with how data were migrated to the cloud, and we probably don’t yet know all the ways that we’ll work with data moving forward. Be patient with yourself and each other!</p>
 <p>Here are some great <a href="https://cloud.google.com/learn/training">resources</a> for learning more about the Google cloud offerings.</p>
 <p><em>For suggestions, updates, or errors, please submit an issue on <a href="https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues">GitHub</a>.</em></p>
+<section id="tldr-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="tldr-best-practices">TL;DR Best Practices</h2>
+<p>If you don’t want to read this whole document, here are some best practices to get you started!</p>
+<ul>
+<li>Use a VM to work with PostgreSQL database and cloud-based data! (some might also want to use a workstation for working with cloud-based data)
+<ul>
+<li>Install standard software (via Self Service Portal and through Service Desk Tickets)</li>
+<li>Install PostgreSQL ODBC driver for working with database</li>
+<li>Avoid temptation to do a lot of cloud-based work from your laptop!</li>
+</ul></li>
+<li>Install Google Shared Drive in all computing locations (laptop and VM) for easy sharing across platforms</li>
+<li>Mount buckets only to VM, so you’re not tempted to do a lot of work in the bucket from your laptop</li>
+<li>Use different color settings on laptop and on VM to help you visually track where you’re working (e.g.&nbsp;dark mode on laptop, light mode on VM)</li>
+<li>Use your laptop for local work (e.g.&nbsp;email, writing). Use your VM or workstation for the rest of your work.</li>
+<li>Don’t forget to turn off your VM at the end of the day!!!</li>
+</ul>
+</section>
 <section id="individual-resources" class="level2">
 <h2 class="anchored" data-anchor-id="individual-resources">Individual Resources</h2>
-<p>The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your <strong>laptop</strong> or individual <strong>Google Drive</strong> (“My Drive”). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to <a href="../content/basics.html">Basics</a> for suggestions for file naming and folder organization.</p>
+<p>The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your <strong>laptop</strong>, <strong>virtual machine</strong> (see more details below), or individual <strong>Google Drive</strong> (“My Drive”). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to <a href="../content/basics.html">Basics</a> for suggestions for file naming and folder organization.</p>
 <section id="backuprecovery-procedures" class="level3">
 <h3 class="anchored" data-anchor-id="backuprecovery-procedures">Backup/Recovery Procedures</h3>
-<section id="laptop" class="level4">
-<h4 class="anchored" data-anchor-id="laptop">Laptop</h4>
-<p>Your laptop needs to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under “Computers” in the left navigation pane).</p>
+<section id="laptopvm" class="level4">
+<h4 class="anchored" data-anchor-id="laptopvm">Laptop/VM</h4>
+<p>Your laptop and VM need to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under “Computers” in the left navigation pane) or under Google Drivecomputers.</p>
 </section>
 <section id="google-drive" class="level4">
 <h4 class="anchored" data-anchor-id="google-drive">Google Drive</h4>
@@ -291,6 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.</li>
 <li>After 30 days, the file can no longer be recovered.</li>
 </ul></li>
+<li>Once you have a VM, you will be able to view files from other machines, which makes cross-machine work a lot easier to manage!</li>
 </ul>
 </section>
 </section>
@@ -322,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>GCP Bucket</td>
-<td>Limit</td>
+<td>Yes, but don’t</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
@@ -334,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>PostgreSQL Database</td>
-<td>Yes</td>
+<td>Yes, but limit</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
@@ -447,8 +466,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Search files</td>
-<td>Using file explorer search engine</td>
-<td>Yes, using Google search engine</td>
+<td>Yes – using file explorer search engine</td>
+<td>Yes – using Google search engine</td>
 </tr>
 <tr class="odd">
 <td>Share folders with people</td>
@@ -468,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>Open a non-G-suite file</td>
 <td>Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time)</td>
-<td>Not likely</td>
+<td>Yes – click on the three dots to open “More Actions”; click “Open with…” for options available for the associated file type</td>
 </tr>
 <tr class="odd">
 <td>Open Access database</td>
@@ -575,16 +594,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Access data entry/viewing</td>
-<td>Yes</td>
+<td>No - too slow</td>
 <td>No</td>
-<td>Yes</td>
+<td>Yes!</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Annotate images</td>
 <td>No</td>
 <td>No</td>
-<td>Yes</td>
+<td>Yes!</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -602,16 +621,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 </tr>
 <tr class="odd">
-<td>Run custom R code on data</td>
-<td>No</td>
+<td>Run custom R code on local data</td>
+<td>Yes</td>
 <td>Yes</td>
 <td>Yes</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Run custom R code on cloud data</td>
+<td>Yes - but slower/costlier</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Run KAMERA camera model development</td>
 <td>No</td>
-<td>Yes</td>
+<td>Maybe?</td>
 <td>Yes</td>
 <td></td>
 </tr>
@@ -655,7 +681,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="backuprecovery-procedures-2" class="level3">
 <h3 class="anchored" data-anchor-id="backuprecovery-procedures-2">Backup/Recovery Procedures</h3>
-<p>Data are backed up based on AFSC back-up and recovery procedures: - 30 days “soft delete” (i.e.&nbsp;recycle bin) - Versioning: keep the most recent 5 versions of a file - Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data) - Our data will move between hot and almost as hot classes - Data will not go down to the coldest data classes because of cost to move between tiers - We can evaluate options in time to move our least access data to archival cold buckets where it will require a service desk ticket for access - Disaster Recovery Snapshots (i.e.&nbsp;copies stored elsewhere) - Monthly snapshots for 12 months - Annual snapshots for 7 years</p>
+<p>Data are backed up based on AFSC back-up and recovery procedures:</p>
+<ul>
+<li>30 days “soft delete” (i.e.&nbsp;recycle bin)</li>
+<li>Versioning: keep the most recent 5 versions of a file</li>
+<li>Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data)
+<ul>
+<li>Our data will move between hot and almost as hot classes</li>
+<li>Data will not go down to the coldest data classes because of cost to move between tiers</li>
+<li>We can evaluate options in time to move our least access data to archival cold buckets where it will require a service desk ticket for access</li>
+</ul></li>
+<li>Disaster Recovery Snapshots (i.e.&nbsp;copies stored elsewhere)
+<ul>
+<li>Monthly snapshots for 12 months</li>
+<li>Annual snapshots for 7 years</li>
+</ul></li>
+</ul>
 </section>
 <section id="connect-from-web-browser" class="level3">
 <h3 class="anchored" data-anchor-id="connect-from-web-browser">Connect from Web Browser</h3>
@@ -673,8 +714,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Once installed, open the mounting tool from the Start menu</li>
 <li>In the tool, you will need to create new connections to the buckets using <a href="https://docs.google.com/document/d/1aRGu1za_75-PBif_tx8Q35cMDAgYF8F4HALgSno9nwQ/edit?tab=t.0#heading=h.e59rzpo58ch8">these instructions</a>
 <ul>
-<li>Mount the <em>afsc_mml_pep</em> bucket as S:\</li>
-<li>Mount the <em>pep_storage</em> bucket as P:\</li>
+<li>Mount the <em>afsc_mml_pep</em> bucket as P:\</li>
+<li>Mount the <em>pep_storage</em> bucket as Q:\</li>
 </ul></li>
 </ul>
 <p>Once mounted, you can work with the data using other software, such as R, ArcGIS, QGIS, etc.</p>

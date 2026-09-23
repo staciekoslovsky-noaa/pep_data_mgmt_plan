@@ -6,15 +6,29 @@ Here are some great [resources](https://cloud.google.com/learn/training) for lea
 
 *For suggestions, updates, or errors, please submit an issue on [GitHub](https://github.com/staciekoslovsky-noaa/pep_data_mgmt_plan/issues).*
 
+## TL;DR Best Practices
+
+If you don't want to read this whole document, here are some best practices to get you started!
+
+-  Use a VM to work with PostgreSQL database and cloud-based data! (some might also want to use a workstation for working with cloud-based data)
+    -   Install standard software (via Self Service Portal and through Service Desk Tickets)
+    -   Install PostgreSQL ODBC driver for working with database
+    -   Avoid temptation to do a lot of cloud-based work from your laptop!
+-   Install Google Shared Drive in all computing locations (laptop and VM) for easy sharing across platforms
+-   Mount buckets only to VM, so you're not tempted to do a lot of work in the bucket from your laptop
+-   Use different color settings on laptop and on VM to help you visually track where you're working (e.g. dark mode on laptop, light mode on VM)
+-   Use your laptop for local work (e.g. email, writing). Use your VM or workstation for the rest of your work.
+-   Don't forget to turn off your VM at the end of the day!!!
+
 ## Individual Resources
 
-The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your **laptop** or individual **Google Drive** ("My Drive"). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to [Basics](basics.qmd) for suggestions for file naming and folder organization.
+The two options available for storing individual files (such as administrative documentation, working copies of files, etc.) are your **laptop**, **virtual machine** (see more details below), or individual **Google Drive** ("My Drive"). No original or processed data should be stored exclusively in any of these resources. It is personal preference what you store where. Refer to [Basics](basics.qmd) for suggestions for file naming and folder organization.
 
 ### Backup/Recovery Procedures
 
-#### Laptop 
+#### Laptop/VM
 
-Your laptop needs to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under "Computers" in the left navigation pane).
+Your laptop and VM need to be set-up to back files up to Google Drive using Google Drive Desktop. Once configured, the folder(s) you select for back-up will be visible from the Google Drive website (under "Computers" in the left navigation pane) or under Google Drive\Other computers.
 
 #### Google Drive
 
@@ -29,6 +43,7 @@ The files you store on Google Drive are backed up using Google specifications:
 -   To recover files, you need to act quickly:
     -   Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.
     -   After 30 days, the file can no longer be recovered.
+-   Once you have a VM, you will be able to view files from other machines, which makes cross-machine work a lot easier to manage!
 
 
 ## Cloud-based Storage and Services
@@ -37,9 +52,9 @@ We now have both new tools and new locations for working our data. The chart bel
 | **Cloud-based Storage Location** | **Laptop** | **Virtual Machine** | **Workstation**
 | -------------------| ---------- | ---------- | ---------- |
 | Google Shared Drive | Yes | Yes | Yes*
-| GCP Bucket | Limit | Yes| Yes
+| GCP Bucket | Yes, but don't | Yes| Yes
 | AFSC X Drive | Yes | Yes | No
-| PostgreSQL Database | Yes | Yes | Yes
+| PostgreSQL Database | Yes, but limit | Yes | Yes
 *Google Shared Drive can be accessed via a workstation, but not without some work on the end-user's part (via RClone)
 
 The "Need VPN?" column in the following table denotes if you need to use a VPN connection to access the cloud resource when working offsite.
@@ -104,11 +119,11 @@ You will need to use both of these methods for connecting to Google Shared Drive
 | **What To Do** | **Mapped Network Drive** | **Web Browser** |
 |-----------------------------|----------------------------------|----------------------------------|
 | Browse files | Yes! | Yes! |
-| Search files | Using file explorer search engine | Yes, using Google search engine |
+| Search files | Yes – using file explorer search engine | Yes – using Google search engine |
 | Share folders with people | No | Yes! |
 | Share files with people | No-ish (can open a file from G:\\ and share) | Yes! |
 | Open a G-suite file | Yes – will open web browser (if not already open) | Yes – will open a new tab within web broswer |
-| Open a non-G-suite file | Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time) | Not likely |
+| Open a non-G-suite file | Yes – will open in native software (Office-suite files will open a pop-up and let you know if someone else is in the file at the same time) | Yes – click on the three dots to open "More Actions"; click "Open with..." for options available for the associated file type |
 | Open Access database | Yes! | No |
 | Work with data in other software (e.g. R, QGIS) | Yes! | No |
 
@@ -168,12 +183,13 @@ General guidance when working with data in a bucket:
 |--------------------------------------|--------------|--------------|--------------|--------------|
 | Browse files | Yes | Yes | Yes |
 | View an image or two | Yes | No | Yes |
-| Access data entry/viewing | Yes | No | Yes |
-| Annotate images | No | No | Yes |
+| Access data entry/viewing | No - too slow | No | Yes! |
+| Annotate images | No | No | Yes! |
 | Run AI/ML workflow | No | Yes | Yes |
 | Heavy ArcGIS or QGIS usage of database or bucket data | No | No | Yes |
-| Run custom R code on data | No | Yes | Yes |
-| Run KAMERA camera model development | No | Yes | Yes |
+| Run custom R code on local data | Yes | Yes | Yes |
+| Run custom R code on cloud data | Yes - but slower/costlier | Yes | Yes |
+| Run KAMERA camera model development | No | Maybe? | Yes |
 This list will be updated periodically.
 
 
@@ -212,6 +228,7 @@ There are various wildcards (*) that can be used in this command to apply specif
 ### Backup/Recovery Procedures
 
 Data are backed up based on AFSC back-up and recovery procedures:
+
 -   30 days “soft delete” (i.e. recycle bin)
 -   Versioning: keep the most recent 5 versions of a file
 -   Storage Class: Autoclass (storage becomes cheaper over time for unaccessed data) 
@@ -236,8 +253,8 @@ To mirror the look and feel of the buckets in your Windows File Explorer, you ca
 -   From the Self Service Portal, install the GCS Bucket Mounting Tool
 -   Once installed, open the mounting tool from the Start menu
 -   In the tool, you will need to create new connections to the buckets using [these instructions](https://docs.google.com/document/d/1aRGu1za_75-PBif_tx8Q35cMDAgYF8F4HALgSno9nwQ/edit?tab=t.0#heading=h.e59rzpo58ch8)
-    -   Mount the *afsc_mml_pep* bucket as S:\\
-    -   Mount the *pep_storage* bucket as P:\\
+    -   Mount the *afsc_mml_pep* bucket as P:\\
+    -   Mount the *pep_storage* bucket as Q:\\
   
 Once mounted, you can work with the data using other software, such as R, ArcGIS, QGIS, etc.
 
