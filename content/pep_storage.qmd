@@ -85,4 +85,4 @@ We are in the process of redeveloping the workflow for extracting environmental 
 
 ### *pep_storage* Bucket
 
-PEP has a working bucket space for analytics: *pep_storage*. Coordinate with J. London for access and usage.
+PEP has a working bucket space for analytics: *pep_storage*. More details to come. Coordinate with J. London for access and usage if you have immediate needs.

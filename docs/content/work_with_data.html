@@ -249,6 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#connect-from-qgis" id="toc-connect-from-qgis" class="nav-link" data-scroll-target="#connect-from-qgis">Connect from QGIS</a></li>
   <li><a href="#connection-from-arcgis" id="toc-connection-from-arcgis" class="nav-link" data-scroll-target="#connection-from-arcgis">Connection from ArcGIS</a></li>
   </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -310,6 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>After 30 days, the file can no longer be recovered.</li>
 </ul></li>
 <li>Once you have a VM, you will be able to view files from other machines, which makes cross-machine work a lot easier to manage!</li>
+<li>See GitHub section (below) for more information what to and not to do with respect to managing clones of GitHub repositories on laptop/VM with respect to Google Drive backups.</li>
 </ul>
 </section>
 </section>
@@ -357,6 +359,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Yes</td>
 <td>Yes</td>
 </tr>
+<tr class="odd">
+<td>GitHub</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
 </tbody>
 </table>
 <p>*Google Shared Drive can be accessed via a workstation, but not without some work on the end-user’s part (via RClone)</p>
@@ -397,12 +405,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>PostgreSQL Database</td>
 <td>Yes</td>
 </tr>
+<tr class="even">
+<td>GitHub</td>
+<td>No</td>
+</tr>
 </tbody>
 </table>
 </section>
 <section id="virtual-machine" class="level2">
 <h2 class="anchored" data-anchor-id="virtual-machine">Virtual Machine</h2>
-<p>Virtual machines (VMs) are a great option for accessing cloud-based data when you need access to more than one piece of software. Example use cases for a VM are image-based analysis, spatial data access and analyses using QGIS or ArcGIS, opening Access databases, etc.</p>
+<p>Virtual machines (VMs) are a great option for accessing cloud-based data when you need access to more than one piece of software. Example use cases for a VM are image-based analysis, spatial data access and analyses using QGIS or ArcGIS, opening Access databases, etc. VMs are configured using Windows Server 2022, not <em>exactly</em> like the Windows you are used to using on your laptop – keep this in mind when troubleshooting.</p>
 <p>This <a href="https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit">workflow</a> details the process for obtaining a virtual machine, and requests for virtual machines can be made <a href="https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e">here</a>. In the request form, there are different options available for CPU and GPU. For most cases, a basic configuration will be more than sufficient for PEP work. Due to costs, the “high GPU” will need to be justified and will require Division Director approval.</p>
 <p>A few things to note:</p>
 <ul>
@@ -916,9 +928,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Once connected, you can view all data and add spatial data to your maps.</li>
 </ul>
 <p>Do not make any changes to the spatial data from ArcGIS software. QGIS is the authoritative software for editing spatial data stored in PostgreSQL.</p>
-
-
 </section>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<p>GitHub is a great tool for version control and collaborative work. There are many ways to work with GitHub; these will not be documented here since there are a great number of other resources. A few things to note:</p>
+<ul>
+<li>Create GitHub account for NOAA work as [name]-noaa. Enable authentication appropriately.</li>
+<li>Work within the <a href="https://github.com/NMML">MML</a> or <a href="https://github.com/noaa-afsc">AFSC</a> Organizations, as appropriate/needed.</li>
+<li>There is a known issue caused by a conflict between the Git client and Google Drive for Desktop that can result in data loss.
+<ul>
+<li><em>The Issue</em>: When Git and Google Drive for Desktop access the same local files, they can continuously trigger syncs against each other’s changes. This can cause system lag or corrupted “conflicted copies.”</li>
+<li><em>The Solution</em>: Create a dedicated local folder for your Git repositories and exclude it entirely from Google Drive for Desktop syncing. Use remote repositories like GitHub as your primary backup method instead.</li>
+<li>Additional information:
+<ul>
+<li><a href="https://sites.google.com/noaa.gov/myafsc/technology/software/github">Git Options</a></li>
+<li><a href="https://sites.google.com/noaa.gov/myafsc/technology/google-drive">Google Drive for Desktop</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+
 </section>
 </section>
 

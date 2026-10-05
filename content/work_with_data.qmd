@@ -44,6 +44,7 @@ The files you store on Google Drive are backed up using Google specifications:
     -   Within the first 30 days of a file being deleted, you can recover it via the Google Drive trash.
     -   After 30 days, the file can no longer be recovered.
 -   Once you have a VM, you will be able to view files from other machines, which makes cross-machine work a lot easier to manage!
+-   See GitHub section (below) for more information what to and not to do with respect to managing clones of GitHub repositories on laptop/VM with respect to Google Drive backups.
 
 
 ## Cloud-based Storage and Services
@@ -55,6 +56,7 @@ We now have both new tools and new locations for working our data. The chart bel
 | GCP Bucket | Yes, but don't | Yes| Yes
 | AFSC X Drive | Yes | Yes | No
 | PostgreSQL Database | Yes, but limit | Yes | Yes
+| GitHub | Yes | Yes | Yes
 *Google Shared Drive can be accessed via a workstation, but not without some work on the end-user's part (via RClone)
 
 The "Need VPN?" column in the following table denotes if you need to use a VPN connection to access the cloud resource when working offsite.
@@ -68,10 +70,11 @@ The "Need VPN?" column in the following table denotes if you need to use a VPN c
 | GCP Bucket | No
 | AFSC X Drive | Yes
 | PostgreSQL Database | Yes
+| GitHub | No
 
 ## Virtual Machine
 
-Virtual machines (VMs) are a great option for accessing cloud-based data when you need access to more than one piece of software. Example use cases for a VM are image-based analysis, spatial data access and analyses using QGIS or ArcGIS, opening Access databases, etc. 
+Virtual machines (VMs) are a great option for accessing cloud-based data when you need access to more than one piece of software. Example use cases for a VM are image-based analysis, spatial data access and analyses using QGIS or ArcGIS, opening Access databases, etc. VMs are configured using Windows Server 2022, not *exactly* like the Windows you are used to using on your laptop -- keep this in mind when troubleshooting.
 
 This [workflow](https://docs.google.com/drawings/d/13CxdiwSvcM4NCNTfm1eq2h6O1Ip9hn0fLZ4z0_NMyTk/edit) details the process for obtaining a virtual machine, and requests for virtual machines can be made [here](https://app.smartsheetgov.com/b/form/82a879899653482e82e66b236e0aee4e). In the request form, there are different options available for CPU and GPU. For most cases, a basic configuration will be more than sufficient for PEP work. Due to costs, the "high GPU" will need to be justified and will require Division Director approval.
 
@@ -450,3 +453,18 @@ To view spatial data stored in the PostgreSQL database in ArcGIS, you will need 
 -   Once connected, you can view all data and add spatial data to your maps.
 
 Do not make any changes to the spatial data from ArcGIS software. QGIS is the authoritative software for editing spatial data stored in PostgreSQL.
+
+## GitHub
+
+GitHub is a great tool for version control and collaborative work. There are many ways to work with GitHub; these will not be documented here since there are a great number of other resources. A few things to note:
+
+-   Create GitHub account for NOAA work as [name]-noaa. Enable authentication appropriately.
+-   Work within the [MML](https://github.com/NMML) or [AFSC](https://github.com/noaa-afsc) Organizations, as appropriate/needed.
+-   There is a known issue caused by a conflict between the Git client and Google Drive for Desktop that can result in data loss.
+    - *The Issue*: When Git and Google Drive for Desktop access the same local files, they can continuously trigger syncs against each other's changes. This can cause system lag or corrupted "conflicted copies."
+    - *The Solution*: Create a dedicated local folder for your Git repositories and exclude it entirely from Google Drive for Desktop syncing. Use remote repositories like GitHub as your primary backup method instead.
+    - Additional information:
+        - [Git Options](https://sites.google.com/noaa.gov/myafsc/technology/software/github)
+        - [Google Drive for Desktop](https://sites.google.com/noaa.gov/myafsc/technology/google-drive) 
+
+

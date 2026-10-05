@@ -75,6 +75,15 @@ EndNote and Zotero house the PEP central library of journal articles, reports an
 -   Documentation (add link)
 -   Contact S. Walcott
 
+### Shiny Apps
+
+PEP maintains a couple of interactive Shiny applications for viewing marine mammal data:
+
+- [AS-MAP](https://connect.fisheries.noaa.gov/afsc-mml-at-sea/) - at-sea distribution of marine mammals
+- [Alaska Harbor Seal Abundance and Trends](https://connect.fisheries.noaa.gov/afsc-mml-pv-abundance/)
+
+For more information or to start a new project, contact S. Koslovsky.
+
 ## PEP Metadata
 
 For our project and data metadata, we will update InPort as follows:
