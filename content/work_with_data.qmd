@@ -456,10 +456,10 @@ Do not make any changes to the spatial data from ArcGIS software. QGIS is the au
 
 ## GitHub
 
-GitHub is a great tool for version control and collaborative work. There are many ways to work with GitHub; these will not be documented here since there are a great number of other resources. A few things to note:
+GitHub is a great tool for version control and collaborative work. It can also server as a userful project management tool for some situations. There are many ways to work with GitHub; these will not be documented here since there are a great number of other resources. A few things to note:
 
--   Create GitHub account for NOAA work as [name]-noaa. Enable authentication appropriately.
--   Work within the [MML](https://github.com/NMML) or [AFSC](https://github.com/noaa-afsc) Organizations, as appropriate/needed.
+-   Create GitHub account for NOAA work. If you already have an account and the work under that account is related to your NOAA work, no need to create a new account. To reduce confusion, some choose to use [name]-noaa as their account name. Two factor authentication must be enabled and you must list your noaa.gov email as primary in your profile.
+-   Request access to the [AFSC NOAA Enterprise Organization](https://github.com/noaa-afsc) by sending an email to the AFSC Service Desk. In general, new repositories should be created under this organization instead of your individual account.
 -   There is a known issue caused by a conflict between the Git client and Google Drive for Desktop that can result in data loss.
     - *The Issue*: When Git and Google Drive for Desktop access the same local files, they can continuously trigger syncs against each other's changes. This can cause system lag or corrupted "conflicted copies."
     - *The Solution*: Create a dedicated local folder for your Git repositories and exclude it entirely from Google Drive for Desktop syncing. Use remote repositories like GitHub as your primary backup method instead.
@@ -467,4 +467,4 @@ GitHub is a great tool for version control and collaborative work. There are man
         - [Git Options](https://sites.google.com/noaa.gov/myafsc/technology/software/github)
         - [Google Drive for Desktop](https://sites.google.com/noaa.gov/myafsc/technology/google-drive) 
 
-
+GitHub repositories that contain essential data products and/or reproducible code for an analysis should be archived at Zenodo for long-term availability and citation. This process can be automated through GitHub Actions and a [step-by-step guide](https://github.com/nmfs-opensci/zenodo-gha) is available. The `trophic-roles-spotted-seals` [repository](https://github.com/TrophicRolesOfIceSeals/trophic-roles-spotted-seals) provides a real-world example of this process. Note, there is an 'application' available from Zenodo for this process but because of NOAA Fisheries security concerns, this approach is not supported or available for repositories within an enteprise organization (e.g. `noaa-afsc`).
