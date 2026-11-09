@@ -372,17 +372,37 @@ Once configured, you can open any of the program databases and should no longer 
 ONLY AFTER WE MIGRATE THE PEP DASHBOARD: If you have a database connection to the old, internal PEP database (pep), delete that from the ODBC connections list.
 
 ### Connect from R
-To connect to the PEP database from R, you must have your credentials (username and password) stored in a secure location accessible only to you. You should **NEVER** include username and passwords in your R scripts or any file that could be inadvertently shared widely (e.g. pushed to GitHub). For connections from R, there are a few possible approaches for storing credentials alongside the database connection details.
+To connect to the PEP database from R, you must have your credentials (username and password) stored in a secure location accessible only to you. You should **NEVER** include username and passwords in your R scripts or any file that could be inadvertently shared widely (e.g. pushed to GitHub). For connections from R, there are a few possible approaches for storing credentials alongside the database connection details. 
 
-Please note the consistent use of naming patterns (e.g. mml_pep_ip, mml_pep_user, etc). Sticking with these patterns makes it possible to share code in a collaborative space without having to change details when different users are executing the code and connecting to the database.
+All users will need to create a .Renviron file to store databse connection details. You can create a .Renviron to store the connection details for the database. This relatively simple but does require a specific format and a specific location; instructions for creating this file manually or using the `usethis` package are below. Note this is what's known as a _dot file_ as the file name starts with a '.' and, on some systems, this file might be hidden from view when browsing files. It needs to be created in root of your Documents (or user directory folder on Macs) as this is where R expects it to be stored aand accessed. 
 
-#### `$HOME/.Renviron file`
+The .Renviron file is where you will store the connection details for the database and should match the format below. Please note the consistent use of naming patterns (e.g. mml_pep_ip, mml_pep_user, etc). Sticking with these patterns makes it possible to share code in a collaborative space without having to change details when different users are executing the code and connecting to the database. *Replace the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).*
 
-All users will need to create a .Renviron file to store databse connection details. However, users relying on the `keyring` package (see next section) will not store their user credentials. 
+```{r rEnviron}
+#| eval: false
+# There should be equal signs between variable names and their values, 
+# no comma between lines, and no quotes around the values!
+[database_name]_ip = afsc.postgres.prod.nmfs.local
+[database_name]_port = 5432
+[database_name]_db = database_name
+# if using `keyring` to store credentials skip the next two lines
+[database_name]_user = your_user_name
+[database_name]_user_pw = your_password
+```
 
-You can create a .Renviron to store the connection details for the database. This relatively simple but does require a specific format and a specific location. To ensure the file is created and edited correctly, the `usethis` package is helpful. Note this is what's known as a _dot file_ as the file name starts with a '.' and, on some systems, this file might be hidden from view when browsing files. It needs to be created in root of your user directory as this is a location where R expects it to be and can read it.
 
-1.  From within RStudio or Positron:
+#### Create an `.Renviron file` Manually
+
+To manually create an .Renviron file to store the connection details to the database, follow these steps. This only needs to be done once.
+
+  1.  Create a new text file in your Documents folder on your laptop (typically in C:\\Users\\FirstName.LastName\\My Documents\\) named ".Renviron". There will be no file name and the file extension is Renviron (weird, I know).
+  2.  Open the file in a text editor (Notepad or Notepad++).
+  3.  Enter the following details (above) and save the file. 
+  4.  Connect to the database either using stored credentials or using the keyring package. See below for more details.
+
+#### Create an `.Renviron` File within RStudio or Positron
+
+1. In the console, run the following code:
 
 ```{r install-usethis}
 #| eval: false
@@ -391,24 +411,45 @@ usethis::edit_r_environ()
 ```
 
 2.  The `edit_r_environ()` function should open up your existing .Renviron file or create an new empty file
-3.  Enter the following details and save the file. 
+3.  Enter the details above, and save the file. 
+4.  Connect to the database either using stored credentials or using the keyring package. See below for more details.
 
-*Replace the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip).*
+#### Connect Using Stored Credentials
 
-```{r edit-renviron}
+Connect to the database during an R working session. You will need to do this each time you connect to the database. The following steps are required:
+
+  1. Ensure you have the RPostgres R package installed. Do not use RPostgreSQL, as it is outdated. If you catch S. Koslovsky sharing this package, call her out! :)
+  2. Use the following code to create a connection to the DB using the details in your .Renviron file, again, *replacing the [database_name] at the start of the line for each of these variables with the database to which you are connecting (e.g., mml_pep_ip)*.
+
+```{r connect_string}
 #| eval: false
-[database_name]_ip <- afsc.postgres.prod.nmfs.local
-[database_name]_port <- 5432
-[database_name]_db <- database_name
-# if using `keyring` to store credentials skip the next two lines
-[database_name]_user <- your_user_name
-[database_name]_user_pw <- your_password
+library(RPostgres)
+con <- RPostgres::dbConnect(
+  Postgres(),
+  host = Sys.getenv("[database_name]_ip"),
+  port = Sys.getenv("[database_name]_port"),
+  dbname = Sys.getenv("[database_name]_db"),
+  user = Sys.getenv("[database_name]_user"),
+  password = Sys.getenv("[database_name]_user_pw") #,
+  sslmode = "require"
+)
 ```
 
-#### Using the `keyring` package
+c. Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example, the following code will return all details for PEP activity plans stored in the database.
 
-Another option for securing credentials securely is to use the `keyring` package. This package lleverages the OS (Windows, macOS, Linux) system credentials and is slightly more secure than a
-.Renviron because you can't accidentally share information.
+```{r query_example1}
+#| eval: false
+data <- RPostgres::dbGetQuery(
+  con,
+  "SELECT * FROM administrative.tbl_activity_plans"
+)
+```
+
+#### ConnectUsing the `keyring` Package
+
+See Josh London for troubleshooting any issues with the `keyring` package. :)
+
+Another option for securing credentials securely is to use the `keyring` package. This package leverages the OS (Windows, macOS, Linux) system credentials and is slightly more secure than a .Renviron because you can't accidentally share information.
 
 1. Install the `keyring` package and then use the `keyring::key_set()` function to set values and secrets to be stored in your OS credential store.
 
@@ -492,14 +533,13 @@ con <- RPostgres::dbConnect(
 
 c. Once you have this connection established, you can use the RPostgres package to get, query and send data to the database. As an example, the following code will return all details for PEP activity plans stored in the database.
 
-```{r query_example}
+```{r query_example2}
 #| eval: false
 data <- RPostgres::dbGetQuery(
   con,
   "SELECT * FROM administrative.tbl_activity_plans"
 )
-```
-        
+```    
 
 ### Connect from QGIS
 
